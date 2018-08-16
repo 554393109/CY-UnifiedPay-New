@@ -6,6 +6,34 @@
     "gitbook": "3.2.3",
     "plugins": [
         "-sharing",
-        "anchor-navigation-ex"
-    ]
+        "-highlight",
+        "-lunr",
+        "-search",
+        "search-pro",
+        "anchor-navigation-ex",
+        "splitter",
+        "github",
+        "sitemap",
+        "tbfed-pagefooter",
+        "prism",
+        "alerts"
+    ],
+    "pluginsConfig": {
+        "github": {
+            "url": "https://github.com/554393109"
+        },
+        "sitemap": {
+            "hostname": "http://doc.unifiedpay.yinziqiang.com"
+        },
+        "tbfed-pagefooter": {
+            "copyright": "&copy 超赢科技",
+            "modify_label": "文件修订时间",
+            "modify_format": "YYYY-MM-DD HH:mm:ss"
+        }
+    },
+    "links": {
+        "sidebar": {
+            "作者CSDN": "https://blog.csdn.net/yin554393109"
+        }
+    }
 }

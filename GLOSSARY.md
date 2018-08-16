@@ -1,5 +1,2 @@
-## Term
-Definition for this term
- 
-## Another term
-With it's definition, this can contain bold text
+## 版本说明
+这是新版聚合支付API在线文档
