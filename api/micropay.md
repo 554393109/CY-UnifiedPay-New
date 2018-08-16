@@ -1,6 +1,6 @@
-#线下小额支付
+[^_^]:#线下小额支付
 
-##<span id="Pay">提交支付</span>
+#<span id="Pay">提交支付</span>
 
 **应用场景**
 
@@ -110,7 +110,7 @@
 }
 ```
 
-##<span id="OrderQuery">订单查询</span>
+#<span id="OrderQuery">订单查询</span>
 
 **应用场景**
 
@@ -211,7 +211,7 @@
 }
 ```
 
-##<span id="Refund">交易退款</span>
+#<span id="Refund">交易退款</span>
 
 **应用场景**
 
@@ -318,7 +318,7 @@
 }
 ```
 
-##<span id="RefundQuery">退款查询</span>
+#<span id="RefundQuery">退款查询</span>
 
 **应用场景**
 
@@ -430,7 +430,7 @@
 }
 ```
 
-##<span id="Cancel">交易撤销</span>
+#<span id="Cancel">交易撤销</span>
 
 **应用场景**
 

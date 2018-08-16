@@ -17,9 +17,16 @@
         "tbfed-pagefooter",
         "prism",
         "alerts",
-        "donate"
+        "donate",
+        "copy-code-button",
+        "advanced-emoji",
+        "baidu-tongji"
     ],
     "pluginsConfig": {
+        "anchor-navigation-ex": {
+            "multipleH1": true,
+            "showLevel": true
+        },
         "github": {
             "url": "https://github.com/554393109"
         },
@@ -38,6 +45,9 @@
             "button": "打赏",
             "alipayText": "支付宝打赏",
             "wechatText": "微信打赏"
+        },
+        "baidu-tongji": {
+            "token": "8889f781f3b285d8d0b4421fa2757379"
         }
     },
     "links": {
