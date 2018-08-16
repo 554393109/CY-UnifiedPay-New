@@ -23,6 +23,11 @@
         "baidu-tongji"
     ],
     "pluginsConfig": {
+        "fontsettings": {
+            "theme": "white",
+            "family": "sans",
+            "size": 1
+        },
         "anchor-navigation-ex": {
             "multipleH1": true,
             "showLevel": true
