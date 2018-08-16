@@ -1,0 +1,11 @@
+{
+    "title": "聚合支付API在线文档",
+    "description": "聚合支付API在线文档",
+    "author": "尹自强",
+    "language": "zh-hans",
+    "gitbook": "3.2.3",
+    "plugins": [
+        "-sharing",
+        "anchor-navigation-ex"
+    ]
+}
