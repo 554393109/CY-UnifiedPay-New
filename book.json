@@ -1,6 +1,6 @@
 {
-    "title": "聚合支付API在线文档",
-    "description": "聚合支付API在线文档",
+    "title": "超赢聚合支付API在线文档",
+    "description": "超赢聚合支付API在线文档",
     "author": "尹自强",
     "language": "zh-hans",
     "gitbook": "3.2.3",
@@ -57,7 +57,7 @@
     },
     "links": {
         "sidebar": {
-            "作者CSDN": "https://blog.csdn.net/yin554393109"
+            "作者GitHub": "https://github.com/554393109"
         }
     }
 }
