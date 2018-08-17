@@ -1,0 +1,2 @@
+# robots.txt
+Sitemap: http://doc.unifiedpay.yinziqiang.com/sitemap.xml
