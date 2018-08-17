@@ -1,3 +1,6 @@
+<b style="font-size: 2em">运营管理</b>
+
+---
 
 # 注册超赢虚拟商户
 
@@ -35,7 +38,7 @@
 
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
-| url_path | 否 | [https://api.tlinx.com/mct1/](https://api.tlinx.com/mct1/) | 接口地址，以**斜杠结尾** |
+| url_path | 否 | <https://api.domain.com/> | 接口地址，以**斜杠结尾** |
 | - | 是 | - | 具体参数，联调时请联系技术支持获取 |
 
 **请求参数示例**
