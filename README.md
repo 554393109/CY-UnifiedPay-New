@@ -8,6 +8,8 @@
 
 > 更新日期：2018-08-16
 
+> [文档下载](https://github.com/554393109/CY-UnifiedPay-New/raw/master/%E8%81%9A%E5%90%88%E6%94%AF%E4%BB%98API%E5%9C%A8%E7%BA%BF%E6%96%87%E6%A1%A3.pdf)
+
 ### 版本说明
 
 【v2.0.0】 2018-08-16
