@@ -55,7 +55,7 @@
 
 **请求参数示例**
 
-> method=pay&mch_id=00000001&version=1.0&pid=yunpos&paytype=WECHAT&out_trade_no=1497769914931&auth_code=123123123&body=%E8%B6%85%E8%B5%A2%E6%94%AF%E4%BB%98&total_fee=1&sign=00000000000000000000000000000000
+> method=pay&agent_id=13000000000000001&mch_id=00000001&version=1.0&pid=yunpos&paytype=WECHAT&out_trade_no=1497769914931&auth_code=123123123&body=%E8%B6%85%E8%B5%A2%E6%94%AF%E4%BB%98&total_fee=1&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -163,7 +163,7 @@
 
 **请求参数示例**
 
-> method=orderquery&paytype=WECHAT&mch_id=00000001&out_trade_no=1497769914931&sign=00000000000000000000000000000000
+> method=orderquery&agent_id=13000000000000001&paytype=WECHAT&mch_id=00000001&out_trade_no=1497769914931&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -289,7 +289,7 @@
 
 **请求参数示例**
 
-> method=refund&paytype=WECHAT&mch_id=00000001&out_trade_no=1497769914931&out_refund_no=TK-1497769914931-01&sign=00000000000000000000000000000000
+> method=refund&agent_id=13000000000000001&paytype=WECHAT&mch_id=00000001&out_trade_no=1497769914931&out_refund_no=TK-1497769914931-01&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -388,7 +388,7 @@
 
 **请求参数示例**
 
-> method=refundquery&paytype=WECHAT&mch_id=00000001&out_trade_no=1497769914931&sign=00000000000000000000000000000000
+> method=refundquery&agent_id=13000000000000001&paytype=WECHAT&mch_id=00000001&out_trade_no=1497769914931&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -501,7 +501,7 @@
 
 **请求参数示例**
 
-> method=cancel&paytype=WECHAT&mch_id=00000001&out_trade_no=1497769914931&op_user_id=yzq&sign=00000000000000000000000000000000
+> method=cancel&agent_id=13000000000000001&paytype=WECHAT&mch_id=00000001&out_trade_no=1497769914931&op_user_id=yzq&sign=00000000000000000000000000000000
 
 **响应结果**
 

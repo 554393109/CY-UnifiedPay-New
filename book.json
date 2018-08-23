@@ -59,5 +59,8 @@
         "sidebar": {
             "作者GitHub": "https://github.com/554393109"
         }
+    },
+    "pdf": {
+        "pageNumbers": true
     }
 }
