@@ -78,7 +78,9 @@
 | sub_openid | 是 | 子商户appid下用户唯一标识，如需返回则请求时需要传sub_appid |
 | out_trade_no | 是 | 商户系统内部的定单号，32个字符内、可包含字母 |
 | token_id | 是 | 动态口令 |
-| pay_info | 是 | 支付信息，用以唤起微信支付 |
+| pay_info | 否 | 支付信息，用以唤起微信支付；trade_type=JSPAY时，此参数有返回 |
+| code_img_url | 否 | 此参数的值即是根据code_url生成的可以扫码支付的二维码图片地址；trade_type=NATIVE时，此参数有返回 |
+| code_url | 否 | 商户可用此参数自定义去生成二维码后展示出来进行扫码支付；trade_type=NATIVE时，此参数有返回 |
 | services | 否 | 支持的交易类型，多个以竖线分割 |
 | nonce_str | 是 | 随机字符串 |
 
@@ -174,7 +176,7 @@
 | out_trade_no | 是 | 商户系统内部的定单号，32个字符内、可包含字母 |
 | pay_info | 是 | JSON字符串，自行唤起支付宝钱包支付；trade_type=JSPAY时，此参数有返回 |
 | pay_url | 是 | 仅作为参考使用，商户需自己实现该支付页面；trade_type=JSPAY时，此参数有返回 |
-| code_img_url | 是 | 此参数的值即是根据code_url生成的可以扫码支付的二维码图片地址；trade_type=NATIVE时，此参数有返回 |
+| code_img_url | 否 | 此参数的值即是根据code_url生成的可以扫码支付的二维码图片地址；trade_type=NATIVE时，此参数有返回 |
 | code_url | 是 | 商户可用此参数自定义去生成二维码后展示出来进行扫码支付；trade_type=NATIVE时，此参数有返回 |
 | nonce_str | 是 | 随机字符串 |
 
