@@ -328,7 +328,7 @@
 | bank_type | 否 | 付款银行 |
 | trade_type | 是 | 交易类型；pay.alipay.native原生扫码支付，pay.alipay.jspay服务窗支付 |
 | buyer_user_id | 是 | 买家支付宝用户ID |
-| buyer_logon_id | 是 | 买家支付宝账号 |
+| buyer_logon_id | 否 | 买家支付宝账号 |
 | fund_bill_list | 否 | 交易支付使用的资金渠道 |
 | nonce_str | 是 | 随机字符串 |
 
