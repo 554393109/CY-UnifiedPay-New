@@ -209,7 +209,7 @@
     "code": "10000",
     "msg": "SUCCESS",
     "mch_id": "f0000000000000001",
-    "mch_trade_code": "yXmFf5qQoj",
+    "mch_trade_code": "f6742168cc",
     "mch_state": "20",
     "sign": "00000000000000000000000000000000"
 }
