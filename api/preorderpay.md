@@ -51,6 +51,7 @@
 | goods_tag | 否 | WXG | 订单优惠标记，用于优惠券或者满减使用 |
 | notify_url | 否 | <http://baidu.com/notify> | 接收支付异步通知回调地址，通知url必须为直接可访问的url，**不能携带参数** |
 | op_user_id | 否 | 00000001 | 操作员帐号，默认为商户号 |
+| op_shop_id | 否 | 00000001 | 门店编号 |
 | limit_pay | 否 | NO_CREDIT | no_credit指定不能使用信用卡支付 |
 | trade_type | 是 | JSPAY | 交易类型；JSPAY-服务窗支付、NATIVE-原生扫码支付、APP-APP支付，APP_BANK-APP支付银行模式 |
 | product_id | 否 | 1223541321407035645 | trade_type=NATIVE，此参数必传。此id为二维码中包含的商品ID，商户自行定义 |
@@ -147,6 +148,7 @@
 | goods_tag | 否 | WXG | 订单优惠标记，用于优惠券或者满减使用 |
 | notify_url | 否 | <http://baidu.com/notify> | 接收支付异步通知回调地址，通知url必须为直接可访问的url，**不能携带参数** |
 | op_user_id | 否 | 00000001 | 操作员帐号，默认为商户号 |
+| op_shop_id | 否 | 00000001 | 门店编号 |
 | limit_pay | 否 | NO_CREDIT | no_credit指定不能使用信用卡支付 |
 | trade_type | 是 | NATIVE | 交易类型；JSPAY-服务窗支付、NATIVE-原生扫码支付、APP-APP支付，APP_BANK-APP支付银行模式 |
 | product_id | 否 | 1223541321407035645 | trade_type=JSPAY时，此参数必传。此id为二维码中包含的商品ID，商户自行定义 |
