@@ -212,6 +212,8 @@
     "msg": "SUCCESS",
     "mch_id": "f0000000000000001",
     "mch_trade_code": "f6742168cc",
+    "mch_full_name": "广州市超赢信息科技有限公司",
+    "mch_short_name": "超赢科技",
     "mch_state": "20",
     "sign": "00000000000000000000000000000000"
 }
