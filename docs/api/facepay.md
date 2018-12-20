@@ -145,7 +145,7 @@
 
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
-| method | 是 | get_face_auth | 接口名称，get_face_auth |
+| method | 是 | getfaceauth | 接口名称，getfaceauth |
 | agent_id | 是 | 13000000000000001 | 代理商编号 |
 | version | 否 | 1.0 | 调用方版本号 |
 | pid | 否 | yunpos | 调用方产品名称 |
