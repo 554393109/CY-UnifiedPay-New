@@ -2,6 +2,97 @@
 
 ---
 
+# 获取SDK调用凭证
+
+**应用场景**
+
+获取SDK调用凭证。
+
+**接口详情**
+
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
+        <td>https://{BaseURL}/UnifiedPay/Gateway</td>
+    </tr>
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
+        <td>POST</td>
+    </tr>
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">校验签名</td>
+        <td>是</td>
+    </tr>
+</table>
+
+**公共请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| method | 是 | getfaceauth | 接口名称，getfaceauth |
+| agent_id | 是 | 13000000000000001 | 代理商编号 |
+| version | 否 | 1.0 | 调用方版本号 |
+| pid | 否 | yunpos | 调用方产品名称 |
+| sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
+
+**请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| store_id | 是 | test_store_01 | 门店编号 |
+| store_name | 是 | 测试门店01 | 门店名称 |
+| device_id | 是 | 00000001 | 终端设备编号 |
+| rawdata | 是 | 00000001 | 初始化数据 |
+
+**请求参数示例**
+
+> method=getfaceauth&agent_id=13000000000000001&mch_id=00000001&version=1.0&pid=yunpos&store_id=test_store_01&store_name=%E6%B5%8B%E8%AF%95%E9%97%A8%E5%BA%9701&device_id=CYW00000000000000000000&rawdata=eNPJNgR26U88XXXXXXXXX&sign=00000000000000000000000000000000
+
+**响应结果**
+
+| 字段名 | 必填 | 说明 |
+| :--- | :---: | :--- |
+| state | 是 | 通讯状态，详见参数规定 |
+| code | 是 | 状态码 ，详见参数规定 |
+| msg | 否 | 返回信息 |
+| trade_state | 否 | 交易状态，详见参数规定 |
+| sign | 是 | 响应结果的签名串 |
+
+以下字段在state和trade_state都为SUCCESS的时候有返回
+
+| 字段名 | 必填 | 说明 |
+| :--- | :---: | :--- |
+| mch_id | 是 | 超赢商户号 |
+| appid | 是 | 服务商appid |
+| sub_appid | 否 | 子商户sub_appid(服务商模式) |
+| channel_mch_id | 是 | 服务商商户号 |
+| sub_mch_id | 否 | 子商户号(服务商模式) |
+| store_id | 是 | 门店编号 |
+| authinfo | 是 | SDK调用凭证 |
+| expires_in | 是 | authinfo的有效时间，单位秒。例如：3600。在有效时间内, 对于同一台终端设备，相同的参数的前提下(如：相同的公众号、商户号、 门店编号等），可以用同一个authinfo，多次调用SDK的getWxpayfaceCode接口。 |
+| nonce_str | 是 | 随机字符串 |
+
+**响应结果示例**
+
+```json
+{
+    "state": "SUCCESS",
+    "code": "10000",
+    "trade_state": "SUCCESS",
+    "msg": "SUCCESS",
+    "mch_id": "00000001",
+    "appid": "wx2b029c08a6232582",
+    "channel_mch_id": "1900007071",
+    "store_id": "test_store_01",
+    "authinfo": "IGJSUOkyjSthQ0nWkI49U6LGhiJbTpr2KkMOiD2kb16DRmyySXXXXXX",
+    "expires_in": "3600",
+    "nonce_str": "k1MErGrCODf06uiv",
+    "sign": "D292DB710872C023A9A1CF429457E0B3"
+}
+```
+
+---
+
 # 提交支付
 
 **应用场景**
@@ -40,6 +131,8 @@
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
 | mch_id | 是 | 00000001 | 超赢商户号 |
+| openid | 是 | 00000001 | 用户标识 |
+| sub_openid | 否 | 00000001 | 用户标识(服务商交易模式) |
 | out_trade_no | 是 | 1497769914931 | 商户系统内部的订单号 ,5到32个字符、 只能包含字母数字或者下划线，区分大小写，确保在商户系统唯一 |
 | device_info | 否 | 013467007045764 | 终端设备号，商户自定义。特别说明：对于QQ钱包支付，此参数必传，否则会报错。 |
 | body | 是 | image形象店-深圳腾大- QQ公仔 | 商品描述 |
@@ -98,60 +191,17 @@
     "trade_state": "SUCCESS",
     "msg": "SUCCESS",
     "mch_id": "00000001",
-    "appid": "wx1f87d44db95cba7a",
+    "appid": "wx2b029c08a6232582",
     "is_subscribe": "N",
-    "openid": "oywgtuCJFeGzT-QtF-8U7FHb1z3Q",
-    "sub_appid": "wxce38685bc050ef82",
-    "sub_is_subscribe": "N",
-    "sub_openid": "oHmbktxFlpoEPo2Ol5GOJniV2q-A",
-    "transaction_id": "7551000001201706196281085687",
-    "out_transaction_id": "4005572001201706196460269701",
-    "out_trade_no": "1497862554883",
+    "openid": "oBmIts3wbluEIYfp6zDgBWsC9Evs",
+    "transaction_id": "4200000233201812272744871942",
+    "out_transaction_id": "4200000233201812272744871942",
+    "out_trade_no": "1545890307",
     "total_fee": "1",
     "fee_type": "CNY",
     "bank_type": "CFT",
-    "time_end": "20170619165616",
-    "nonce_str": "a849df6660cb4354b6fe5b23120a73ce",
+    "time_end": "20181227140034",
+    "nonce_str": "k1MErGrCODf06uiv",
     "sign": "D292DB710872C023A9A1CF429457E0B3"
 }
 ```
-
----
-
-# 获取SDK调用凭证
-
-**应用场景**
-
-获取SDK调用凭证。
-
-**接口详情**
-
-<table class="table table-bordered table-striped table-condensed">
-    <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
-        <td>https://{BaseURL}/UnifiedPay/Gateway</td>
-    </tr>
-    <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
-        <td>POST</td>
-    </tr>
-    <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">校验签名</td>
-        <td>是</td>
-    </tr>
-</table>
-
-**公共请求参数**
-
-| 参数 | 必填 | 示例值 | 说明 |
-| :--- | :---: | :--- | :--- |
-| method | 是 | getfaceauth | 接口名称，getfaceauth |
-| agent_id | 是 | 13000000000000001 | 代理商编号 |
-| version | 否 | 1.0 | 调用方版本号 |
-| pid | 否 | yunpos | 调用方产品名称 |
-| sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
-
-**请求参数**
-
-| 参数 | 必填 | 示例值 | 说明 |
-| :--- | :---: | :--- | :--- |
