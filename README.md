@@ -2,7 +2,7 @@
 
 [![超赢科技](/assets/logo.png)](http://pos.cn/ "超赢科技")
 
-> 当前版本：v2.3.1
+> 当前版本：v2.3.2
 
 > 最后维护：尹自强，yinziqiang@chaoying.com.cn
 
