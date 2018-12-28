@@ -69,7 +69,6 @@
 | sub_appid | 否 | 子商户sub_appid(服务商模式) |
 | channel_mch_id | 是 | 服务商商户号 |
 | sub_mch_id | 否 | 子商户号(服务商模式) |
-| store_id | 是 | 门店编号 |
 | authinfo | 是 | SDK调用凭证 |
 | expires_in | 是 | authinfo的有效时间，单位秒。例如：3600。在有效时间内, 对于同一台终端设备，相同的参数的前提下(如：相同的公众号、商户号、 门店编号等），可以用同一个authinfo，多次调用SDK的getWxpayfaceCode接口。 |
 | nonce_str | 是 | 随机字符串 |
@@ -85,7 +84,6 @@
     "mch_id": "00000001",
     "appid": "wx2b029c08a6232582",
     "channel_mch_id": "1900007071",
-    "store_id": "test_store_01",
     "authinfo": "IGJSUOkyjSthQ0nWkI49U6LGhiJbTpr2KkMOiD2kb16DRmyySXXXXXX",
     "expires_in": "3600",
     "nonce_str": "k1MErGrCODf06uiv",
