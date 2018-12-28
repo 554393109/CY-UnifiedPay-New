@@ -30,7 +30,7 @@
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
 | method | 是 | getfaceauth | 接口名称，getfaceauth |
-| agent_id | 是 | 13000000000000001 | 代理商编号 |
+| agent_id | 是 | 13000000000000000 | 代理商编号 |
 | version | 否 | 1.0 | 调用方版本号 |
 | pid | 否 | yunpos | 调用方产品名称 |
 | sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
@@ -39,6 +39,8 @@
 
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
+| paytype | 是 | WECHAT | 支付方式，详见参数规定 |
+| mch_id | 是 | 00000001 | 超赢商户号 |
 | store_id | 是 | test_store_01 | 门店编号 |
 | store_name | 是 | 测试门店01 | 门店名称 |
 | device_id | 是 | 00000001 | 终端设备编号 |
@@ -46,7 +48,7 @@
 
 **请求参数示例**
 
-> method=getfaceauth&agent_id=13000000000000001&mch_id=00000001&version=1.0&pid=yunpos&store_id=test_store_01&store_name=%E6%B5%8B%E8%AF%95%E9%97%A8%E5%BA%9701&device_id=CYW00000000000000000000&rawdata=eNPJNgR26U88XXXXXXXXX&sign=00000000000000000000000000000000
+> method=getfaceauth&agent_id=13000000000000000&paytype=WECHAT&mch_id=00000001&version=1.0&pid=yunpos&store_id=test_store_01&store_name=%E6%B5%8B%E8%AF%95%E9%97%A8%E5%BA%9701&device_id=CYW00000000000000000000&rawdata=eNPJNgR26U88XXXXXXXXX&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -121,7 +123,7 @@
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
 | method | 是 | facepay | 接口名称，facepay |
-| agent_id | 是 | 13000000000000001 | 代理商编号 |
+| agent_id | 是 | 13000000000000000 | 代理商编号 |
 | version | 否 | 1.0 | 调用方版本号 |
 | pid | 否 | yunpos | 调用方产品名称 |
 | sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
@@ -130,6 +132,7 @@
 
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
+| paytype | 是 | WECHAT | 支付方式，详见参数规定 |
 | mch_id | 是 | 00000001 | 超赢商户号 |
 | openid | 是 | 00000001 | 用户标识 |
 | sub_openid | 否 | 00000001 | 用户标识(服务商交易模式) |
@@ -147,7 +150,7 @@
 
 **请求参数示例**
 
-> method=facepay&agent_id=13000000000000001&mch_id=00000001&version=1.0&pid=yunpos&out_trade_no=1497769914931&face_code=123123123&body=%E8%B6%85%E8%B5%A2%E6%94%AF%E4%BB%98&total_fee=1&sign=00000000000000000000000000000000
+> method=facepay&agent_id=13000000000000000&paytype=WECHAT&mch_id=00000001&version=1.0&pid=yunpos&out_trade_no=1497769914931&face_code=123123123&body=%E8%B6%85%E8%B5%A2%E6%94%AF%E4%BB%98&total_fee=1&sign=00000000000000000000000000000000
 
 **响应结果**
 
