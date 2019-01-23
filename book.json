@@ -12,7 +12,7 @@
         "search-pro",
         "anchor-navigation-ex",
         "splitter",
-        "github",
+        "-github",
         "sitemap",
         "tbfed-pagefooter",
         "prism",
@@ -32,11 +32,8 @@
             "multipleH1": true,
             "showLevel": false
         },
-        "github": {
-            "url": "https://github.com/554393109"
-        },
         "sitemap": {
-            "hostname": "http://doc.unifiedpay.yinziqiang.com"
+            "hostname": "http://doc-unifiedpay.yinziqiang.com"
         },
         "tbfed-pagefooter": {
             "copyright": "&copy 超赢科技",
@@ -53,11 +50,6 @@
         },
         "baidu-tongji": {
             "token": "8889f781f3b285d8d0b4421fa2757379"
-        }
-    },
-    "links": {
-        "sidebar": {
-            "作者GitHub": "https://github.com/554393109"
         }
     },
     "pdf": {
