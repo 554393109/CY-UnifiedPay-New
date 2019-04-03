@@ -218,3 +218,84 @@
     "sign": "00000000000000000000000000000000"
 }
 ```
+
+---
+
+# 获取超赢商户微信子商户号
+
+**应用场景**
+
+该接口提供获取超赢商户微信子商户号功能。
+
+**接口详情**
+
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
+        <td>https://{BaseURL}/Open/GetPartnerId</td>
+    </tr>
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
+        <td>POST</td>
+    </tr>
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">校验签名</td>
+        <td>是</td>
+    </tr>
+</table>
+
+**公共请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| agent_id | 是 | 13000000000000000 | 代理商编号 |
+| version | 否 | 1.0 | 调用方版本号 |
+| pid | 否 | yunpos | 调用方产品名称 |
+| sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
+
+**请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| mch_id | 是 | 00000001 | 超赢商户号 |
+
+**请求参数示例**
+
+> agent_id=13000000000000000&mch_id=00000001&sign=00000000000000000000000000000000
+
+**响应结果**
+
+| 字段名 | 必填 | 说明 |
+| :--- | :---: | :--- |
+| state | 是 | 通讯状态，详见参数规定 |
+| code | 是 | 状态码 ，详见参数规定 |
+| msg | 否 | 返回信息 |
+| sign | 是 | 响应结果的签名串 |
+
+以下字段在state为SUCCESS，code为10000的时候有返回
+
+| 字段名 | 必填 | 说明 |
+| :--- | :---: | :--- |
+| mch_id | 是 | 超赢商户号 |
+| partner_list | 是 | 超赢商户微信子商户信息列表 |
+
+以下字段在partner_list中返回
+
+| 字段名 | 必填 | 说明 |
+| :--- | :---: | :--- |
+| pay_channel | 是 | 当前所属支付通道编码 |
+| appid | 否 | 公众号AppId |
+| partner_id | 否 | 微信子商户号，在微信方未报备通过则为空 |
+
+**响应结果示例**
+
+```json
+{
+    "state": "SUCCESS",
+    "code": "10000",
+    "msg": "SUCCESS",
+    "mch_id": "00000001",
+    "partner_list": "[{\"pay_channel\":\"CEB\",\"partner_id\":\"257012345\",\"appid\":\"wx2a8d87e234100000\"}]",
+    "sign": "00000000000000000000000000000000"
+}
+```
