@@ -283,7 +283,7 @@
 
 | 字段名 | 必填 | 说明 |
 | :--- | :---: | :--- |
-| pay_channel | 是 | 当前所属支付通道编码 |
+| pay_channel | 是 | 所属支付通道编码 |
 | appid | 否 | 公众号AppId |
 | partner_id | 否 | 微信子商户号，在微信方未报备通过则为空 |
 
@@ -295,7 +295,7 @@
     "code": "10000",
     "msg": "SUCCESS",
     "mch_id": "00000001",
-    "partner_list": "[{\"pay_channel\":\"CEB\",\"partner_id\":\"257012345\",\"appid\":\"wx2a8d87e234100000\"}]",
+    "partner_list": "[{\"pay_channel\":\"CEB\",\"partner_id\":\"257012345\",\"appid\":\"wx2a8d87e234100000\"},{\"pay_channel\":\"CCB\",\"partner_id\":\"257012346\",\"appid\":\"wx2a8d87e234100000\"}]",
     "sign": "00000000000000000000000000000000"
 }
 ```
