@@ -51,6 +51,7 @@
 | op_shop_id | 否 | md_001 | 门店编号 |
 | op_device_id | 否 | device_01 | 设备编号 |
 | goods_tag | 否 | hot | 商品标记 |
+| goods_detail | 否 | hot | 商品详情 |
 
 **请求参数示例**
 
@@ -80,7 +81,8 @@
 | transaction_id | 是 | 平台交易号 |
 | out_transaction_id | 是 | 第三方订单号 |
 | out_trade_no | 是 | 商户系统内部的定单号，32个字符内、可包含字母 |
-| total_fee | 是 | 总金额，以分为单位，只能为整数 |
+| base_fee | 是 | 订单应付金额，单位为分 |
+| total_fee | 是 | 订单实付金额，单位为分 |
 | coupon_fee | 否 | 代金券金额，代金券金额&lt;=订单金额，订单金额 - 代金券金额 = 现金支付金额 |
 | fee_type | 否 | 货币类型，符合 ISO 4217 标准的三位字母代码，默认人民币：CNY |
 | attach | 否 | 商家数据包，原样返回 |
@@ -107,6 +109,7 @@
     "transaction_id": "7551000001201706196281085687",
     "out_transaction_id": "4005572001201706196460269701",
     "out_trade_no": "1497862554883",
+    "base_fee": "1",
     "total_fee": "1",
     "fee_type": "CNY",
     "bank_type": "CFT",
@@ -283,8 +286,8 @@
 | out_trade_no | 否 | 1497769914931 | 商户系统内部的订单号，out_trade_no和transaction_id至少一个必填，同时存在时transaction_id优先 |
 | transaction_id | 否 | 7551000001201706166172780576 | 平台单号, out_trade_no和transaction_id至少一个必填，同时存在时transaction_id优先 |
 | out_refund_no | 是 | TK-1497769914931-01 | 商户退款单号，32个字符内、可包含字母，确保在商户系统唯一。同个退款单号多次请求，平台当一个单处理，只会退一次款。如果出现退款不成功，请采用原退款单号重新发起，避免出现重复退款。 |
-| total_fee | 是 | 1 | 订单总金额，单位为分 |
-| refund_fee | 是 | 1 | 退款金额，单位为分，可以做部分退款 |
+| total_fee | 是 | 1 | 订单应付金额，单位为分 |
+| refund_fee | 是 | 1 | 申请退款金额，单位为分 |
 | op_user_id | 是 | 00000001 | 操作员帐号，默认为商户号 |
 
 **请求参数示例**
@@ -306,13 +309,16 @@
 | 字段名 | 必填 | 说明 |
 | :--- | :---: | :--- |
 | mch_id | 是 | 超赢商户号 |
-| transaction_id | 是 | 平台交易号 |
 | out_trade_no | 是 | 商户系统内部的定单号，32个字符内、可包含字母 |
+| transaction_id | 是 | 平台交易号 |
 | out_transaction_id | 是 | 第三方退款单号 |
 | out_refund_no | 是 | 商户退款单号 |
 | refund_id | 是 | 平台退款单号 |
 | refund_channel | 否 | 退款渠道，ORIGINAL—原路退款，默认 |
-| refund_fee | 是 | 退款总金额，单位为分，可以做部分退款 |
+| base_fee | 是 | 订单应付金额，单位为分 |
+| total_fee | 是 | 订单实付金额，单位为分 |
+| base_refund_fee | 是 | 申请退款金额，单位为分 |
+| refund_fee | 是 | 实际退款金额，单位为分 |
 | coupon_refund_fee | 是 | 现金券退款金额 &lt;= 退款金额， 退款金额-现金券退款金额为现金 |
 | nonce_str | 是 | 随机字符串 |
 
@@ -325,15 +331,18 @@
     "trade_state": "SUCCESS",
     "msg": "SUCCESS",
     "mch_id": "00000001",
-    "transaction_id": "7551000001201706196281179416",
-    "out_trade_no": "1497769914931",
-    "out_transaction_id": "4005572001201706196469530753",
-    "out_refund_no": "TK-1497769914931",
-    "refund_id": "7551000001201706215157548269",
-    "refund_channel": "ORIGINAL",
+    "out_trade_no": "T0020190517145341153",
+    "transaction_id": "4200000330201905173095298659",
+    "out_transaction_id": "4200000330201905173095298659",
+    "out_refund_no": "TKT0020190517145341153-B",
+    "refund_id": "50000300412019051709584177333",
+    "base_fee": "8",
+    "total_fee": "6",
+    "base_refund_fee": "2",
     "refund_fee": "1",
-    "nonce_str": "743dd9c1123c4015828f3d4216a1066c",
-    "sign": "E0C19462FF594C1D3075D14AF1C17B87"
+    "coupon_refund_fee": "1",
+    "nonce_str": "78GTQmdylSxwFXxE",
+    "sign": "83164B0990F82CB5508B3C95BD703CD4"
 }
 ```
 

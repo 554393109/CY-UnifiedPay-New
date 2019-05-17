@@ -144,6 +144,7 @@
 | op_shop_id | 否 | md_001 | 门店编号 |
 | op_device_id | 否 | device_01 | 设备编号 |
 | goods_tag | 否 | hot | 商品标记 |
+| goods_detail | 否 | hot | 商品详情 |
 
 **请求参数示例**
 
