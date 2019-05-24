@@ -90,6 +90,7 @@
 | bank_billno | 否 | 银行订单号，若为第三方支付则为空 |
 | time_end | 是 | 支付完成时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。时区为GMT+8 Beijing |
 | nonce_str | 是 | 随机字符串 |
+| promotion_detail | 否 | 营销详情，返回值为Json格式 |
 
 **响应结果示例**
 
@@ -191,7 +192,8 @@
 | transaction_id | 是 | 平台交易号 |
 | out_transaction_id | 是 | 第三方订单号 |
 | out_trade_no | 是 | 商户系统内部的定单号，32个字符内、可包含字母 |
-| total_fee | 是 | 总金额，以分为单位，只能为整数 |
+| base_fee | 是 | 应付金额、订单金额，以分为单位，只能为整数 |
+| total_fee | 是 | 实付金额，以分为单位，只能为整数 |
 | coupon_fee | 否 | 代金券金额，代金券金额&lt;=订单金额，订单金额 - 代金券金额 = 现金支付金额 |
 | fee_type | 否 | 货币类型，符合 ISO 4217 标准的三位字母代码，默认人民币：CNY |
 | attach | 否 | 商家数据包，原样返回 |
@@ -199,6 +201,8 @@
 | bank_billno | 否 | 银行订单号，若为第三方支付则为空 |
 | time_end | 是 | 支付完成时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。时区为GMT+8 Beijing |
 | nonce_str | 是 | 随机字符串 |
+| trade_type | 是 | 交易类型 |
+| promotion_detail | 否 | 营销详情，返回值为Json格式 |
 
 **响应结果示例**
 
@@ -209,21 +213,25 @@
     "trade_state": "SUCCESS",
     "msg": "SUCCESS",
     "mch_id": "00000001",
-    "appid": "wx1f87d44db95cba7a",
-    "is_subscribe": "N",
-    "openid": "oywgtuCJFeGzT-QtF-8U7FHb1z3Q",
-    "sub_appid": "wxce38685bc050ef82",
-    "sub_is_subscribe": "N",
-    "sub_openid": "oHmbktxFlpoEPo2Ol5GOJniV2q-A",
-    "transaction_id": "7551000001201706196281085687",
-    "out_transaction_id": "4005572001201706196460269701",
-    "out_trade_no": "1497862554883",
-    "total_fee": "1",
+    "appid": "wx4da448cd29920000",
+    "is_subscribe": "Y",
+    "openid": "o4he1jo7fA1rIWTOOA3hDbGWc29w",
+    "sub_appid": "wx4da448cd29920000",
+    "sub_is_subscribe": "Y",
+    "sub_openid": "o4he1jo7fA1rIWTOOA3hDbGWc29w",
+    "transaction_id": "4200000334201905246610520000",
+    "out_transaction_id": "4200000334201905246610520000",
+    "out_trade_no": "T0020190524102840000",
+    "base_fee": "4",
+    "total_fee": "2",
+    "coupon_fee": "2",
     "fee_type": "CNY",
     "bank_type": "CFT",
-    "time_end": "20170619165616",
-    "nonce_str": "a849df6660cb4354b6fe5b23120a73ce",
-    "sign": "D292DB710872C023A9A1CF429457E0B3"
+    "time_end": "20190524103044",
+    "nonce_str": "1CQmxHpi2H62HsGg",
+    "trade_type": "MICROPAY",
+    "promotion_detail": "{\"promotion_detail\":[{\"promotion_id\":\"6348962444\",\"name\":\"维他减2分\",\"scope\":\"SINGLE\",\"type\":\"DISCOUNT\",\"amount\":2,\"activity_id\":\"9447213\",\"wxpay_contribute\":0,\"merchant_contribute\":2,\"other_contribute\":0,\"goods_detail\":[{\"goods_id\":\"CY00000000000\",\"quantity\":1,\"price\":2,\"discount_amount\":1,\"goods_remark\":\"单品券活动No.002\"},{\"goods_id\":\"CY00000000001\",\"quantity\":1,\"price\":2,\"discount_amount\":1,\"goods_remark\":\"单品券活动No.002\"}]}]}",
+    "sign": "00000000000000000000000000000000"
 }
 ```
 
@@ -241,7 +249,7 @@
 
 说明：退到银行卡则是非实时的，每个银行的处理速度不同，一般发起退款后1-3个工作日内到账。
 
-同一笔单的部分退款需要设置相同的订单号和不同的 out_refund_no 。一笔退款失败后重新提交，要采用原来 的out_refund_no。总退款金额不能超过用户实际支付金额\(现金券金额不能退款\)
+同一笔单的部分退款需要设置相同的订单号和不同的 out_refund_no 。一笔退款失败后重新提交，要采用原来 的out_refund_no。总退款金额不能超过用户实际支付金额\(代金券金额不能退款\)
 
 **退款限制**
 
@@ -319,7 +327,7 @@
 | total_fee | 是 | 订单实付金额，单位为分 |
 | base_refund_fee | 是 | 申请退款金额，单位为分 |
 | refund_fee | 是 | 实际退款金额，单位为分 |
-| coupon_refund_fee | 是 | 现金券退款金额 &lt;= 退款金额， 退款金额-现金券退款金额为现金 |
+| coupon_refund_fee | 是 | 代金券退款金额 &lt;= 退款金额， 退款金额-代金券退款金额为现金 |
 | nonce_str | 是 | 随机字符串 |
 
 **响应结果示例**
@@ -399,7 +407,7 @@
 
 **请求参数示例**
 
-> method=refundquery&agent_id=13000000000000000&paytype=WECHAT&mch_id=00000001&out_trade_no=1497769914931&sign=00000000000000000000000000000000
+> method=refundquery&agent_id=13000000000000000&paytype=WECHAT&mch_id=00000001&out_refund_no=TKT0020190524102840000&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -442,7 +450,7 @@
 | refund_fee | 是 | 当次退款金额，以分为单位，只能为整数 |
 | refund_status | 是 | 退款状态：SUCCESS—退款成功；FAIL—退款失败；PROCESSING—退款处理中；NOTSURE—未确定， 需要商户原退款单号重新发起；CHANGE—转入代发，退款到银行发现用户的卡作废或者冻结了，导致原路退款银行卡失败，资金回流到商户的现金帐号，需要商户人工干预，通过线下或者平台转账的方式进行退款。 |
 | refund_time | 否 | 退款时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。时区为GMT+8 Beijing |
-| coupon_refund_fee | 否 | 现金券退款金额 &lt;= 退款金额， 退款金额 - 现金券退款金额为现金 |
+| coupon_refund_fee | 否 | 代金券退款金额 &lt;= 退款金额， 退款金额 - 代金券退款金额为现金 |
 
 **响应结果示例**
 
@@ -453,15 +461,16 @@
     "trade_state": "SUCCESS",
     "msg": "SUCCESS",
     "mch_id": "00000001",
-    "appid": "wxe00fda5293a2fa25",
-    "transaction_id": "199520175115201706224112697859",
-    "out_transaction_id": "4005572001201706226919222698",
-    "out_trade_no": "1498125915060",
-    "refund_list": "[{\"serial_no\":\"0\",\"refund_id\":\"199520175115201706224212715917\",\"out_refund_id\":\"50000203302017062201274913961\",\"out_refund_no\":\"TK-1498125915060-0.02\",\"refund_channel\":\"ORIGINAL\",\"refund_fee\":\"2\",\"refund_status\":\"SUCCESS\",\"refund_time\":\"20170622182219\"},{\"serial_no\":\"1\",\"refund_id\":\"199520175115201706226290021966\",\"out_refund_id\":\"50000203302017062201275383549\",\"out_refund_no\":\"TK-1498125915060-0.01-1\",\"refund_channel\":\"ORIGINAL\",\"refund_fee\":\"1\",\"refund_status\":\"SUCCESS\",\"refund_time\":\"20170622181822\"}]",
-    "refund_fee_summary": "3",
-    "refund_count": "2",
-    "nonce_str": "65f753cf49f049c4ab434a7caa75449c",
-    "sign": "0FB65206D136E3A09D63B905F91D3B6B"
+    "appid": "wx4da448cd29920000",
+    "transaction_id": "4200000334201905246610520000",
+    "out_transaction_id": "4200000334201905246610520000",
+    "out_trade_no": "T0020190524102840000",
+    "base_refund_fee_summary": "4",
+    "refund_fee_summary": "2",
+    "refund_count": "1",
+    "refund_list": "[{\"serial_no\":\"0\",\"refund_id\":\"50000000482019052409653860000\",\"out_refund_id\":\"50000000482019052409653860000\",\"out_refund_no\":\"TKT0020190524102840000\",\"base_refund_fee\":\"4\",\"refund_fee\":\"2\",\"coupon_refund_fee\":\"2\",\"refund_status\":\"SUCCESS\",\"refund_channel\":\"ORIGINAL\",\"refund_time\":\"2019-05-24 11:11:33\"}]",
+    "nonce_str": "DjRzpkdtpM0Sl6HW",
+    "sign": "08979997A5751AD552A11F3549AA97BB"
 }
 ```
 

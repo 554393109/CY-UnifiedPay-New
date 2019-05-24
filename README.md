@@ -12,7 +12,7 @@
 
 【*v2.6.0*】 2019-05-XX
 * 修改刷卡支付接口添加goods_detail请求参数
-* 修改刷卡支付接口添加base_fee响应参数
+* 修改刷卡支付接口添加base_fee、promotion_detail响应参数
 * 修改刷卡支付接口添加goods_detail请求参数
 * 修改刷卡支付接口添加goods_detail请求参数
 * 修改刷卡支付接口添加goods_detail请求参数
