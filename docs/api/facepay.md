@@ -31,8 +31,8 @@
 | :--- | :---: | :--- | :--- |
 | method | 是 | getfaceauth | 接口名称，getfaceauth |
 | agent_id | 是 | 13000000000000000 | 代理商编号 |
-| version | 否 | 1.0 | 调用方版本号 |
-| pid | 否 | yunpos | 调用方产品名称 |
+| version | 是 | 1.0 | 调用方版本号 |
+| pid | 是 | yunpos | 调用方产品名称 |
 | sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
 
 **请求参数**
@@ -72,6 +72,8 @@
 | authinfo | 是 | SDK调用凭证 |
 | expires_in | 是 | authinfo的有效时间，单位秒。例如：3600。在有效时间内, 对于同一台终端设备，相同的参数的前提下(如：相同的公众号、商户号、 门店编号等），可以用同一个authinfo，多次调用SDK的getWxpayfaceCode接口。 |
 | nonce_str | 是 | 随机字符串 |
+| wx_mch_id | 否 | 微信服务商商户号 |
+| wx_sub_mch_id | 否 | 微信子商户号 |
 
 **响应结果示例**
 
@@ -87,7 +89,9 @@
     "authinfo": "IGJSUOkyjSthQ0nWkI49U6LGhiJbTpr2KkMOiD2kb16DRmyySXXXXXX",
     "expires_in": "3600",
     "nonce_str": "k1MErGrCODf06uiv",
-    "sign": "D292DB710872C023A9A1CF429457E0B3"
+    "wx_mch_id": "1264300000",
+    "wx_sub_mch_id": "1266500000",
+    "sign": "00000000000000000000000000000000"
 }
 ```
 
@@ -122,8 +126,8 @@
 | :--- | :---: | :--- | :--- |
 | method | 是 | facepay | 接口名称，facepay |
 | agent_id | 是 | 13000000000000000 | 代理商编号 |
-| version | 否 | 1.0 | 调用方版本号 |
-| pid | 否 | yunpos | 调用方产品名称 |
+| version | 是 | 1.0 | 调用方版本号 |
+| pid | 是 | yunpos | 调用方产品名称 |
 | sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
 
 **请求参数**
@@ -143,11 +147,22 @@
 | op_user_id | 否 | 00000001 | 操作员帐号，默认为商户号 |
 | op_shop_id | 否 | md_001 | 门店编号 |
 | op_device_id | 否 | device_01 | 设备编号 |
-| goods_tag | 否 | hot | 商品标记 |
+| goods_tag | 否 | CY_PROMOTION_001 | 商品标记 |
+| goods_detail | 否 | [{"goods_id":"CY000","goods_name":"促销单品","quantity":1,"price":1}] | 商品详情，JSON Array格式 |
+
+goods_detail为JSON数组类型结构如下
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| goods_id | 是 | CY00000000001 | 商品编码，由半角的大小写字母、数字、中划线、下划线中的一种或几种组成 |
+| pay_goods_id | 否 | 20010001 | 微信/支付宝的商品编码（没有可不传） |
+| goods_name | 是 | 纸巾 | 商品名称 |
+| quantity | 是 | 1 | 商品数量（整数） |
+| price | 是 | 100 | 商品单价（整数），单位为：分 |
 
 **请求参数示例**
 
-> method=facepay&agent_id=13000000000000000&paytype=WECHAT&mch_id=00000001&version=1.0&pid=yunpos&out_trade_no=1497769914931&face_code=123123123&body=%E8%B6%85%E8%B5%A2%E6%94%AF%E4%BB%98&total_fee=1&sign=00000000000000000000000000000000
+> method=facepay&agent_id=13000000000000000&paytype=WECHAT&mch_id=00000001&version=1.0&pid=yunpos&out_trade_no=1497769914931&face_code=123123123&body=%E8%B6%85%E8%B5%A2%E6%94%AF%E4%BB%98&total_fee=4&goods_tag=CY_PROMOTION_001&goods_detail=[{"goods_id":"CY000000","goods_name":"促销单品-CY00000000000","quantity":1,"price":2},{"goods_id":"CY000001","goods_name":"促销单品-CY00000000001","quantity":1,"price":2}]&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -173,7 +188,8 @@
 | transaction_id | 是 | 平台交易号 |
 | out_transaction_id | 是 | 第三方订单号 |
 | out_trade_no | 是 | 商户系统内部的定单号，32个字符内、可包含字母 |
-| total_fee | 是 | 总金额，以分为单位，只能为整数 |
+| base_fee | 是 | 应付金额，以分为单位，只能为整数 |
+| total_fee | 是 | 实付金额，以分为单位，只能为整数 |
 | coupon_fee | 否 | 代金券金额，代金券金额&lt;=订单金额，订单金额 - 代金券金额 = 现金支付金额 |
 | fee_type | 否 | 货币类型，符合 ISO 4217 标准的三位字母代码，默认人民币：CNY |
 | attach | 否 | 商家数据包，原样返回 |
@@ -181,6 +197,9 @@
 | bank_billno | 否 | 银行订单号，若为第三方支付则为空 |
 | time_end | 是 | 支付完成时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。时区为GMT+8 Beijing |
 | nonce_str | 是 | 随机字符串 |
+| promotion_detail | 否 | 营销详情，返回值为Json格式 |
+| wx_mch_id | 否 | 微信服务商商户号 |
+| wx_sub_mch_id | 否 | 微信子商户号 |
 
 **响应结果示例**
 
@@ -197,11 +216,15 @@
     "transaction_id": "4200000233201812272744871942",
     "out_transaction_id": "4200000233201812272744871942",
     "out_trade_no": "1545890307",
-    "total_fee": "1",
+    "base_fee": "4",
+    "total_fee": "2",
     "fee_type": "CNY",
     "bank_type": "CFT",
     "time_end": "20181227140034",
     "nonce_str": "k1MErGrCODf06uiv",
-    "sign": "D292DB710872C023A9A1CF429457E0B3"
+    "promotion_detail": "{\"promotion_detail\":[{\"promotion_id\":\"6348962444\",\"name\":\"维他减2分\",\"scope\":\"SINGLE\",\"type\":\"DISCOUNT\",\"amount\":2,\"activity_id\":\"9447213\",\"wxpay_contribute\":0,\"merchant_contribute\":2,\"other_contribute\":0,\"goods_detail\":[{\"goods_id\":\"CY00000000000\",\"quantity\":1,\"price\":2,\"discount_amount\":1,\"goods_remark\":\"单品券活动No.002\"},{\"goods_id\":\"CY00000000001\",\"quantity\":1,\"price\":2,\"discount_amount\":1,\"goods_remark\":\"单品券活动No.002\"}]}]}",
+    "wx_mch_id": "1264300000",
+    "wx_sub_mch_id": "1266500000",
+    "sign": "00000000000000000000000000000000"
 }
 ```

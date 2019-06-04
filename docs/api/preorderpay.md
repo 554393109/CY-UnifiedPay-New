@@ -30,8 +30,8 @@
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
 | agent_id | 是 | 13000000000000000 | 代理商编号 |
-| version | 否 | 1.0 | 调用方版本号 |
-| pid | 否 | yunpos | 调用方产品名称 |
+| version | 是 | 1.0 | 调用方版本号 |
+| pid | 是 | yunpos | 调用方产品名称 |
 | nonce_str | 否 | 00000000000000000000000000000000 | 随机字符串 |
 | sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
 
@@ -50,17 +50,28 @@
 | mch_create_ip | 否 | 114.114.114.114 | 调用支付API的机器IP |
 | time_start | 否 | 20091225091010 | 交易起始时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。时区为GMT+8 Beijing |
 | time_expire | 否 | 20091225091510 | 交易结束时间，格式为yyyyMMddHHmmss，如2009年12月25日9点15分10秒表示为20091225091510。时区为GMT+8 Beijing |
-| goods_tag | 否 | WXG | 订单优惠标记，用于优惠券或者满减使用 |
 | notify_url | 否 | <http://baidu.com/notify> | 接收支付异步通知回调地址，通知url必须为直接可访问的url，**不能携带参数** |
 | op_user_id | 否 | 00000001 | 操作员帐号，默认为商户号 |
 | op_shop_id | 否 | 00000001 | 门店编号 |
 | limit_pay | 否 | NO_CREDIT | no_credit指定不能使用信用卡支付 |
 | trade_type | 是 | JSPAY | 交易类型；JSPAY-服务窗支付、NATIVE-原生扫码支付、APP-APP支付，APP_BANK-APP支付银行模式 |
 | product_id | 否 | 1223541321407035645 | trade_type=NATIVE，此参数必传。此id为二维码中包含的商品ID，商户自行定义 |
+| goods_tag | 否 | CY_PROMOTION_001 | 订单优惠标记，用于优惠券或者满减使用 |
+| goods_detail | 否 | [{"goods_id":"CY000","goods_name":"促销单品","quantity":1,"price":1}] | 商品详情，JSON Array格式 |
+
+goods_detail为JSON数组类型结构如下
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| goods_id | 是 | CY00000000001 | 商品编码，由半角的大小写字母、数字、中划线、下划线中的一种或几种组成 |
+| pay_goods_id | 否 | 20010001 | 微信/支付宝的商品编码（没有可不传） |
+| goods_name | 是 | 纸巾 | 商品名称 |
+| quantity | 是 | 1 | 商品数量（整数） |
+| price | 是 | 100 | 商品单价（整数），单位为：分 |
 
 **请求参数示例**
 
-> agent_id=13000000000000000&mch_id=00000001™_type=NATIVE&body=超赢支付聚合支付&out_trade_no=1497769914931&total_fee=1&sign=00000000000000000000000000000000
+> agent_id=13000000000000000&version=1.0&pid=yunpos&mch_id=00000001™_type=NATIVE&body=超赢支付聚合支付&out_trade_no=1497769914931&total_fee=4&goods_tag=CY_PROMOTION_001&goods_detail=[{"goods_id":"CY000000","goods_name":"促销单品-CY00000000000","quantity":1,"price":2},{"goods_id":"CY000001","goods_name":"促销单品-CY00000000001","quantity":1,"price":2}]&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -85,6 +96,8 @@
 | code_url | 否 | 商户可用此参数自定义去生成二维码后展示出来进行扫码支付；trade_type=NATIVE时，此参数有返回 |
 | services | 否 | 支持的交易类型，多个以竖线分割 |
 | nonce_str | 是 | 随机字符串 |
+| wx_mch_id | 否 | 微信服务商商户号 |
+| wx_sub_mch_id | 否 | 微信子商户号 |
 
 **响应结果示例**
 
@@ -98,7 +111,9 @@
     "out_trade_no": "1497769914931",
     "token_id": "16c5f40274e084b123a08f1313d53da57",
     "pay_info": "{\"appId\":\"wxc3d2e734ae326831\",\"timeStamp\":\"1511947589427\",\"status\":\"0\",\"signType\":\"MD5\",\"package\":\"prepay_id=wx2017112917262941a3a33e980001282756\",\"callback_url\":\"\",\"nonceStr\":\"1511947589427\",\"paySign\":\"CD871BCD09B3D0C6339B2D0DE72DE7EE\"}",
-    "nonce_str": "14a9edad51c2403f9318c6d699152168"
+    "wx_mch_id": "1264300000",
+    "wx_sub_mch_id": "1266500000",
+    "nonce_str": "00000000000000000000000000000000"
 }
 ```
 
@@ -132,8 +147,8 @@
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
 | agent_id | 是 | 13000000000000000 | 代理商编号 |
-| version | 否 | 1.0 | 调用方版本号 |
-| pid | 否 | yunpos | 调用方产品名称 |
+| version | 是 | 1.0 | 调用方版本号 |
+| pid | 是 | yunpos | 调用方产品名称 |
 | nonce_str | 否 | 00000000000000000000000000000000 | 随机字符串 |
 | sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
 
@@ -161,7 +176,7 @@
 
 **请求参数示例**
 
-> agent_id=13000000000000000&mch_id=00000001&body=超赢支付聚合支付&out_trade_no=1497769914931&total_fee=1&trade_type=NATIVE&sign=00000000000000000000000000000000
+> agent_id=13000000000000000&version=1.0&pid=yunpos&mch_id=00000001&body=超赢支付聚合支付&out_trade_no=1497769914931&total_fee=1&trade_type=NATIVE&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -196,7 +211,7 @@
     "out_trade_no": "1523265111702",
     "code_img_url": "https://pay.swiftpass.cn/pay/qrcode?uuid=https%3A%2F%2Fqr.alipay.com%2Fbax04486r0vgbxds3h55805a",
     "code_url": "https://qr.alipay.com/bax04486r0vgbxds3h55805a",
-    "nonce_str": "f032dd959bb0428ba01d58dad8a70ffa"
+    "nonce_str": "00000000000000000000000000000000"
 }
 ```
 
@@ -262,6 +277,9 @@
 | sub_appid | 否 | 调用接口提交的子商户公众账号ID |
 | sub_openid | 否 | 子商户appid下用户唯一标识，用户关注时存在 |
 | nonce_str | 是 | 随机字符串 |
+| promotion_detail | 否 | 营销详情，返回值为Json格式 |
+| wx_mch_id | 否 | 微信服务商商户号 |
+| wx_sub_mch_id | 否 | 微信子商户号 |
 
 **请求参数示例**
 
