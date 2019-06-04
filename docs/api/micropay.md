@@ -50,7 +50,7 @@
 | op_user_id | 否 | 00000001 | 操作员帐号，默认为商户号 |
 | op_shop_id | 否 | md_001 | 门店编号 |
 | op_device_id | 否 | device_01 | 设备编号 |
-| goods_tag | 否 | hot | 商品标记 |
+| goods_tag | 否 | hot | 订单优惠标记，用于优惠券或者满减使用 |
 | goods_detail | 否 | [{"goods_id":"CY000","goods_name":"促销单品","quantity":1,"price":1}] | 商品详情，JSON Array格式 |
 
 goods_detail为JSON数组类型结构如下
@@ -59,7 +59,7 @@ goods_detail为JSON数组类型结构如下
 | :--- | :---: | :--- | :--- |
 | goods_id | 是 | CY00000000001 | 商品编码，由半角的大小写字母、数字、中划线、下划线中的一种或几种组成 |
 | pay_goods_id | 否 | 20010001 | 微信/支付宝的商品编码（没有可不传） |
-| goods_name | 是 | 纸巾 | 商品名称 |
+| goods_name | 否 | 纸巾 | 商品名称 |
 | quantity | 是 | 1 | 商品数量（整数） |
 | price | 是 | 100 | 商品单价（整数），单位为：分 |
 
