@@ -51,11 +51,21 @@
 | op_shop_id | 否 | md_001 | 门店编号 |
 | op_device_id | 否 | device_01 | 设备编号 |
 | goods_tag | 否 | hot | 商品标记 |
-| goods_detail | 否 | hot | 商品详情 |
+| goods_detail | 否 | [{"goods_id":"CY000","goods_name":"促销单品","quantity":1,"price":1}] | 商品详情，JSON Array格式 |
+
+goods_detail为JSON数组类型结构如下
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| goods_id | 是 | CY00000000001 | 商品编码，由半角的大小写字母、数字、中划线、下划线中的一种或几种组成 |
+| pay_goods_id | 否 | 20010001 | 微信/支付宝的商品编码（没有可不传） |
+| goods_name | 是 | 纸巾 | 商品名称 |
+| quantity | 是 | 1 | 商品数量（整数） |
+| price | 是 | 100 | 商品单价（整数），单位为：分 |
 
 **请求参数示例**
 
-> method=pay&agent_id=13000000000000000&mch_id=00000001&version=1.0&pid=yunpos&out_trade_no=1497769914931&auth_code=123123123&body=%E8%B6%85%E8%B5%A2%E6%94%AF%E4%BB%98&total_fee=1&sign=00000000000000000000000000000000
+> method=pay&agent_id=13000000000000000&mch_id=00000001&version=1.0&pid=yunpos&out_trade_no=1497769914931&auth_code=123123123&body=%E8%B6%85%E8%B5%A2%E6%94%AF%E4%BB%98&total_fee=4&goods_tag=CY_PROMOTION_001&goods_detail=[{"goods_id":"CY000000","goods_name":"促销单品-CY00000000000","quantity":1,"price":2},{"goods_id":"CY000001","goods_name":"促销单品-CY00000000001","quantity":1,"price":2}]&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -91,6 +101,8 @@
 | time_end | 是 | 支付完成时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。时区为GMT+8 Beijing |
 | nonce_str | 是 | 随机字符串 |
 | promotion_detail | 否 | 营销详情，返回值为Json格式 |
+| wx_mch_id | 否 | 微信服务商商户号 |
+| wx_sub_mch_id | 否 | 微信子商户号 |
 
 **响应结果示例**
 
@@ -116,7 +128,10 @@
     "bank_type": "CFT",
     "time_end": "20170619165616",
     "nonce_str": "a849df6660cb4354b6fe5b23120a73ce",
-    "sign": "D292DB710872C023A9A1CF429457E0B3"
+    "promotion_detail": "{\"promotion_detail\":[{\"promotion_id\":\"6348962444\",\"name\":\"维他减2分\",\"scope\":\"SINGLE\",\"type\":\"DISCOUNT\",\"amount\":2,\"activity_id\":\"9447213\",\"wxpay_contribute\":0,\"merchant_contribute\":2,\"other_contribute\":0,\"goods_detail\":[{\"goods_id\":\"CY00000000000\",\"quantity\":1,\"price\":2,\"discount_amount\":1,\"goods_remark\":\"单品券活动No.002\"},{\"goods_id\":\"CY00000000001\",\"quantity\":1,\"price\":2,\"discount_amount\":1,\"goods_remark\":\"单品券活动No.002\"}]}]}",
+    "wx_mch_id": "1264300000",
+    "wx_sub_mch_id": "1266500000",
+    "sign": "00000000000000000000000000000000"
 }
 ```
 
@@ -231,6 +246,8 @@
     "nonce_str": "1CQmxHpi2H62HsGg",
     "trade_type": "MICROPAY",
     "promotion_detail": "{\"promotion_detail\":[{\"promotion_id\":\"6348962444\",\"name\":\"维他减2分\",\"scope\":\"SINGLE\",\"type\":\"DISCOUNT\",\"amount\":2,\"activity_id\":\"9447213\",\"wxpay_contribute\":0,\"merchant_contribute\":2,\"other_contribute\":0,\"goods_detail\":[{\"goods_id\":\"CY00000000000\",\"quantity\":1,\"price\":2,\"discount_amount\":1,\"goods_remark\":\"单品券活动No.002\"},{\"goods_id\":\"CY00000000001\",\"quantity\":1,\"price\":2,\"discount_amount\":1,\"goods_remark\":\"单品券活动No.002\"}]}]}",
+    "wx_mch_id": "1264300000",
+    "wx_sub_mch_id": "1266500000",
     "sign": "00000000000000000000000000000000"
 }
 ```
@@ -350,7 +367,7 @@
     "refund_fee": "1",
     "coupon_refund_fee": "1",
     "nonce_str": "78GTQmdylSxwFXxE",
-    "sign": "83164B0990F82CB5508B3C95BD703CD4"
+    "sign": "00000000000000000000000000000000"
 }
 ```
 
@@ -434,9 +451,12 @@
 | out_transaction_id | 是 | 第三方订单号 |
 | out_trade_no | 是 | 商户系统内部的定单号，32个字符内、可包含字母 |
 | refund_count | 是 | 退款笔数 |
-| refund_fee_summary | 是 | 退款汇总金额，以分为单位，只能为整数 |
+| base_refund_fee_summary | 是 | 申请退款汇总金额，以分为单位，只能为整数 |
+| refund_fee_summary | 是 | 实际退款汇总金额，以分为单位，只能为整数 |
 | refund_list | 是 | 退款单集合 |
 | nonce_str | 是 | 随机字符串 |
+| wx_mch_id | 否 | 微信服务商商户号 |
+| wx_sub_mch_id | 否 | 微信子商户号 |
 
 以下字段在refund_list中返回
 
@@ -447,10 +467,11 @@
 | out_refund_id | 是 | 第三方退款单号 |
 | out_refund_no | 是 | 商户退款单号 |
 | refund_channel | 否 | 退款渠道，ORIGINAL—原路退款，默认 |
-| refund_fee | 是 | 当次退款金额，以分为单位，只能为整数 |
+| base_refund_fee | 是 | 当次退款申请金额，以分为单位，只能为整数 |
+| refund_fee | 是 | 当次实际退款金额，以分为单位，只能为整数 |
+| coupon_refund_fee | 否 | 代金券退款金额 &lt;= 退款金额， 退款金额 - 代金券退款金额为现金 |
 | refund_status | 是 | 退款状态：SUCCESS—退款成功；FAIL—退款失败；PROCESSING—退款处理中；NOTSURE—未确定， 需要商户原退款单号重新发起；CHANGE—转入代发，退款到银行发现用户的卡作废或者冻结了，导致原路退款银行卡失败，资金回流到商户的现金帐号，需要商户人工干预，通过线下或者平台转账的方式进行退款。 |
 | refund_time | 否 | 退款时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。时区为GMT+8 Beijing |
-| coupon_refund_fee | 否 | 代金券退款金额 &lt;= 退款金额， 退款金额 - 代金券退款金额为现金 |
 
 **响应结果示例**
 
@@ -470,7 +491,9 @@
     "refund_count": "1",
     "refund_list": "[{\"serial_no\":\"0\",\"refund_id\":\"50000000482019052409653860000\",\"out_refund_id\":\"50000000482019052409653860000\",\"out_refund_no\":\"TKT0020190524102840000\",\"base_refund_fee\":\"4\",\"refund_fee\":\"2\",\"coupon_refund_fee\":\"2\",\"refund_status\":\"SUCCESS\",\"refund_channel\":\"ORIGINAL\",\"refund_time\":\"2019-05-24 11:11:33\"}]",
     "nonce_str": "DjRzpkdtpM0Sl6HW",
-    "sign": "08979997A5751AD552A11F3549AA97BB"
+    "wx_mch_id": "1264300000",
+    "wx_sub_mch_id": "1266500000",
+    "sign": "00000000000000000000000000000000"
 }
 ```
 
@@ -540,6 +563,8 @@
 | :--- | :---: | :--- |
 | mch_id | 是 | 超赢商户号 |
 | nonce_str | 是 | 随机字符串 |
+| wx_mch_id | 否 | 微信服务商商户号 |
+| wx_sub_mch_id | 否 | 微信子商户号 |
 
 **响应结果示例**
 
@@ -551,6 +576,8 @@
     "msg": "SUCCESS",
     "mch_id": "00000001",
     "nonce_str": "f1625e94362d4d82aafcc5fc9d1f9325",
-    "sign": "192D6CBDEFE6DC1B69DF50B8420D8908"
+    "wx_mch_id": "1264300000",
+    "wx_sub_mch_id": "1266500000",
+    "sign": "00000000000000000000000000000000"
 }
 ```
