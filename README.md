@@ -20,7 +20,7 @@
 * 修改刷卡支付-订单查询接口添加营销详情promotion_detail响应参数
 * 修改交易退款接口添加应付金额base_fee，应退金额base_refund_fee；refund_fee字段修改为实退金额
 * 修改退款查询接口添加应退金额汇总base_refund_fee_summary，应退金额base_refund_fee响应字段
-* 修改支付类接口响应参数添加微信服务商商户号wx_mch_id字段，微信子商户号wx_sub_mch_id字段（具体参考各接口请求参数）
+* 修改支付类接口响应参数添加微信服务商商户号wx_mch_id字段，微信子商户号wx_sub_mch_id字段（具体参考各接口响应参数）
 
 【*v2.4.1*】 2019-04-10
 * 获取超赢商户微信子商户号接口说明修改
