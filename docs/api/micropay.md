@@ -417,10 +417,8 @@ goods_detail为JSON数组类型结构如下
 | :--- | :---: | :--- | :--- |
 | paytype | 是 | WECHAT | 支付方式，详见参数规定 |
 | mch_id | 是 | 00000001 | 超赢商户号 |
-| out_trade_no | 否 | 1497769914931 | 商户系统内部的订单号，out_trade_no和transaction_id至少一个必填，同时存在时transaction_id优先 |
-| transaction_id | 否 | 7551000001201706166172780576 | 平台交易号，out_trade_no和transaction_id至少一个必填，同时存在时transaction_id优先。 |
 | out_refund_no | 否 | TK-1497769914931-01 | 商户退款单号，32个字符内、可包含字母,确保在商户系统唯一。 |
-| refund_id | 否 | 7551000001201706215157548269 | 平台退款单号关于refund_id、out_refund_no、out_trade_no 、transaction_id 四个参数必填一个， 如果同时存在优先级为：refund_id &gt; out_refund_no &gt; transaction_id &gt; out_trade_no；特殊说明：如果是支付宝，refund_id、out_refund_no必填其中一个。 |
+| refund_id | 否 | 7551000001201706215157548269 | 平台退款单号关于refund_id、out_refund_no必填一个， 如果同时存在优先级为：refund_id &gt; out_refund_no；特殊说明：如果是支付宝，refund_id、out_refund_no必填其中一个。 |
 
 **请求参数示例**
 
