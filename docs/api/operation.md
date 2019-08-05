@@ -298,3 +298,78 @@
     "sign": "00000000000000000000000000000000"
 }
 ```
+
+---
+
+# 获取超赢商户基础信息
+
+**应用场景**
+
+该接口提供获取超赢商户基础信息功能。
+
+**接口详情**
+
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
+        <td>https://{BaseURL}/Open/GetMchInfo</td>
+    </tr>
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
+        <td>POST</td>
+    </tr>
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">校验签名</td>
+        <td>是</td>
+    </tr>
+</table>
+
+**公共请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| agent_id | 是 | 13000000000000000 | 代理商编号 |
+| version | 是 | 1.0 | 调用方版本号 |
+| pid | 是 | yunpos | 调用方产品名称 |
+| sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
+
+**请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| mch_id | 是 | 00000001 | 超赢商户号 |
+
+**请求参数示例**
+
+> agent_id=13000000000000000&version=1.0&pid=yunpos&mch_id=00000001&sign=00000000000000000000000000000000
+
+**响应结果**
+
+| 字段名 | 必填 | 说明 |
+| :--- | :---: | :--- |
+| state | 是 | 通讯状态，详见参数规定 |
+| code | 是 | 状态码 ，详见参数规定 |
+| msg | 否 | 返回信息 |
+| sign | 是 | 响应结果的签名串 |
+
+以下字段在state为SUCCESS，code为10000的时候有返回
+
+| 字段名 | 必填 | 说明 |
+| :--- | :---: | :--- |
+| mch_id | 是 | 超赢商户号 |
+| FullName | 是 | 商户全称 |
+| ShortName | 是 | 商户简称 |
+
+**响应结果示例**
+
+```json
+{
+    "state": "SUCCESS",
+    "code": "10000",
+    "msg": "SUCCESS",
+    "mch_id": "00000001",
+    "FullName": "测试商户全称",
+    "ShortName": "测试商户简称",
+    "sign": "00000000000000000000000000000000"
+}
+```
