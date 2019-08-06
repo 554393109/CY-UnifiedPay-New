@@ -40,12 +40,12 @@
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
 | mch_id | 是 | 00000001 | 超赢商户号 |
-| sub_appid | 是 | wxaee08d155d9de0c5 | 公众号AppId。trade_type=JSPAY、APP、APP_BANK时，此参数必传 |
+| sub_appid | 是 | wxaee08d155d9de0c5 | 公众号AppId或开放平台APP应用AppId。trade_type=JSPAY、APP、APP_BANK时，此参数必传 |
 | is_minipg | 否 | 1 | 是否小程序支付。1：小程序支付；0：表示公众号支付 |
 | buyer_id | 否 | oRA5quGvJc1wwvjMW-tnpLLqD-FM | 在sub_appid下通过微信授权取得的买家sub_openid。trade_type=JSPAY，此参数必传 |
 | device_info | 否 | 013467007045764 | 终端设备号，商户自定义。 |
 | body | 是 | image形象店-深圳腾大- QQ公仔 | 商品描述 |
-| out_trade_no | 是 | 1497769914931 | 商户系统内部的订单号 ,5到32个字符、 只能包含字母数字，区分大小写，确保在商户系统唯一 |
+| out_trade_no | 是 | 1497769914931 | 商户系统内部的订单号，5到32个字符、只能包含字母数字，区分大小写，确保在商户系统唯一 |
 | total_fee | 是 | 1 | 总金额，以分为单位，只能为整数 |
 | mch_create_ip | 否 | 114.114.114.114 | 调用支付API的机器IP |
 | time_start | 否 | 20091225091010 | 交易起始时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。时区为GMT+8 Beijing |
