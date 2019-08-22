@@ -3,9 +3,9 @@
 [![超赢科技](/assets/logo.png)](http://pos.cn/ "超赢科技")
 
 > 当前版本：v2.5.3
-
+> 
 > 最后维护：尹自强，yinziqiang@chaoying.com.cn
-
+> 
 > 更新日期：2019-08-06
 
 ### 版本说明
