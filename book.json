@@ -20,7 +20,8 @@
         "donate",
         "copy-code-button",
         "advanced-emoji",
-        "baidu-tongji"
+        "baidu-tongji",
+        "icp"
     ],
     "pluginsConfig": {
         "fontsettings": {
@@ -50,6 +51,10 @@
         },
         "baidu-tongji": {
             "token": "8889f781f3b285d8d0b4421fa2757379"
+        },
+        "icp": {
+            "number": "粤ICP备18161097号-1",
+            "link": "http://www.beian.miit.gov.cn/"
         }
     },
     "pdf": {
