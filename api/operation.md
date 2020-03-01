@@ -449,3 +449,93 @@
     "expires_in": 7200
 }
 ```
+
+---
+
+# 超赢商户微信支付配置新增
+
+**应用场景**
+
+该接口为超赢商户配置公众号功能。
+
+**接口详情**
+
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
+        <td>https://{BaseURL}/open/wx_addsubdevconfig</td>
+    </tr>
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
+        <td>POST</td>
+    </tr>
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">校验签名</td>
+        <td>是</td>
+    </tr>
+</table>
+
+**公共请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| agent_id | 是 | 13000000000000000 | 代理商编号 |
+| version | 是 | 1.0 | 调用方版本号 |
+| pid | 是 | yunpos | 调用方产品名称 |
+| sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
+
+**请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| appid | 否 | wx4da448cd29920000 | 支付的公众号APPID，可以绑定商户或服务商公众号、小程序、APP支付等对应的APPID；该字段视支付接口中是否传sub_appid而定，如有疑惑请联系超赢运营人员；该字段每次调用仅支持传送1个APPID |
+| jsapi_path | 否 | http:/a.com/pay/ | 商户公众号JS API支付授权目录，要求符合URI格式规范；多个目录间请以英标分号【;】分割 |
+| subscribe_appid | 否 | wx4da448cd29920000 | 推荐关注的公众号APPID，该字段每次调用仅支持传送1个APPID；subscribe_appid和receipt_appid二选一 |
+| receipt_appid | 否 | wx4da448cd29920000 | 支付凭证推荐小程序APPID，该字段每次调用仅支持传送1个APPID；subscribe_appid和receipt_appid二选一 |
+
+**请求参数示例**
+
+> agent_id=13000000000000000&version=1.0&pid=yunpos&appid=wx4da448cd29920000&jsapi_path=http:/a.com/pay/;http:/b.com/pay/&subscribe_appid=wx4da448cd29920000&sign=00000000000000000000000000000000
+
+**响应结果**
+
+| 字段名 | 必填 | 说明 |
+| :--- | :---: | :--- |
+| state | 是 | 通讯状态，详见参数规定 |
+| code | 是 | 状态码 ，详见参数规定 |
+| msg | 否 | 返回信息 |
+| sign | 是 | 响应结果的签名串 |
+
+**响应结果示例**
+
+```json
+{
+    "state": "SUCCESS",
+    "code": "10000",
+    "msg": "SUCCESS",
+    "sign": "00000000000000000000000000000000",
+}
+```
+
+**配置规则重要说明**
+
+* API只支持新增配置，不支持修改，如需要修改请联系超赢运营人员手工删除后重新配置。
+* 可以绑定特约商户或渠道公司主体一致的公众号、小程序、开放平台应用的APPID。
+* 每个商户最多自定义配置2个支付目录，2个支付公众号和推荐关注。
+* 每个商户APPID可以配置相同或不同的推荐关注公众号（前提主体需一致）。
+* 每个商户只允许APPID（A）关注一个公众号，不允许同时关注多个不同公众号。
+* 不同商户APPID（A、B）允许关注同一个公众号。
+* 配置关注后隔30天才能重新修改。
+* 微信支持配置【商户主体】公众号或【服务商主体】公众号，可以使用服务商主体（或商户主体）公众号来支付时，实现关注商户主体（或服务商主体）公众号。注：现仅支持关注商户主体公众号。
+
+**应用示例（A和B可代表服务商主体或商户主体的公众号）**
+
+> **示例1：商户交易时实现用A支付关注A**
+> ①一次请求appid和subscribe_appid两个参数同时配置特约商户APPID（A）
+>
+> **示例2：商户交易时实现用A支付关注B**
+> ①一次请求appid和subscribe_appid两个参数分别对应配置APPID（B）和APPID（A）
+>
+> **示例3：商户交易时实现用A支付时关注A，同时实现用B支付时关注A**
+> ①一次请求appid和subscribe_appid两个参数同时配置特约商户APPID（A）
+> ②一次请求appid和subscribe_appid两个参数分别对应配置APPID（B）和APPID（A）
