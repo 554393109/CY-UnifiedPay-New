@@ -530,12 +530,12 @@
 
 **应用示例（A和B可代表服务商主体或商户主体的公众号）**
 
-> **示例1：商户交易时实现用A支付关注A**
+> **示例1：商户交易时实现用A支付关注A**  
 > ①一次请求appid和subscribe_appid两个参数同时配置特约商户APPID（A）
 >
-> **示例2：商户交易时实现用A支付关注B**
+> **示例2：商户交易时实现用A支付关注B**  
 > ①一次请求appid和subscribe_appid两个参数分别对应配置APPID（B）和APPID（A）
 >
-> **示例3：商户交易时实现用A支付时关注A，同时实现用B支付时关注A**
-> ①一次请求appid和subscribe_appid两个参数同时配置特约商户APPID（A）
+> **示例3：商户交易时实现用A支付时关注A，同时实现用B支付时关注A**  
+> ①一次请求appid和subscribe_appid两个参数同时配置特约商户APPID（A）  
 > ②一次请求appid和subscribe_appid两个参数分别对应配置APPID（B）和APPID（A）
