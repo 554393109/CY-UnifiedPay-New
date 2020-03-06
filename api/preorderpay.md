@@ -58,6 +58,8 @@
 | product_id | 否 | 1223541321407035645 | trade_type=NATIVE，此参数必传。此id为二维码中包含的商品ID，商户自行定义 |
 | goods_tag | 否 | CY_PROMOTION_001 | 订单优惠标记，用于优惠券或者满减使用 |
 | goods_detail | 否 | [{"goods_id":"CY000","goods_name":"促销单品","quantity":1,"price":1}] | 商品详情，JSON Array格式 |
+| profit_sharing | 否 | N | 分账标识 |
+| profit_sharing_receiver | 否 | - | 分账明细 |
 
 goods_detail为JSON数组类型结构如下
 

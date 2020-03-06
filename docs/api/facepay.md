@@ -31,8 +31,8 @@
 | :--- | :---: | :--- | :--- |
 | method | 是 | getfaceauth | 接口名称，getfaceauth |
 | agent_id | 是 | 13000000000000000 | 代理商编号 |
-| version | 是 | 1.0 | 调用方版本号 |
 | pid | 是 | yunpos | 调用方产品名称 |
+| version | 是 | 1.0 | 调用方版本号 |
 | sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
 
 **请求参数**
@@ -126,8 +126,8 @@
 | :--- | :---: | :--- | :--- |
 | method | 是 | facepay | 接口名称，facepay |
 | agent_id | 是 | 13000000000000000 | 代理商编号 |
-| version | 是 | 1.0 | 调用方版本号 |
 | pid | 是 | yunpos | 调用方产品名称 |
+| version | 是 | 1.0 | 调用方版本号 |
 | sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
 
 **请求参数**
@@ -149,6 +149,8 @@
 | op_device_id | 否 | device_01 | 设备编号 |
 | goods_tag | 否 | CY_PROMOTION_001 | 订单优惠标记，用于优惠券或者满减使用 |
 | goods_detail | 否 | [{"goods_id":"CY000","goods_name":"促销单品","quantity":1,"price":1}] | 商品详情，JSON Array格式 |
+| profit_sharing | 否 | N | 分账标识 |
+| profit_sharing_receiver | 否 | - | 分账明细 |
 
 goods_detail为JSON数组类型结构如下
 
