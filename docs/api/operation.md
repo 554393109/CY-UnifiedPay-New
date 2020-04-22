@@ -13,7 +13,7 @@
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
-        <td>https://{BaseURL}/UnifiedPay/Mch_Reg</td>
+        <td>https://api.storepos.cn/UnifiedPay/Mch_Reg</td>
     </tr>
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
@@ -85,7 +85,7 @@
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
-        <td>https://{BaseURL}/Mch/GetMchSMSValid</td>
+        <td>https://api.storepos.cn/Mch/GetMchSMSValid</td>
     </tr>
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
@@ -149,7 +149,7 @@
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
-        <td>https://{BaseURL}/Mch/GetMchId</td>
+        <td>https://api.storepos.cn/Mch/GetMchId</td>
     </tr>
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
@@ -231,7 +231,7 @@
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
-        <td>https://{BaseURL}/Open/GetPartnerId</td>
+        <td>https://api.storepos.cn/Open/GetPartnerId</td>
     </tr>
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
@@ -312,7 +312,7 @@
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
-        <td>https://{BaseURL}/Open/GetMchInfo</td>
+        <td>https://api.storepos.cn/Open/GetMchInfo</td>
     </tr>
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
@@ -387,7 +387,7 @@
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
-        <td>https://{BaseURL}/Open/WXA_Code2Session</td>
+        <td>https://api.storepos.cn/Open/WXA_Code2Session</td>
     </tr>
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
@@ -463,7 +463,7 @@
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
-        <td>https://{BaseURL}/open/wx_addsubdevconfig</td>
+        <td>https://api.storepos.cn/open/wx_addsubdevconfig</td>
     </tr>
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>

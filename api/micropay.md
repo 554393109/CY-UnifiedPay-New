@@ -13,7 +13,7 @@
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
-        <td>https://{BaseURL}/UnifiedPay/Gateway</td>
+        <td>https://pay.storepos.cn/UnifiedPay/Gateway</td>
     </tr>
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
@@ -150,7 +150,7 @@ goods_detail为JSON数组类型结构如下
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
-        <td>https://{BaseURL}/UnifiedPay/Gateway</td>
+        <td>https://pay.storepos.cn/UnifiedPay/Gateway</td>
     </tr>
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
@@ -282,7 +282,7 @@ goods_detail为JSON数组类型结构如下
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
-        <td>https://{BaseURL}/UnifiedPay/Gateway</td>
+        <td>https://pay.storepos.cn/UnifiedPay/Gateway</td>
     </tr>
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
@@ -391,7 +391,7 @@ goods_detail为JSON数组类型结构如下
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
-        <td>https://{BaseURL}/UnifiedPay/Gateway</td>
+        <td>https://pay.storepos.cn/UnifiedPay/Gateway</td>
     </tr>
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
@@ -512,7 +512,7 @@ goods_detail为JSON数组类型结构如下
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
-        <td>https://{BaseURL}/UnifiedPay/Gateway</td>
+        <td>https://pay.storepos.cn/UnifiedPay/Gateway</td>
     </tr>
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>

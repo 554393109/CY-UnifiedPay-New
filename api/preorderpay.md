@@ -13,7 +13,7 @@
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
-        <td>https://{BaseURL}/Open/WECHAT_PreOrder</td>
+        <td>https://qrpay.pos.cn/Open/WECHAT_PreOrder</td>
     </tr>
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
@@ -132,7 +132,7 @@ goods_detail为JSON数组类型结构如下
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
-        <td>https://{BaseURL}/Open/ALIPAY_PreOrder</td>
+        <td>https://qrpay.pos.cn/Open/ALIPAY_PreOrder</td>
     </tr>
     <tr>
         <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
