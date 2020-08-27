@@ -56,11 +56,11 @@
 
 | **编码** | **描述** |
 | :---: | :--------- |
-| WECHAT | 微信支付 |
-| ALIPAY | 支付宝支付 |
+| WECHAT | 微信 |
+| ALIPAY | 支付宝 |
 | JDPAY | 京东支付 |
-| QQ | QQ钱包支付 |
-| UNIONPAY | 银联支付 |
+| QQ | QQ钱包 |
+| UNIONPAY | 云闪付 |
 | BESTPAY | 翼支付 |
 
 # picType - 进件图片类型
@@ -132,8 +132,8 @@
 | CEB | 光大 |
 | BESTPAY | 翼支付 |
 | TTG | 淘淘谷 |
-| JDPAY | 京东钱包 |
-| UNIONPAY | 银联钱包 |
+| JDPAY | 京东支付 |
+| UNIONPAY | 云闪付 |
 | WECHAT | 微信 |
 | ALIPAY | 支付宝 |
 | MUNITEDPASS | 汇商通盈 |
