@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>刷卡支付 · 超赢聚合支付API在线文档</title>
+        <title>被扫支付 · 超赢聚合支付API在线文档</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -169,7 +169,7 @@
                 <a href="micropay.html">
             
                     
-                    刷卡支付
+                    被扫支付
             
                 </a>
             
@@ -233,7 +233,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >刷卡支付</a>
+        <a href=".." >被扫支付</a>
     </h1>
 </div>
 
@@ -248,7 +248,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x63D0;&#x4EA4;&#x652F;&#x4ED8;"><b></b>&#x63D0;&#x4EA4;&#x652F;&#x4ED8;</a></li><li><span class="title-icon "></span><a href="#&#x8BA2;&#x5355;&#x67E5;&#x8BE2;"><b></b>&#x8BA2;&#x5355;&#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#&#x4EA4;&#x6613;&#x9000;&#x6B3E;"><b></b>&#x4EA4;&#x6613;&#x9000;&#x6B3E;</a></li><li><span class="title-icon "></span><a href="#&#x9000;&#x6B3E;&#x67E5;&#x8BE2;"><b></b>&#x9000;&#x6B3E;&#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#&#x4EA4;&#x6613;&#x64A4;&#x9500;"><b></b>&#x4EA4;&#x6613;&#x64A4;&#x9500;</a></li></ul></div><a href="#&#x63D0;&#x4EA4;&#x652F;&#x4ED8;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><p><b style="font-size: 2em">&#x5237;&#x5361;&#x652F;&#x4ED8;</b></p>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x63D0;&#x4EA4;&#x652F;&#x4ED8;"><b></b>&#x63D0;&#x4EA4;&#x652F;&#x4ED8;</a></li><li><span class="title-icon "></span><a href="#&#x8BA2;&#x5355;&#x67E5;&#x8BE2;"><b></b>&#x8BA2;&#x5355;&#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#&#x4EA4;&#x6613;&#x9000;&#x6B3E;"><b></b>&#x4EA4;&#x6613;&#x9000;&#x6B3E;</a></li><li><span class="title-icon "></span><a href="#&#x9000;&#x6B3E;&#x67E5;&#x8BE2;"><b></b>&#x9000;&#x6B3E;&#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#&#x4EA4;&#x6613;&#x64A4;&#x9500;"><b></b>&#x4EA4;&#x6613;&#x64A4;&#x9500;</a></li></ul></div><a href="#&#x63D0;&#x4EA4;&#x652F;&#x4ED8;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><p><b style="font-size: 2em">&#x88AB;&#x626B;&#x652F;&#x4ED8;</b></p>
 <hr>
 <h1 id="&#x63D0;&#x4EA4;&#x652F;&#x4ED8;"><a name="&#x63D0;&#x4EA4;&#x652F;&#x4ED8;" class="anchor-navigation-ex-anchor" href="#&#x63D0;&#x4EA4;&#x652F;&#x4ED8;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63D0;&#x4EA4;&#x652F;&#x4ED8;</h1>
 <p><strong>&#x5E94;&#x7528;&#x573A;&#x666F;</strong></p>
@@ -605,6 +605,11 @@
 <td style="text-align:left">&#x652F;&#x4ED8;&#x5B8C;&#x6210;&#x65F6;&#x95F4;&#xFF0C;&#x683C;&#x5F0F;&#x4E3A;yyyyMMddHHmmss&#xFF0C;&#x5982;2009&#x5E74;12&#x6708;25&#x65E5;9&#x70B9;10&#x5206;10&#x79D2;&#x8868;&#x793A;&#x4E3A;20091225091010&#x3002;&#x65F6;&#x533A;&#x4E3A;GMT+8 Beijing</td>
 </tr>
 <tr>
+<td style="text-align:left">paytype</td>
+<td style="text-align:center">&#x662F;</td>
+<td style="text-align:left">&#x652F;&#x4ED8;&#x65B9;&#x5F0F;</td>
+</tr>
+<tr>
 <td style="text-align:left">nonce_str</td>
 <td style="text-align:center">&#x662F;</td>
 <td style="text-align:left">&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;</td>
@@ -647,6 +652,7 @@
     <span class="token property">&quot;fee_type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;CNY&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;bank_type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;CFT&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;time_end&quot;</span><span class="token operator">:</span> <span class="token string">&quot;20170619165616&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;paytype&quot;</span><span class="token operator">:</span> <span class="token string">&quot;WECHAT&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;nonce_str&quot;</span><span class="token operator">:</span> <span class="token string">&quot;a849df6660cb4354b6fe5b23120a73ce&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;promotion_detail&quot;</span><span class="token operator">:</span> <span class="token string">&quot;{\&quot;promotion_detail\&quot;:[{\&quot;promotion_id\&quot;:\&quot;6348962444\&quot;,\&quot;name\&quot;:\&quot;&#x7EF4;&#x4ED6;&#x51CF;2&#x5206;\&quot;,\&quot;scope\&quot;:\&quot;SINGLE\&quot;,\&quot;type\&quot;:\&quot;DISCOUNT\&quot;,\&quot;amount\&quot;:2,\&quot;activity_id\&quot;:\&quot;9447213\&quot;,\&quot;wxpay_contribute\&quot;:0,\&quot;merchant_contribute\&quot;:2,\&quot;other_contribute\&quot;:0,\&quot;goods_detail\&quot;:[{\&quot;goods_id\&quot;:\&quot;CY00000000000\&quot;,\&quot;quantity\&quot;:1,\&quot;price\&quot;:2,\&quot;discount_amount\&quot;:1,\&quot;goods_remark\&quot;:\&quot;&#x5355;&#x54C1;&#x5238;&#x6D3B;&#x52A8;No.002\&quot;},{\&quot;goods_id\&quot;:\&quot;CY00000000001\&quot;,\&quot;quantity\&quot;:1,\&quot;price\&quot;:2,\&quot;discount_amount\&quot;:1,\&quot;goods_remark\&quot;:\&quot;&#x5355;&#x54C1;&#x5238;&#x6D3B;&#x52A8;No.002\&quot;}]}]}&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;wx_mch_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1264300000&quot;</span><span class="token punctuation">,</span>
@@ -906,6 +912,11 @@
 <td style="text-align:left">&#x4EA4;&#x6613;&#x7C7B;&#x578B;</td>
 </tr>
 <tr>
+<td style="text-align:left">paytype</td>
+<td style="text-align:center">&#x662F;</td>
+<td style="text-align:left">&#x652F;&#x4ED8;&#x65B9;&#x5F0F;</td>
+</tr>
+<tr>
 <td style="text-align:left">promotion_detail</td>
 <td style="text-align:center">&#x5426;</td>
 <td style="text-align:left">&#x8425;&#x9500;&#x8BE6;&#x60C5;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;Json&#x683C;&#x5F0F;</td>
@@ -936,6 +947,7 @@
     <span class="token property">&quot;time_end&quot;</span><span class="token operator">:</span> <span class="token string">&quot;20190524103044&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;nonce_str&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1CQmxHpi2H62HsGg&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;trade_type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;MICROPAY&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;paytype&quot;</span><span class="token operator">:</span> <span class="token string">&quot;WECHAT&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;promotion_detail&quot;</span><span class="token operator">:</span> <span class="token string">&quot;{\&quot;promotion_detail\&quot;:[{\&quot;promotion_id\&quot;:\&quot;6348962444\&quot;,\&quot;name\&quot;:\&quot;&#x7EF4;&#x4ED6;&#x51CF;2&#x5206;\&quot;,\&quot;scope\&quot;:\&quot;SINGLE\&quot;,\&quot;type\&quot;:\&quot;DISCOUNT\&quot;,\&quot;amount\&quot;:2,\&quot;activity_id\&quot;:\&quot;9447213\&quot;,\&quot;wxpay_contribute\&quot;:0,\&quot;merchant_contribute\&quot;:2,\&quot;other_contribute\&quot;:0,\&quot;goods_detail\&quot;:[{\&quot;goods_id\&quot;:\&quot;CY00000000000\&quot;,\&quot;quantity\&quot;:1,\&quot;price\&quot;:2,\&quot;discount_amount\&quot;:1,\&quot;goods_remark\&quot;:\&quot;&#x5355;&#x54C1;&#x5238;&#x6D3B;&#x52A8;No.002\&quot;},{\&quot;goods_id\&quot;:\&quot;CY00000000001\&quot;,\&quot;quantity\&quot;:1,\&quot;price\&quot;:2,\&quot;discount_amount\&quot;:1,\&quot;goods_remark\&quot;:\&quot;&#x5355;&#x54C1;&#x5238;&#x6D3B;&#x52A8;No.002\&quot;}]}]}&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;wx_mch_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1264300000&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;wx_sub_mch_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1266500000&quot;</span><span class="token punctuation">,</span>
@@ -1188,6 +1200,11 @@
 <td style="text-align:left">&#x4EE3;&#x91D1;&#x5238;&#x9000;&#x6B3E;&#x91D1;&#x989D; &lt;= &#x9000;&#x6B3E;&#x91D1;&#x989D;&#xFF0C; &#x9000;&#x6B3E;&#x91D1;&#x989D;-&#x4EE3;&#x91D1;&#x5238;&#x9000;&#x6B3E;&#x91D1;&#x989D;&#x4E3A;&#x73B0;&#x91D1;</td>
 </tr>
 <tr>
+<td style="text-align:left">paytype</td>
+<td style="text-align:center">&#x662F;</td>
+<td style="text-align:left">&#x652F;&#x4ED8;&#x65B9;&#x5F0F;</td>
+</tr>
+<tr>
 <td style="text-align:left">nonce_str</td>
 <td style="text-align:center">&#x662F;</td>
 <td style="text-align:left">&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;</td>
@@ -1211,6 +1228,7 @@
     <span class="token property">&quot;base_refund_fee&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;refund_fee&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;coupon_refund_fee&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;paytype&quot;</span><span class="token operator">:</span> <span class="token string">&quot;WECHAT&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;nonce_str&quot;</span><span class="token operator">:</span> <span class="token string">&quot;78GTQmdylSxwFXxE&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;sign&quot;</span><span class="token operator">:</span> <span class="token string">&quot;00000000000000000000000000000000&quot;</span>
 <span class="token punctuation">}</span>
@@ -1442,6 +1460,11 @@
 <td style="text-align:left">&#x9000;&#x6B3E;&#x5355;&#x96C6;&#x5408;</td>
 </tr>
 <tr>
+<td style="text-align:left">paytype</td>
+<td style="text-align:center">&#x662F;</td>
+<td style="text-align:left">&#x652F;&#x4ED8;&#x65B9;&#x5F0F;</td>
+</tr>
+<tr>
 <td style="text-align:left">nonce_str</td>
 <td style="text-align:center">&#x662F;</td>
 <td style="text-align:left">&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;</td>
@@ -1535,6 +1558,7 @@
     <span class="token property">&quot;refund_fee_summary&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;refund_count&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;refund_list&quot;</span><span class="token operator">:</span> <span class="token string">&quot;[{\&quot;serial_no\&quot;:\&quot;0\&quot;,\&quot;refund_id\&quot;:\&quot;50000000482019052409653860000\&quot;,\&quot;out_refund_id\&quot;:\&quot;50000000482019052409653860000\&quot;,\&quot;out_refund_no\&quot;:\&quot;TKT0020190524102840000\&quot;,\&quot;base_refund_fee\&quot;:\&quot;4\&quot;,\&quot;refund_fee\&quot;:\&quot;2\&quot;,\&quot;coupon_refund_fee\&quot;:\&quot;2\&quot;,\&quot;refund_status\&quot;:\&quot;SUCCESS\&quot;,\&quot;refund_channel\&quot;:\&quot;ORIGINAL\&quot;,\&quot;refund_time\&quot;:\&quot;2019-05-24 11:11:33\&quot;}]&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;paytype&quot;</span><span class="token operator">:</span> <span class="token string">&quot;WECHAT&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;nonce_str&quot;</span><span class="token operator">:</span> <span class="token string">&quot;DjRzpkdtpM0Sl6HW&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;wx_mch_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1264300000&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;wx_sub_mch_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1266500000&quot;</span><span class="token punctuation">,</span>
@@ -1699,6 +1723,16 @@
 <td style="text-align:left">&#x8D85;&#x8D62;&#x5546;&#x6237;&#x53F7;</td>
 </tr>
 <tr>
+<td style="text-align:left">out_trade_no</td>
+<td style="text-align:center">&#x662F;</td>
+<td style="text-align:left">&#x5546;&#x6237;&#x7CFB;&#x7EDF;&#x5185;&#x90E8;&#x7684;&#x5B9A;&#x5355;&#x53F7;&#xFF0C;32&#x4E2A;&#x5B57;&#x7B26;&#x5185;&#x3001;&#x53EF;&#x5305;&#x542B;&#x5B57;&#x6BCD;</td>
+</tr>
+<tr>
+<td style="text-align:left">paytype</td>
+<td style="text-align:center">&#x662F;</td>
+<td style="text-align:left">&#x652F;&#x4ED8;&#x65B9;&#x5F0F;</td>
+</tr>
+<tr>
 <td style="text-align:left">nonce_str</td>
 <td style="text-align:center">&#x662F;</td>
 <td style="text-align:left">&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;</td>
@@ -1722,6 +1756,8 @@
     <span class="token property">&quot;trade_state&quot;</span><span class="token operator">:</span> <span class="token string">&quot;SUCCESS&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;msg&quot;</span><span class="token operator">:</span> <span class="token string">&quot;SUCCESS&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;mch_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;00000001&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;out_trade_no&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1497769914931&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;paytype&quot;</span><span class="token operator">:</span> <span class="token string">&quot;WECHAT&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;nonce_str&quot;</span><span class="token operator">:</span> <span class="token string">&quot;f1625e94362d4d82aafcc5fc9d1f9325&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;wx_mch_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1264300000&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;wx_sub_mch_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1266500000&quot;</span><span class="token punctuation">,</span>
@@ -1729,7 +1765,7 @@
 <span class="token punctuation">}</span>
 </code></pre>
 <footer class="page-footer"><span class="copyright">&#xA9; &#x8D85;&#x8D62;&#x79D1;&#x6280; all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification"><a id="link_icp" href="http://www.beian.miit.gov.cn/" target="_blank">&#x7CA4;ICP&#x5907;18161097&#x53F7;-1</a>&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;
-2020-07-01 10:24:23
+2020-09-03 14:33:19
 </span></footer>
                                 
                                 </section>
@@ -1773,7 +1809,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"刷卡支付","level":"2.2","depth":1,"next":{"title":"预下单支付","level":"2.3","depth":1,"path":"api/preorderpay.md","ref":"api/preorderpay.md","articles":[]},"previous":{"title":"刷脸支付","level":"2.1","depth":1,"path":"api/facepay.md","ref":"api/facepay.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-highlight","-lunr","-search","search-pro","anchor-navigation-ex","splitter","-github","sitemap","tbfed-pagefooter","prism","alerts","donate","copy-code-button","advanced-emoji","baidu-tongji","-icp"],"styles":{"website":"styles/yzq.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy 超赢科技","modify_label":"<a id='link_icp' href='http://www.beian.miit.gov.cn/' target='blank'>粤ICP备18161097号-1</a>文件修订时间","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{},"baidu-tongji":{"url":"https://hm.baidu.com/hm.js","token":"8889f781f3b285d8d0b4421fa2757379"},"splitter":{},"search-pro":{},"donate":{"alipay":"../../assets/donate_alipay.jpg","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"../../assets/donate_wechat.jpg","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":1},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sitemap":{"hostname":"http://doc-unifiedpay.yinziqiang.com"},"icp":{"number":"粤ICP备18161097号-1","link":"http://www.beian.miit.gov.cn/"},"alerts":{},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"尹自强","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"超赢聚合支付API在线文档","language":"zh-hans","gitbook":"3.2.3","description":"超赢聚合支付API在线文档"},"file":{"path":"api/micropay.md","mtime":"2020-07-01T02:24:23.540Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-27T07:56:16.807Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"被扫支付","level":"2.2","depth":1,"next":{"title":"预下单支付","level":"2.3","depth":1,"path":"api/preorderpay.md","ref":"api/preorderpay.md","articles":[]},"previous":{"title":"刷脸支付","level":"2.1","depth":1,"path":"api/facepay.md","ref":"api/facepay.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-highlight","-lunr","-search","search-pro","anchor-navigation-ex","splitter","-github","sitemap","tbfed-pagefooter","prism","alerts","donate","copy-code-button","advanced-emoji","baidu-tongji","-icp"],"styles":{"website":"styles/yzq.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy 超赢科技","modify_label":"<a id='link_icp' href='http://www.beian.miit.gov.cn/' target='blank'>粤ICP备18161097号-1</a>文件修订时间","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{},"baidu-tongji":{"url":"https://hm.baidu.com/hm.js","token":"8889f781f3b285d8d0b4421fa2757379"},"splitter":{},"search-pro":{},"donate":{"alipay":"../../assets/donate_alipay.jpg","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"../../assets/donate_wechat.jpg","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":1},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sitemap":{"hostname":"http://doc-unifiedpay.yinziqiang.com"},"icp":{"number":"粤ICP备18161097号-1","link":"http://www.beian.miit.gov.cn/"},"alerts":{},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"尹自强","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"超赢聚合支付API在线文档","language":"zh-hans","gitbook":"3.2.3","description":"超赢聚合支付API在线文档"},"file":{"path":"api/micropay.md","mtime":"2020-09-03T06:33:19.919Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-03T07:04:34.524Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1,4 +1,4 @@
-<b style="font-size: 2em">刷卡支付</b>
+<b style="font-size: 2em">被扫支付</b>
 
 ---
 
@@ -109,6 +109,7 @@ goods_detail为JSON数组类型结构如下
 | bank_type | 否 | 付款银行 |
 | bank_billno | 否 | 银行订单号，若为第三方支付则为空 |
 | time_end | 是 | 支付完成时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。时区为GMT+8 Beijing |
+| paytype | 是 | 支付方式 |
 | nonce_str | 是 | 随机字符串 |
 | promotion_detail | 否 | 营销详情，返回值为Json格式 |
 | wx_mch_id | 否 | 微信服务商商户号 |
@@ -137,6 +138,7 @@ goods_detail为JSON数组类型结构如下
     "fee_type": "CNY",
     "bank_type": "CFT",
     "time_end": "20170619165616",
+    "paytype": "WECHAT",
     "nonce_str": "a849df6660cb4354b6fe5b23120a73ce",
     "promotion_detail": "{\"promotion_detail\":[{\"promotion_id\":\"6348962444\",\"name\":\"维他减2分\",\"scope\":\"SINGLE\",\"type\":\"DISCOUNT\",\"amount\":2,\"activity_id\":\"9447213\",\"wxpay_contribute\":0,\"merchant_contribute\":2,\"other_contribute\":0,\"goods_detail\":[{\"goods_id\":\"CY00000000000\",\"quantity\":1,\"price\":2,\"discount_amount\":1,\"goods_remark\":\"单品券活动No.002\"},{\"goods_id\":\"CY00000000001\",\"quantity\":1,\"price\":2,\"discount_amount\":1,\"goods_remark\":\"单品券活动No.002\"}]}]}",
     "wx_mch_id": "1264300000",
@@ -227,6 +229,7 @@ goods_detail为JSON数组类型结构如下
 | time_end | 是 | 支付完成时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。时区为GMT+8 Beijing |
 | nonce_str | 是 | 随机字符串 |
 | trade_type | 是 | 交易类型 |
+| paytype | 是 | 支付方式 |
 | promotion_detail | 否 | 营销详情，返回值为Json格式 |
 
 **响应结果示例**
@@ -255,6 +258,7 @@ goods_detail为JSON数组类型结构如下
     "time_end": "20190524103044",
     "nonce_str": "1CQmxHpi2H62HsGg",
     "trade_type": "MICROPAY",
+    "paytype": "WECHAT",
     "promotion_detail": "{\"promotion_detail\":[{\"promotion_id\":\"6348962444\",\"name\":\"维他减2分\",\"scope\":\"SINGLE\",\"type\":\"DISCOUNT\",\"amount\":2,\"activity_id\":\"9447213\",\"wxpay_contribute\":0,\"merchant_contribute\":2,\"other_contribute\":0,\"goods_detail\":[{\"goods_id\":\"CY00000000000\",\"quantity\":1,\"price\":2,\"discount_amount\":1,\"goods_remark\":\"单品券活动No.002\"},{\"goods_id\":\"CY00000000001\",\"quantity\":1,\"price\":2,\"discount_amount\":1,\"goods_remark\":\"单品券活动No.002\"}]}]}",
     "wx_mch_id": "1264300000",
     "wx_sub_mch_id": "1266500000",
@@ -355,6 +359,7 @@ goods_detail为JSON数组类型结构如下
 | base_refund_fee | 是 | 申请退款金额，单位为分 |
 | refund_fee | 是 | 实际退款金额，单位为分 |
 | coupon_refund_fee | 是 | 代金券退款金额 &lt;= 退款金额， 退款金额-代金券退款金额为现金 |
+| paytype | 是 | 支付方式 |
 | nonce_str | 是 | 随机字符串 |
 
 **响应结果示例**
@@ -376,6 +381,7 @@ goods_detail为JSON数组类型结构如下
     "base_refund_fee": "2",
     "refund_fee": "1",
     "coupon_refund_fee": "1",
+    "paytype": "WECHAT",
     "nonce_str": "78GTQmdylSxwFXxE",
     "sign": "00000000000000000000000000000000"
 }
@@ -462,6 +468,7 @@ goods_detail为JSON数组类型结构如下
 | base_refund_fee_summary | 是 | 申请退款汇总金额，以分为单位，只能为整数 |
 | refund_fee_summary | 是 | 实际退款汇总金额，以分为单位，只能为整数 |
 | refund_list | 是 | 退款单集合 |
+| paytype | 是 | 支付方式 |
 | nonce_str | 是 | 随机字符串 |
 | wx_mch_id | 否 | 微信服务商商户号 |
 | wx_sub_mch_id | 否 | 微信子商户号 |
@@ -498,6 +505,7 @@ goods_detail为JSON数组类型结构如下
     "refund_fee_summary": "2",
     "refund_count": "1",
     "refund_list": "[{\"serial_no\":\"0\",\"refund_id\":\"50000000482019052409653860000\",\"out_refund_id\":\"50000000482019052409653860000\",\"out_refund_no\":\"TKT0020190524102840000\",\"base_refund_fee\":\"4\",\"refund_fee\":\"2\",\"coupon_refund_fee\":\"2\",\"refund_status\":\"SUCCESS\",\"refund_channel\":\"ORIGINAL\",\"refund_time\":\"2019-05-24 11:11:33\"}]",
+    "paytype": "WECHAT",
     "nonce_str": "DjRzpkdtpM0Sl6HW",
     "wx_mch_id": "1264300000",
     "wx_sub_mch_id": "1266500000",
@@ -570,6 +578,8 @@ goods_detail为JSON数组类型结构如下
 | 字段名 | 必填 | 说明 |
 | :--- | :---: | :--- |
 | mch_id | 是 | 超赢商户号 |
+| out_trade_no | 是 | 商户系统内部的定单号，32个字符内、可包含字母 |
+| paytype | 是 | 支付方式 |
 | nonce_str | 是 | 随机字符串 |
 | wx_mch_id | 否 | 微信服务商商户号 |
 | wx_sub_mch_id | 否 | 微信子商户号 |
@@ -583,6 +593,8 @@ goods_detail为JSON数组类型结构如下
     "trade_state": "SUCCESS",
     "msg": "SUCCESS",
     "mch_id": "00000001",
+    "out_trade_no": "1497769914931",
+    "paytype": "WECHAT",
     "nonce_str": "f1625e94362d4d82aafcc5fc9d1f9325",
     "wx_mch_id": "1264300000",
     "wx_sub_mch_id": "1266500000",

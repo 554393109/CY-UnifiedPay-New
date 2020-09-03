@@ -7,6 +7,6 @@
 ## 接口
 
 * [刷脸支付](api/facepay.md)
-* [刷卡支付](api/micropay.md)
+* [被扫支付](api/micropay.md)
 * [预下单支付](api/preorderpay.md)
 * [运维管理](api/operation.md)
