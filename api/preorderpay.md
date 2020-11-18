@@ -284,7 +284,7 @@ goods_detail为JSON数组类型结构如下
 | device_info | 否 | 终端设备号 |
 | pay_result | 是 | 支付结果：0—成功；其它—失败 |
 | out_trade_no | 是 | 商户系统内部的订单号，32个字符内、可包含字母 |
-| out_transaction_id | 是 | 第三方订单号 |
+| out_transaction_id | 否 | 第三方订单号 |
 | transaction_id | 是 | 平台交易号 |
 | fee_type | 否 | 货币类型，符合 ISO 4217 标准的三位字母代码，默认人民币：CNY |
 | total_fee | 是 | 总金额，以分为单位，只能为整数 |
@@ -361,7 +361,7 @@ goods_detail为JSON数组类型结构如下
 | device_info | 否 | 终端设备号 |
 | pay_result | 是 | 支付结果：0—成功；其它—失败 |
 | out_trade_no | 是 | 商户系统内部的订单号，32个字符内、可包含字母 |
-| out_transaction_id | 是 | 第三方订单号 |
+| out_transaction_id | 否 | 第三方订单号 |
 | transaction_id | 是 | 平台交易号 |
 | fee_type | 否 | 货币类型，符合 ISO 4217 标准的三位字母代码，默认人民币：CNY |
 | total_fee | 是 | 总金额，以分为单位，只能为整数 |
