@@ -38,7 +38,7 @@
         },
         "tbfed-pagefooter": {
             "copyright": "&copy 超赢科技",
-            "modify_label": "<a id='link_icp' href='http://www.beian.miit.gov.cn/' target='blank'>粤ICP备18161097号-1</a>文件修订时间",
+            "modify_label": "<a id='link_icp' href='https://beian.miit.gov.cn/' target='blank'>粤ICP备20009700号-1</a>文件修订时间",
             "modify_format": "YYYY-MM-DD HH:mm:ss"
         },
         "donate": {
