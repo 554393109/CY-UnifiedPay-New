@@ -322,9 +322,9 @@ goods_detail为JSON数组类型结构如下
 | :--- | :---: | :--- | :--- |
 | paytype | 是 | WECHAT | 支付方式，详见参数规定 |
 | mch_id | 是 | 00000001 | 超赢商户号 |
-| out_trade_no | 否 | 1497769914931 | 商户系统内部的订单号，out_trade_no和transaction_id至少一个必填，同时存在时transaction_id优先 |
-| transaction_id | 否 | 7551000001201706166172780576 | 平台单号, out_trade_no和transaction_id至少一个必填，同时存在时transaction_id优先 |
-| out_refund_no | 是 | TK-1497769914931-01 | 商户退款单号，32个字符内、可包含字母，确保在商户系统唯一。如果出现退款不成功，请采用变更退款单号重新发起。 |
+| out_trade_no | 否 | 1497769914931 | 商户系统内部的订单号，out_trade_no和transaction_id至少一个必填，同时存在时out_trade_no优先 |
+| transaction_id | 否 | 7551000001201706166172780576 | 平台单号, out_trade_no和transaction_id至少一个必填，同时存在时out_trade_no优先 |
+| out_refund_no | 是 | TK-1497769914931-01 | 商户退款单号，32个字符内、可包含字母，确保在商户系统唯一。如果出现退款不成功，请变更退款单号重新发起。 |
 | total_fee | 是 | 1 | 订单应付金额，单位为分 |
 | refund_fee | 是 | 1 | 申请退款金额，单位为分 |
 | op_user_id | 是 | 00000001 | 操作员帐号，默认为商户号 |
@@ -434,7 +434,7 @@ goods_detail为JSON数组类型结构如下
 | paytype | 是 | WECHAT | 支付方式，详见参数规定 |
 | mch_id | 是 | 00000001 | 超赢商户号 |
 | out_refund_no | 否 | TK-1497769914931-01 | 商户退款单号，32个字符内、可包含字母,确保在商户系统唯一。 |
-| refund_id | 否 | 7551000001201706215157548269 | 平台退款单号关于refund_id、out_refund_no必填一个， 如果同时存在优先级为：refund_id &gt; out_refund_no；特殊说明：如果是支付宝，refund_id、out_refund_no必填其中一个。 |
+| refund_id | 否 | 7551000001201706215157548269 | 平台退款单号关于refund_id、out_refund_no必填一个， 如果同时存在优先级为：out_refund_no &gt; refund_id；特殊说明：如果是支付宝，refund_id、out_refund_no必填其中一个。 |
 
 **请求参数示例**
 
