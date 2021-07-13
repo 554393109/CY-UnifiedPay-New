@@ -610,7 +610,7 @@ goods_detail为JSON数组类型结构如下
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
 | mch_id | 是 | 00000001 | 超赢商户号 |
-| sub_appid | 是 | wx4da448cd29920000 | 商户公众账号Id |
+| sub_appid | 否 | wx4da448cd29920000 | 商户公众账号Id |
 | auth_code | 是 | 130000000000000000 | 扫码支付付款码，设备读取用户展示的条码信息 |
 
 **请求参数示例**
@@ -634,7 +634,7 @@ goods_detail为JSON数组类型结构如下
 | mch_id | 是 | 超赢商户号 |
 | paytype | 是 | 支付方式 |
 | auth_code | 是 | 扫码支付付款码，设备读取用户展示的条码信息 |
-| sub_appid | 是 | 商户公众账号Id |
+| sub_appid | 否 | 商户公众账号Id |
 | sub_openid | 是 | 买家Id |
 | nonce_str | 是 | 随机字符串 |
 | wx_mch_id | 否 | 微信服务商商户号 |
