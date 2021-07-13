@@ -37,7 +37,7 @@
 
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
-| method | 是 | pay | 接口名称，pay |
+| method | 是 | pay | 接口名称 |
 | agent_id | 是 | 13000000000000000 | 代理商编号 |
 | pid | 是 | yunpos | 调用方产品名称 |
 | version | 是 | 1.0 | 调用方版本号 |
@@ -54,7 +54,7 @@
 | attach | 否 | 说明 | 商户附加信息，可做扩展参数 |
 | total_fee | 是 | 1 | 总金额，以分为单位，只能为整数 |
 | mch_create_ip | 否 | 114.114.114.114 | 调用支付API的机器IP |
-| auth_code | 是 | 120061098828009406 | 扫码支付授权码， 设备读取用户展示的条码信息 |
+| auth_code | 是 | 130000000000000000 | 扫码支付付款码，设备读取用户展示的条码信息 |
 | op_user_id | 否 | 00000001 | 操作员帐号，默认为商户号 |
 | op_shop_id | 否 | md_001 | 门店编号 |
 | op_device_id | 否 | device_01 | 设备编号 |
@@ -75,7 +75,7 @@ goods_detail为JSON数组类型结构如下
 
 **请求参数示例**
 
-> method=pay&agent_id=13000000000000000&mch_id=00000001&version=1.0&pid=yunpos&out_trade_no=1497769914931&auth_code=123123123&body=%E8%B6%85%E8%B5%A2%E6%94%AF%E4%BB%98&total_fee=4&goods_tag=CY_PROMOTION_001&goods_detail=[{"goods_id":"CY000000","goods_name":"促销单品-CY00000000000","quantity":1,"price":2},{"goods_id":"CY000001","goods_name":"促销单品-CY00000000001","quantity":1,"price":2}]&sign=00000000000000000000000000000000
+> method=pay&agent_id=13000000000000000&mch_id=00000001&version=1.0&pid=yunpos&out_trade_no=1497769914931&auth_code=130000000000000000&body=%E8%B6%85%E8%B5%A2%E6%94%AF%E4%BB%98&total_fee=4&goods_tag=CY_PROMOTION_001&goods_detail=[{"goods_id":"CY000000","goods_name":"促销单品-0","quantity":1,"price":2},{"goods_id":"CY000001","goods_name":"促销单品-1","quantity":1,"price":2}]&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -92,22 +92,19 @@ goods_detail为JSON数组类型结构如下
 | 字段名 | 必填 | 说明 |
 | :--- | :---: | :--- |
 | mch_id | 是 | 超赢商户号 |
-| appid | 是 | 调用接口提交的公众账号ID |
-| is_subscribe | 是 | 用户是否关注公众账号，仅在公众账号类型支付有效，取值范围：Y或N；Y-关注；N-未关注 |
-| openid | 是 | 用户在商户 appid 下的唯一标识 |
-| sub_appid | 是 | 调用接口提交的子商户公众账号ID |
-| sub_is_subscribe | 是 | 用户是否关注子公众账号，仅在公众账号类型支付有效，取值范围：Y或N;Y-关注;N-未关注 |
-| sub_openid | 是 | 子商户appid下用户唯一标识，如需返回则请求时需要传sub_appid |
+| appid | 否 | 调用接口提交的公众账号ID |
+| openid | 否 | 用户在商户 appid 下的唯一标识 |
+| sub_appid | 否 | 调用接口提交的子商户公众账号ID |
+| sub_openid | 否 | 子商户appid下用户唯一标识，如需返回则请求时需要传sub_appid |
+| buyer_user_id | 否 | 买家Id |
 | transaction_id | 是 | 平台交易号 |
-| out_transaction_id | 是 | 第三方订单号 |
+| out_transaction_id | 否 | 第三方订单号 |
 | out_trade_no | 是 | 商户系统内部的定单号，32个字符内、可包含字母 |
 | base_fee | 是 | 订单应付金额，单位为分 |
 | total_fee | 是 | 订单实付金额，单位为分 |
 | coupon_fee | 否 | 代金券金额，代金券金额&lt;=订单金额，订单金额 - 代金券金额 = 现金支付金额 |
 | fee_type | 否 | 货币类型，符合 ISO 4217 标准的三位字母代码，默认人民币：CNY |
 | attach | 否 | 商家数据包，原样返回 |
-| bank_type | 否 | 付款银行 |
-| bank_billno | 否 | 银行订单号，若为第三方支付则为空 |
 | time_end | 是 | 支付完成时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。时区为GMT+8 Beijing |
 | paytype | 是 | 支付方式 |
 | nonce_str | 是 | 随机字符串 |
@@ -124,19 +121,12 @@ goods_detail为JSON数组类型结构如下
     "trade_state": "SUCCESS",
     "msg": "SUCCESS",
     "mch_id": "00000001",
-    "appid": "wx1f87d44db95cba7a",
-    "is_subscribe": "N",
-    "openid": "oywgtuCJFeGzT-QtF-8U7FHb1z3Q",
-    "sub_appid": "wxce38685bc050ef82",
-    "sub_is_subscribe": "N",
-    "sub_openid": "oHmbktxFlpoEPo2Ol5GOJniV2q-A",
+    "buyer_user_id": "oHmbktxFlpoEPo2Ol5GOJniV2q-A",
+    "out_trade_no": "1497862554883",
     "transaction_id": "7551000001201706196281085687",
     "out_transaction_id": "4005572001201706196460269701",
-    "out_trade_no": "1497862554883",
     "base_fee": "1",
     "total_fee": "1",
-    "fee_type": "CNY",
-    "bank_type": "CFT",
     "time_end": "20170619165616",
     "paytype": "WECHAT",
     "nonce_str": "a849df6660cb4354b6fe5b23120a73ce",
@@ -176,7 +166,7 @@ goods_detail为JSON数组类型结构如下
 
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
-| method | 是 | orderquery | 接口名称，orderquery |
+| method | 是 | orderquery | 接口名称 |
 | agent_id | 是 | 13000000000000000 | 代理商编号 |
 | pid | 是 | yunpos | 调用方产品名称 |
 | version | 是 | 1.0 | 调用方版本号 |
@@ -210,22 +200,19 @@ goods_detail为JSON数组类型结构如下
 | 字段名 | 必填 | 说明 |
 | :--- | :---: | :--- |
 | mch_id | 是 | 超赢商户号 |
-| appid | 是 | 调用接口提交的公众账号ID |
-| is_subscribe | 是 | 用户是否关注公众账号，仅在公众账号类型支付有效，取值范围：Y或N;Y-关注;N-未关注 |
-| openid | 是 | 用户在商户 appid 下的唯一标识 |
-| sub_appid | 是 | 调用接口提交的子商户公众账号ID |
-| sub_is_subscribe | 是 | 用户是否关注子公众账号，仅在公众账号类型支付有效，取值范围：Y或N；Y-关注；N-未关注 |
-| sub_openid | 是 | 子商户appid下用户唯一标识，如需返回则请求时需要传sub_appid |
-| transaction_id | 是 | 平台交易号 |
-| out_transaction_id | 是 | 第三方订单号 |
+| appid | 否 | 调用接口提交的公众账号ID |
+| openid | 否 | 用户在商户 appid 下的唯一标识 |
+| sub_appid | 否 | 调用接口提交的子商户公众账号ID |
+| sub_openid | 否 | 子商户appid下用户唯一标识，如需返回则请求时需要传sub_appid |
+| buyer_user_id | 否 | 买家Id |
 | out_trade_no | 是 | 商户系统内部的定单号，32个字符内、可包含字母 |
+| transaction_id | 是 | 平台交易号 |
+| out_transaction_id | 否 | 第三方订单号 |
 | base_fee | 是 | 应付金额、订单金额，以分为单位，只能为整数 |
 | total_fee | 是 | 实付金额，以分为单位，只能为整数 |
 | coupon_fee | 否 | 代金券金额，代金券金额&lt;=订单金额，订单金额 - 代金券金额 = 现金支付金额 |
 | fee_type | 否 | 货币类型，符合 ISO 4217 标准的三位字母代码，默认人民币：CNY |
 | attach | 否 | 商家数据包，原样返回 |
-| bank_type | 否 | 付款银行 |
-| bank_billno | 否 | 银行订单号，若为第三方支付则为空 |
 | time_end | 是 | 支付完成时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。时区为GMT+8 Beijing |
 | nonce_str | 是 | 随机字符串 |
 | trade_type | 是 | 交易类型 |
@@ -241,23 +228,16 @@ goods_detail为JSON数组类型结构如下
     "trade_state": "SUCCESS",
     "msg": "SUCCESS",
     "mch_id": "00000001",
-    "appid": "wx4da448cd29920000",
-    "is_subscribe": "Y",
-    "openid": "o4he1jo7fA1rIWTOOA3hDbGWc29w",
-    "sub_appid": "wx4da448cd29920000",
-    "sub_is_subscribe": "Y",
-    "sub_openid": "o4he1jo7fA1rIWTOOA3hDbGWc29w",
+    "buyer_user_id": "o4he1jo7fA1rIWTOOA3hDbGWc29w",
+    "out_trade_no": "T0020190524102840000",
     "transaction_id": "4200000334201905246610520000",
     "out_transaction_id": "4200000334201905246610520000",
-    "out_trade_no": "T0020190524102840000",
     "base_fee": "4",
     "total_fee": "2",
     "coupon_fee": "2",
-    "fee_type": "CNY",
-    "bank_type": "CFT",
     "time_end": "20190524103044",
-    "nonce_str": "1CQmxHpi2H62HsGg",
-    "trade_type": "MICROPAY",
+    "nonce_str": "a849df6660cb4354b6fe5b23120a73ce",
+    "trade_type": "pay.wechat.micropay",
     "paytype": "WECHAT",
     "promotion_detail": "{\"promotion_detail\":[{\"promotion_id\":\"6348962444\",\"name\":\"维他减2分\",\"scope\":\"SINGLE\",\"type\":\"DISCOUNT\",\"amount\":2,\"activity_id\":\"9447213\",\"wxpay_contribute\":0,\"merchant_contribute\":2,\"other_contribute\":0,\"goods_detail\":[{\"goods_id\":\"CY00000000000\",\"quantity\":1,\"price\":2,\"discount_amount\":1,\"goods_remark\":\"单品券活动No.002\"},{\"goods_id\":\"CY00000000001\",\"quantity\":1,\"price\":2,\"discount_amount\":1,\"goods_remark\":\"单品券活动No.002\"}]}]}",
     "wx_mch_id": "1264300000",
@@ -272,13 +252,13 @@ goods_detail为JSON数组类型结构如下
 
 **应用场景**
 
-商户针对某一个已经成功支付的订单发起退款，操作结果在同一会话中同步返回。
+商户针对某一个已经成功支付的订单发起退款，操作结果在同一请求中同步返回。
 
 **退款方式**
 
-目前只支持原路返回退款
+只支持原路返回退款
 
-说明：退到银行卡则是非实时的，每个银行的处理速度不同，一般发起退款后1-3个工作日内到账。
+说明：退到银行卡是非实时的，每个银行的处理速度不同，一般发起退款后1-3个工作日内到账。
 
 同一笔单的部分退款需要设置相同的订单号和不同的out_refund_no。每次发起退款需要使用不同的out_refund_no，若出现错误或网络异常，可调用退款查询接口获取退款申请结果。总退款金额不能超过用户实际支付金额\(代金券金额不能退款\)
 
@@ -310,7 +290,7 @@ goods_detail为JSON数组类型结构如下
 
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
-| method | 是 | refund | 接口名称，refund |
+| method | 是 | refund | 接口名称 |
 | agent_id | 是 | 13000000000000000 | 代理商编号 |
 | pid | 是 | yunpos | 调用方产品名称 |
 | version | 是 | 1.0 | 调用方版本号 |
@@ -350,15 +330,15 @@ goods_detail为JSON数组类型结构如下
 | mch_id | 是 | 超赢商户号 |
 | out_trade_no | 是 | 商户系统内部的定单号，32个字符内、可包含字母 |
 | transaction_id | 是 | 平台交易号 |
-| out_transaction_id | 是 | 第三方退款单号 |
+| out_transaction_id | 否 | 第三方退款单号 |
 | out_refund_no | 是 | 商户退款单号 |
-| refund_id | 是 | 平台退款单号 |
+| refund_id | 否 | 平台退款单号 |
 | refund_channel | 否 | 退款渠道，ORIGINAL—原路退款，默认 |
 | base_fee | 是 | 订单应付金额，单位为分 |
 | total_fee | 是 | 订单实付金额，单位为分 |
 | base_refund_fee | 是 | 申请退款金额，单位为分 |
 | refund_fee | 是 | 实际退款金额，单位为分 |
-| coupon_refund_fee | 是 | 代金券退款金额 &lt;= 退款金额， 退款金额-代金券退款金额为现金 |
+| coupon_refund_fee | 否 | 代金券退款金额 &lt;= 退款金额， 退款金额-代金券退款金额为现金 |
 | paytype | 是 | 支付方式 |
 | nonce_str | 是 | 随机字符串 |
 
@@ -393,12 +373,7 @@ goods_detail为JSON数组类型结构如下
 
 **应用场景**
 
-提交退款申请后， 通过调用该接口查询退款状态。 银行卡支付的退款有一定延时， 请在 3 个工作日后重新查询退款状态。
-
-**注意**
-
-1. 如果单个支付订单部分退款次数超过20次请使用平台退款单号查询
-2. 若存在多条退款单时，退款状态请以refund_list中refund_status字段为准
+提交退款申请后，通过调用该接口查询退款状态。银行卡支付的退款有一定延时，请在 3 个工作日后重新查询退款状态。
 
 **接口详情**
 
@@ -421,7 +396,7 @@ goods_detail为JSON数组类型结构如下
 
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
-| method | 是 | refundquery | 接口名称，refundquery |
+| method | 是 | refundquery | 接口名称 |
 | agent_id | 是 | 13000000000000000 | 代理商编号 |
 | pid | 是 | yunpos | 调用方产品名称 |
 | version | 是 | 1.0 | 调用方版本号 |
@@ -434,7 +409,7 @@ goods_detail为JSON数组类型结构如下
 | paytype | 是 | WECHAT | 支付方式，详见参数规定 |
 | mch_id | 是 | 00000001 | 超赢商户号 |
 | out_refund_no | 否 | TK-1497769914931-01 | 商户退款单号，32个字符内、可包含字母,确保在商户系统唯一。 |
-| refund_id | 否 | 7551000001201706215157548269 | 平台退款单号关于refund_id、out_refund_no必填一个， 如果同时存在优先级为：out_refund_no &gt; refund_id；特殊说明：如果是支付宝，refund_id、out_refund_no必填其中一个。 |
+| refund_id | 否 | 7551000001201706215157548269 | 平台退款单号，refund_id、out_refund_no必填一个，如果同时存在优先级为：out_refund_no &gt; refund_id。 |
 
 **请求参数示例**
 
@@ -455,15 +430,9 @@ goods_detail为JSON数组类型结构如下
 | 字段名 | 必填 | 说明 |
 | :--- | :---: | :--- |
 | mch_id | 是 | 超赢商户号 |
-| appid | 否 | 调用接口提交的公众账号ID |
-| is_subscribe | 否 | 用户是否关注公众账号，仅在公众账号类型支付有效，取值范围：Y或N;Y-关注;N-未关注 |
-| openid | 否 | 用户在商户 appid 下的唯一标识 |
-| sub_appid | 否 | 调用接口提交的子商户公众账号ID |
-| sub_is_subscribe | 否 | 用户是否关注子公众账号，仅在公众账号类型支付有效，取值范围：Y或N;Y-关注;N-未关注 |
-| sub_openid | 否 | 子商户appid下用户唯一标识，如需返回则请求时需要传sub_appid |
-| transaction_id | 是 | 平台交易号 |
-| out_transaction_id | 是 | 第三方订单号 |
 | out_trade_no | 是 | 商户系统内部的定单号，32个字符内、可包含字母 |
+| transaction_id | 是 | 平台交易号 |
+| out_transaction_id | 否 | 第三方订单号 |
 | refund_count | 是 | 退款笔数 |
 | base_refund_fee_summary | 是 | 申请退款汇总金额，以分为单位，只能为整数 |
 | refund_fee_summary | 是 | 实际退款汇总金额，以分为单位，只能为整数 |
@@ -497,10 +466,9 @@ goods_detail为JSON数组类型结构如下
     "trade_state": "SUCCESS",
     "msg": "SUCCESS",
     "mch_id": "00000001",
-    "appid": "wx4da448cd29920000",
+    "out_trade_no": "T0020190524102840000",
     "transaction_id": "4200000334201905246610520000",
     "out_transaction_id": "4200000334201905246610520000",
-    "out_trade_no": "T0020190524102840000",
     "base_refund_fee_summary": "4",
     "refund_fee_summary": "2",
     "refund_count": "1",
@@ -598,6 +566,96 @@ goods_detail为JSON数组类型结构如下
     "nonce_str": "f1625e94362d4d82aafcc5fc9d1f9325",
     "wx_mch_id": "1264300000",
     "wx_sub_mch_id": "1266500000",
+    "sign": "00000000000000000000000000000000"
+}
+```
+
+---
+
+# 付款码查询买家Id
+
+**应用场景**
+
+通过付款码查询买家Id，调用查询后，该付款码只能由此商户号发起扣款，直至付款码更新。
+
+**接口详情**
+
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
+        <td>https://pay.storepos.cn/UnifiedPay/Gateway</td>
+    </tr>
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
+        <td>POST</td>
+    </tr>
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">校验签名</td>
+        <td>是</td>
+    </tr>
+</table>
+
+**公共请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| method | 是 | authcodetoopenid | 接口名称 |
+| agent_id | 是 | 13000000000000000 | 代理商编号 |
+| pid | 是 | yunpos | 调用方产品名称 |
+| version | 是 | 1.0 | 调用方版本号 |
+| sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
+
+**请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| mch_id | 是 | 00000001 | 超赢商户号 |
+| sub_appid | 是 | wx4da448cd29920000 | 商户公众账号Id |
+| auth_code | 是 | 130000000000000000 | 扫码支付付款码，设备读取用户展示的条码信息 |
+
+**请求参数示例**
+
+> method=authcodetoopenid&agent_id=13000000000000000&version=1.0&pid=yunpos&mch_id=00000001&auth_code=130000000000000000&sub_appid=wx4da448cd29920000&sign=00000000000000000000000000000000
+
+**响应结果**
+
+| 字段名 | 必填 | 说明 |
+| :--- | :---: | :--- |
+| state | 是 | 通讯状态，详见参数规定 |
+| code | 是 | 状态码 ，详见参数规定 |
+| msg | 否 | 返回信息 |
+| trade_state | 否 | 交易状态，详见参数规定 |
+| sign | 是 | 响应结果的签名串 |
+
+以下字段在state和trade_state都为SUCCESS的时候有返回
+
+| 字段名 | 必填 | 说明 |
+| :--- | :---: | :--- |
+| mch_id | 是 | 超赢商户号 |
+| paytype | 是 | 支付方式 |
+| auth_code | 是 | 扫码支付付款码，设备读取用户展示的条码信息 |
+| sub_appid | 是 | 商户公众账号Id |
+| sub_openid | 是 | 买家Id |
+| nonce_str | 是 | 随机字符串 |
+| wx_mch_id | 否 | 微信服务商商户号 |
+| wx_sub_mch_id | 否 | 微信子商户号 |
+
+**响应结果示例**
+
+```json
+{
+    "state": "SUCCESS",
+    "code": "10000",
+    "trade_state": "SUCCESS",
+    "msg": "SUCCESS",
+    "mch_id": "00000001",
+    "paytype": "WECHAT",
+    "auth_code": "130000000000000000",
+    "sub_appid": "wx4da448cd29920000",
+    "sub_openid": "oHmbktxFlpoEPo2Ol5GOJniV2q-A",
+    "wx_mch_id": "1264300000",
+    "wx_sub_mch_id": "1266500000",
+    "nonce_str": "f1625e94362d4d82aafcc5fc9d1f9325",
     "sign": "00000000000000000000000000000000"
 }
 ```
