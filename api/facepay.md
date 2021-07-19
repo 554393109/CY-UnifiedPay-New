@@ -40,6 +40,7 @@
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
 | paytype | 是 | WECHAT | 支付方式，详见参数规定 |
+| sub_appid | 否 | wx4da448cd29920000 | 商户公众账号Id |
 | mch_id | 是 | 00000001 | 超赢商户号 |
 | store_id | 是 | test_store_01 | 门店编号 |
 | store_name | 是 | 测试门店01 | 门店名称 |
@@ -143,6 +144,7 @@
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
 | paytype | 是 | WECHAT | 支付方式，详见参数规定 |
+| sub_appid | 否 | wx4da448cd29920000 | 商户公众账号Id |
 | mch_id | 是 | 00000001 | 超赢商户号 |
 | openid | 是 | 00000001 | 用户标识 |
 | out_trade_no | 是 | 1497769914931 | 商户系统内部的订单号 ,5到32个字符、 只能包含字母数字或者下划线，区分大小写，确保在商户系统唯一 |
@@ -201,10 +203,7 @@ goods_detail为JSON数组类型结构如下
 | base_fee | 是 | 应付金额，以分为单位，只能为整数 |
 | total_fee | 是 | 实付金额，以分为单位，只能为整数 |
 | coupon_fee | 否 | 代金券金额，代金券金额&lt;=订单金额，订单金额 - 代金券金额 = 现金支付金额 |
-| fee_type | 否 | 货币类型，符合 ISO 4217 标准的三位字母代码，默认人民币：CNY |
 | attach | 否 | 商家数据包，原样返回 |
-| bank_type | 否 | 付款银行 |
-| bank_billno | 否 | 银行订单号，若为第三方支付则为空 |
 | time_end | 是 | 支付完成时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。时区为GMT+8 Beijing |
 | nonce_str | 是 | 随机字符串 |
 | promotion_detail | 否 | 营销详情，返回值为Json格式 |
@@ -221,15 +220,12 @@ goods_detail为JSON数组类型结构如下
     "msg": "SUCCESS",
     "mch_id": "00000001",
     "appid": "wx2b029c08a6232582",
-    "is_subscribe": "N",
     "openid": "oBmIts3wbluEIYfp6zDgBWsC9Evs",
     "transaction_id": "4200000233201812272744871942",
     "out_transaction_id": "4200000233201812272744871942",
     "out_trade_no": "1545890307",
     "base_fee": "4",
     "total_fee": "2",
-    "fee_type": "CNY",
-    "bank_type": "CFT",
     "time_end": "20181227140034",
     "nonce_str": "k1MErGrCODf06uiv",
     "promotion_detail": "{\"promotion_detail\":[{\"promotion_id\":\"6348962444\",\"name\":\"维他减2分\",\"scope\":\"SINGLE\",\"type\":\"DISCOUNT\",\"amount\":2,\"activity_id\":\"9447213\",\"wxpay_contribute\":0,\"merchant_contribute\":2,\"other_contribute\":0,\"goods_detail\":[{\"goods_id\":\"CY00000000000\",\"quantity\":1,\"price\":2,\"discount_amount\":1,\"goods_remark\":\"单品券活动No.002\"},{\"goods_id\":\"CY00000000001\",\"quantity\":1,\"price\":2,\"discount_amount\":1,\"goods_remark\":\"单品券活动No.002\"}]}]}",
