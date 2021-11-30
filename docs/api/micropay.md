@@ -58,7 +58,7 @@
 | auth_code | 是 | 130000000000000000 | 扫码支付付款码，设备读取用户展示的条码信息 |
 | op_user_id | 否 | 00000001 | 操作员帐号，默认为商户号 |
 | op_shop_id | 否 | md_001 | 门店编号 |
-| op_device_id | 否 | device_01 | 设备编号 |
+| op_device_id | 否 | device_01 | 设备编号（云闪付等银联APP，限长8个字符） |
 | goods_tag | 否 | hot | 订单优惠标记，用于优惠券或者满减使用 |
 | goods_detail | 否 | [{"goods_id":"CY000","goods_name":"促销单品","quantity":1,"price":1}] | 商品详情，JSON Array格式 |
 | profit_sharing | 否 | N | 分账标识 |
