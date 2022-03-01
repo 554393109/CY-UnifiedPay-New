@@ -93,7 +93,7 @@ print(response.text)
 | **字段名** | **必填** | **类型** | **说明** |
 | :--- | :---: | :---: | :--- |
 | state | 是 | String | 通讯状态，详见参数规定 |
-| code | 是 | String | 状态码 ，详见参数规定 |
+| code | 否 | String | 状态码 ，详见参数规定 |
 | msg | 否 | String | 返回信息；若调用失败则为错误原因 |
 | trade_state | 否 | String | 交易状态，详见参数规定 |
 | sign | 是 | String | 响应结果的签名串 |
@@ -102,7 +102,7 @@ print(response.text)
 
 ```json
 {
-    "state": "SUCCESS"
+    "state": "SUCCESS",
     "code": "10000",
     "msg": "SUCCESS",
     "trade_state": "SUCCESS",
@@ -114,7 +114,7 @@ print(response.text)
 
 ```json
 {
-    "state": "FAIL"
+    "state": "FAIL",
     "code": "10002",
     "msg": "签名错误",
     "sign": "00000000000000000000000000000000"

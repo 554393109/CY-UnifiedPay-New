@@ -49,7 +49,7 @@
 | 字段名 | 必填 | 说明 |
 | :--- | :---: | :--- |
 | state | 是 | 通讯状态，详见参数规定 |
-| code | 是 | 状态码 ，详见参数规定 |
+| code | 否 | 状态码 ，详见参数规定 |
 | msg | 否 | 返回信息 |
 | sign | 是 | 响应结果的签名串 |
 
@@ -121,7 +121,7 @@
 | 字段名 | 必填 | 说明 |
 | :--- | :---: | :--- |
 | state | 是 | 通讯状态，详见参数规定 |
-| code | 是 | 验证码有效时长 单位：分钟 |
+| code | 否 | 验证码有效时长 单位：分钟 |
 | msg | 否 | 返回信息 |
 | sign | 是 | 响应结果的签名串 |
 
@@ -188,7 +188,7 @@
 | 字段名 | 必填 | 说明 |
 | :--- | :---: | :--- |
 | state | 是 | 通讯状态，详见参数规定 |
-| code | 是 | 状态码 ，详见参数规定 |
+| code | 否 | 状态码 ，详见参数规定 |
 | msg | 否 | 返回信息 |
 | sign | 是 | 响应结果的签名串 |
 
@@ -267,7 +267,7 @@
 | 字段名 | 必填 | 说明 |
 | :--- | :---: | :--- |
 | state | 是 | 通讯状态，详见参数规定 |
-| code | 是 | 状态码 ，详见参数规定 |
+| code | 否 | 状态码 ，详见参数规定 |
 | msg | 否 | 返回信息 |
 | sign | 是 | 响应结果的签名串 |
 
@@ -348,7 +348,7 @@
 | 字段名 | 必填 | 说明 |
 | :--- | :---: | :--- |
 | state | 是 | 通讯状态，详见参数规定 |
-| code | 是 | 状态码 ，详见参数规定 |
+| code | 否 | 状态码 ，详见参数规定 |
 | msg | 否 | 返回信息 |
 | sign | 是 | 响应结果的签名串 |
 
@@ -424,7 +424,7 @@
 | 字段名 | 必填 | 说明 |
 | :--- | :---: | :--- |
 | state | 是 | 通讯状态，详见参数规定 |
-| code | 是 | 状态码 ，详见参数规定 |
+| code | 否 | 状态码 ，详见参数规定 |
 | msg | 否 | 返回信息 |
 | sign | 是 | 响应结果的签名串 |
 
@@ -503,7 +503,7 @@
 | 字段名 | 必填 | 说明 |
 | :--- | :---: | :--- |
 | state | 是 | 通讯状态，详见参数规定 |
-| code | 是 | 状态码 ，详见参数规定 |
+| code | 否 | 状态码 ，详见参数规定 |
 | msg | 否 | 返回信息 |
 | sign | 是 | 响应结果的签名串 |
 
@@ -540,3 +540,185 @@
 > **示例3：商户交易时实现用A支付关注A，同时实现用A支付关注B**  
 > ①一次请求appid和subscribe_appid两个参数同时配置特约商户APPID（A）  
 > ②一次请求appid和subscribe_appid两个参数分别对应配置APPID（B）和APPID（A）
+
+---
+
+# 支付终端轮询商户配置
+
+**应用场景**
+
+该接口提供支付终端获取轮询商户配置功能（间隔5秒）。
+
+**注意事项**
+
+请求头User-Agent参数须携带固定值“CySoftPayBox”。
+
+**接口详情**
+
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
+        <td>https://api.storepos.cn/Mch/PayBoxConfGet</td>
+    </tr>
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
+        <td>GET</td>
+    </tr>
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">校验签名</td>
+        <td>是</td>
+    </tr>
+</table>
+
+**公共请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| agent_id | 是 | 13000000000000000 | 代理商编号 |
+| pid | 是 | CySoftPayBox | 调用方产品名称 |
+| version | 是 | 1.0 | 调用方版本号 |
+| sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
+
+**请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| device_info | 是 | CySoftPayBox | 设备信息 |
+| op_device_id | 是 | 000063066004189990000194 | 设备唯一编号 |
+
+**请求参数示例**
+
+> agent_id=13000000000000000&version=1.0&pid=CySoftPayBox&device_info=CySoftPayBox&op_device_id=000063066004189990000194&sign=00000000000000000000000000000000
+
+**响应结果**
+
+| 字段名 | 必填 | 说明 |
+| :--- | :---: | :--- |
+| state | 是 | 通讯状态，详见参数规定 |
+| code | 否 | 状态码 ，详见参数规定 |
+| msg | 否 | 返回信息 |
+| sign | 是 | 响应结果的签名串 |
+
+以下字段在state为SUCCESS，code为10000的时候有返回
+
+| 字段名 | 必填 | 说明 |
+| :--- | :---: | :--- |
+| mch_id | 是 | 超赢商户号 |
+| mch_trade_code | 是 | 商户交易码，大小写敏感 |
+| mch_full_name | 是 | 商户全称 |
+| mch_short_name | 是 | 商户简称 |
+| mch_state | 是 | 商户状态。0-待审核、20-启用、30-停用 |
+| device_info | 是 | 设备信息 |
+| op_device_id | 是 | 设备唯一编号 |
+
+**响应结果示例**
+
+```json
+{
+    "state": "SUCCESS",
+    "mch_id": "00000001",
+    "mch_trade_code": "722e51cdcc",
+    "mch_full_name": "商户全称",
+    "mch_short_name": "商户简称",
+    "mch_state": "20",
+    "device_info": "CySoftPayBox",
+    "op_device_id": "000063066004189990000194",
+    "sign": "00000000000000000000000000000000"
+}
+```
+
+---
+
+# 支付终端扫描商户二维码获取配置
+
+**应用场景**
+
+该接口提供支付终端扫描商户二维码获取配置功能。
+
+**注意事项**
+
+请求头User-Agent参数须携带固定值“CySoftPayBox”。
+
+【参数拼接】
+
+从商户二维码扫描识别获取的链接有存在参数的情况，须判断链接中是否存在QueryString，进行拼接；原参数也需要参与签名。
+
+1.扫描商户二维码识别获取链接如：【https://qrpay.storepos.cn/qrpay/00000001?op_shop_id=id_shop&op_user_id=id_user】；
+
+2.拼接上请求参数，得到新链接【https://qrpay.storepos.cn/qrpay/00000001?op_shop_id=id_shop&op_user_id=id_user&agent_id=13000000000000000&version=1.0&pid=CySoftPayBox&device_info=CySoftPayBox&op_device_id=000063066004189990000194&sign=00000000000000000000000000000000】
+
+op_shop_id和op_user_id也需要参与签名。
+
+**接口详情**
+
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
+        <td>从商户二维码扫描识别获取（可能存在参数）</td>
+    </tr>
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
+        <td>GET</td>
+    </tr>
+    <tr>
+        <td style="width: 100px; text-align: center; font-weight: 700;">校验签名</td>
+        <td>是</td>
+    </tr>
+</table>
+
+**公共请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| agent_id | 是 | 13000000000000000 | 代理商编号 |
+| pid | 是 | CySoftPayBox | 调用方产品名称 |
+| version | 是 | 1.0 | 调用方版本号 |
+| sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
+
+**请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| device_info | 是 | CySoftPayBox | 设备信息 |
+| op_device_id | 是 | 000063066004189990000194 | 设备唯一编号 |
+
+**请求参数示例**
+
+> agent_id=13000000000000000&version=1.0&pid=CySoftPayBox&device_info=CySoftPayBox&op_device_id=000063066004189990000194&sign=00000000000000000000000000000000
+
+**响应结果**
+
+| 字段名 | 必填 | 说明 |
+| :--- | :---: | :--- |
+| state | 是 | 通讯状态，详见参数规定 |
+| code | 否 | 状态码 ，详见参数规定 |
+| msg | 否 | 返回信息 |
+| sign | 是 | 响应结果的签名串 |
+
+以下字段在state为SUCCESS，code为10000的时候有返回
+
+| 字段名 | 必填 | 说明 |
+| :--- | :---: | :--- |
+| mch_id | 是 | 超赢商户号 |
+| mch_trade_code | 是 | 商户交易码，大小写敏感 |
+| mch_full_name | 是 | 商户全称 |
+| mch_short_name | 是 | 商户简称 |
+| mch_state | 是 | 商户状态。0-待审核、20-启用、30-停用 |
+| device_info | 是 | 设备信息 |
+| op_device_id | 是 | 设备唯一编号 |
+
+**响应结果示例**
+
+```json
+{
+    "state": "SUCCESS",
+    "mch_id": "00000001",
+    "mch_trade_code": "722e51cdcc",
+    "mch_full_name": "商户全称",
+    "mch_short_name": "商户简称",
+    "mch_state": "20",
+    "device_info": "CySoftPayBox",
+    "op_device_id": "000063066004189990000194",
+    "sign": "00000000000000000000000000000000"
+}
+```
