@@ -553,6 +553,8 @@
 
 请求头User-Agent参数须携带固定值“CySoftPayBox”。
 
+当state=FAIL，终止轮询并展示msg信息；当state=SUCCESS，但无商户信息返回时，间隔5秒继续轮询。
+
 **接口详情**
 
 <table class="table table-bordered table-striped table-condensed">
