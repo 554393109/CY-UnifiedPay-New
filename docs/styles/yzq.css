@@ -1,3 +1,5 @@
 .gitbook-link { display: none !important; }
 .page-footer .footer-modification a { text-decoration: none !important; }
 #link_icp { margin-right: 60px; }
+.page-inner{ max-width: 1400px; }
+.tb-head { width: 100px; text-align: center; font-weight: 700; }

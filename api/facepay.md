@@ -12,16 +12,25 @@
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
-        <td>https://api.storepos.cn/UnifiedPay/Gateway</td>
+        <td class="tb-head">接口地址v1</td>
+        <td colspan="2">https://api.storepos.cn/UnifiedPay/Gateway</td>
     </tr>
     <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
-        <td>POST</td>
+        <td class="tb-head">接口地址v2</td>
+        <td colspan="2">https://api.storepos.cn/v2/UnifiedPay/Gateway</td>
     </tr>
     <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">校验签名</td>
-        <td>是</td>
+        <td class="tb-head">提交方式</td>
+        <td colspan="2">POST</td>
+    </tr>
+    <tr>
+        <td class="tb-head">校验签名</td>
+        <td colspan="2">是</td>
+    </tr>
+    <tr>
+        <td class="tb-head">签名密钥</td>
+        <td>v1 - 代理商密钥</td>
+        <td>v2 - 商户密钥</td>
     </tr>
 </table>
 
@@ -49,7 +58,7 @@
 
 **请求参数示例**
 
-> method=getfaceauth&agent_id=13000000000000000&paytype=WECHAT&mch_id=00000001&version=1.0&pid=yunpos&store_id=test_store_01&store_name=%E6%B5%8B%E8%AF%95%E9%97%A8%E5%BA%9701&device_id=CYW00000000000000000000&rawdata=eNPJNgR26U88XXXXXXXXX&sign=00000000000000000000000000000000
+> method=getfaceauth&agent_id=13000000000000000&paytype=WECHAT&mch_id=00000001&version=1.0&pid=yunpos&store_id=test_store_01&store_name=测试门店01&device_id=CYW00000000000000000000&rawdata=eNPJNgR26U88XXXXXXXXX&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -116,16 +125,25 @@
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
-        <td>https://pay.storepos.cn/UnifiedPay/Gateway</td>
+        <td class="tb-head">接口地址v1</td>
+        <td colspan="2">https://pay.storepos.cn/UnifiedPay/Gateway</td>
     </tr>
     <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
-        <td>POST</td>
+        <td class="tb-head">接口地址v2</td>
+        <td colspan="2">https://pay.storepos.cn/v2/UnifiedPay/Gateway</td>
     </tr>
     <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">校验签名</td>
-        <td>是</td>
+        <td class="tb-head">提交方式</td>
+        <td colspan="2">POST</td>
+    </tr>
+    <tr>
+        <td class="tb-head">校验签名</td>
+        <td colspan="2">是</td>
+    </tr>
+    <tr>
+        <td class="tb-head">签名密钥</td>
+        <td>v1 - 代理商密钥</td>
+        <td>v2 - 商户密钥</td>
     </tr>
 </table>
 
@@ -174,7 +192,7 @@ goods_detail为JSON数组类型结构如下
 
 **请求参数示例**
 
-> method=facepay&agent_id=13000000000000000&paytype=WECHAT&mch_id=00000001&version=1.0&pid=yunpos&out_trade_no=1497769914931&face_code=123123123&body=%E8%B6%85%E8%B5%A2%E6%94%AF%E4%BB%98&total_fee=4&goods_tag=CY_PROMOTION_001&goods_detail=[{"goods_id":"CY000000","goods_name":"促销单品-CY00000000000","quantity":1,"price":2},{"goods_id":"CY000001","goods_name":"促销单品-CY00000000001","quantity":1,"price":2}]&sign=00000000000000000000000000000000
+> method=facepay&agent_id=13000000000000000&paytype=WECHAT&mch_id=00000001&version=1.0&pid=yunpos&out_trade_no=1497769914931&face_code=123123123&body=超赢支付&total_fee=4&goods_tag=CY_PROMOTION_001&goods_detail=[{"goods_id":"CY000000","goods_name":"促销单品-CY00000000000","quantity":1,"price":2},{"goods_id":"CY000001","goods_name":"促销单品-CY00000000001","quantity":1,"price":2}]&sign=00000000000000000000000000000000
 
 **响应结果**
 

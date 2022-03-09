@@ -6,6 +6,7 @@
 <url> <loc>http://doc-unifiedpay.yinziqiang.com/api/facepay.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://doc-unifiedpay.yinziqiang.com/api/micropay.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://doc-unifiedpay.yinziqiang.com/api/preorderpay.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://doc-unifiedpay.yinziqiang.com/api/mch.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://doc-unifiedpay.yinziqiang.com/api/operation.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://doc-unifiedpay.yinziqiang.com/GLOSSARY.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 </urlset>

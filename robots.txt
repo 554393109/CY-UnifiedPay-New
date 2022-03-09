@@ -1,2 +1,3 @@
 # robots.txt
-Sitemap: http://doc.unifiedpay.yinziqiang.com/sitemap.xml
+# Sitemap: http://doc.unifiedpay.yinziqiang.com/sitemap.xml
+Sitemap: http://121.5.58.38:60001/sitemap.xml

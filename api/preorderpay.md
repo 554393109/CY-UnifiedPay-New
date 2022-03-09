@@ -20,16 +20,25 @@
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
-        <td>https://qrpay.pos.cn/Open/WECHAT_PreOrder</td>
+        <td class="tb-head">接口地址v1</td>
+        <td colspan="2">https://qrpay.pos.cn/Open/WECHAT_PreOrder</td>
     </tr>
     <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
-        <td>POST</td>
+        <td class="tb-head">接口地址v2</td>
+        <td colspan="2">https://qrpay.pos.cn/v2/Open/WECHAT_PreOrder</td>
     </tr>
     <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">校验签名</td>
-        <td>是</td>
+        <td class="tb-head">提交方式</td>
+        <td colspan="2">POST</td>
+    </tr>
+    <tr>
+        <td class="tb-head">校验签名</td>
+        <td colspan="2">是</td>
+    </tr>
+    <tr>
+        <td class="tb-head">签名密钥</td>
+        <td>v1 - 代理商密钥</td>
+        <td>v2 - 商户密钥</td>
     </tr>
 </table>
 
@@ -82,7 +91,7 @@ goods_detail为JSON数组类型结构如下
 
 **请求参数示例**
 
-> agent_id=13000000000000000&version=1.0&pid=yunpos&mch_id=00000001™_type=NATIVE&body=超赢支付聚合支付&out_trade_no=1497769914931&total_fee=4&goods_tag=CY_PROMOTION_001&goods_detail=[{"goods_id":"CY000000","goods_name":"促销单品-CY00000000000","quantity":1,"price":2},{"goods_id":"CY000001","goods_name":"促销单品-CY00000000001","quantity":1,"price":2}]&sign=00000000000000000000000000000000
+> agent_id=13000000000000000&version=1.0&pid=yunpos&mch_id=00000001™_type=NATIVE&body=超赢支付&out_trade_no=1497769914931&total_fee=4&goods_tag=CY_PROMOTION_001&goods_detail=[{"goods_id":"CY000000","goods_name":"促销单品-CY00000000000","quantity":1,"price":2},{"goods_id":"CY000001","goods_name":"促销单品-CY00000000001","quantity":1,"price":2}]&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -148,16 +157,25 @@ goods_detail为JSON数组类型结构如下
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
-        <td>https://qrpay.pos.cn/Open/ALIPAY_PreOrder</td>
+        <td class="tb-head">接口地址v1</td>
+        <td colspan="2">https://qrpay.pos.cn/Open/ALIPAY_PreOrder</td>
     </tr>
     <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
-        <td>POST</td>
+        <td class="tb-head">接口地址v2</td>
+        <td colspan="2">https://qrpay.pos.cn/v2/Open/ALIPAY_PreOrder</td>
     </tr>
     <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">校验签名</td>
-        <td>是</td>
+        <td class="tb-head">提交方式</td>
+        <td colspan="2">POST</td>
+    </tr>
+    <tr>
+        <td class="tb-head">校验签名</td>
+        <td colspan="2">是</td>
+    </tr>
+    <tr>
+        <td class="tb-head">签名密钥</td>
+        <td>v1 - 代理商密钥</td>
+        <td>v2 - 商户密钥</td>
     </tr>
 </table>
 
@@ -196,7 +214,7 @@ goods_detail为JSON数组类型结构如下
 
 **请求参数示例**
 
-> agent_id=13000000000000000&version=1.0&pid=yunpos&mch_id=00000001&body=超赢支付聚合支付&out_trade_no=1497769914931&total_fee=1&trade_type=NATIVE&sign=00000000000000000000000000000000
+> agent_id=13000000000000000&version=1.0&pid=yunpos&mch_id=00000001&body=聚合支付&out_trade_no=1497769914931&total_fee=1&trade_type=NATIVE&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -229,7 +247,7 @@ goods_detail为JSON数组类型结构如下
     "msg": "SUCCESS",
     "mch_id": "3338102513618944",
     "out_trade_no": "1523265111702",
-    "code_img_url": "https://pay.swiftpass.cn/pay/qrcode?uuid=https%3A%2F%2Fqr.alipay.com%2Fbax04486r0vgbxds3h55805a",
+    "code_img_url": "https://pay.storepos.cn/pay/qrcode?uuid=https%3A%2F%2Fqr.alipay.com%2Fbax04486r0vgbxds3h55805a",
     "code_url": "https://qr.alipay.com/bax04486r0vgbxds3h55805a",
     "nonce_str": "00000000000000000000000000000000"
 }
@@ -257,16 +275,20 @@ goods_detail为JSON数组类型结构如下
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
+        <td class="tb-head">接口地址</td>
         <td>该链接是通过<a href="#微信预下单">微信预下单</a>接口中提交的参数notify_url设置，如果链接无法访问，商户将无法接收到通知。</td>
     </tr>
     <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
+        <td class="tb-head">提交方式</td>
         <td>POST</td>
     </tr>
     <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">校验签名</td>
+        <td class="tb-head">校验签名</td>
         <td>是</td>
+    </tr>
+    <tr>
+        <td class="tb-head">签名密钥</td>
+        <td>代理商密钥</td>
     </tr>
 </table>
 
@@ -334,16 +356,20 @@ goods_detail为JSON数组类型结构如下
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">接口地址</td>
+        <td class="tb-head">接口地址</td>
         <td>该链接是通过<a href="#支付宝预下单">支付宝预下单</a>接口中提交的参数notify_url设置，如果链接无法访问，商户将无法接收到通知。</td>
     </tr>
     <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">提交方式</td>
+        <td class="tb-head">提交方式</td>
         <td>POST</td>
     </tr>
     <tr>
-        <td style="width: 100px; text-align: center; font-weight: 700;">校验签名</td>
+        <td class="tb-head">校验签名</td>
         <td>是</td>
+    </tr>
+    <tr>
+        <td class="tb-head">签名密钥</td>
+        <td>代理商密钥</td>
     </tr>
 </table>
 
@@ -378,7 +404,7 @@ goods_detail为JSON数组类型结构如下
 
 **请求参数示例**
 
-> bank_type=ALIPAYACCOUNT&buyer_logon_id=13800000000%40qq.com&buyer_user_id=2088822494428000&device_info=device_info_yzq_01&fee_type=CNY&fund_bill_list=%5b%7b%22amount%22%3a%220.01%22%2c%22fundChannel%22%3a%22ALIPAYACCOUNT%22%7d%5d&gmt_create=20180417094613&invoice_amount=1&mch_id=f20170519135901860000&nonce_str=1523929649387&out_trade_no=1523929500000&out_transaction_id=2018041721001004870537670226&pay_result=0&result_code=SUCCESS&sign=00000000000000000000000000000000&state=SUCCESS&time_end=20180417094729&total_fee=1&trade_type=pay.alipay.native&transaction_id=199520439266201804177199552446
+> bank_type=ALIPAYACCOUNT&buyer_logon_id=13800000000@qq.com&buyer_user_id=2088822494428000&device_info=device_info_yzq_01&fee_type=CNY&fund_bill_list=[{"amount":"0.01","fundChannel":"ALIPAYACCOUNT"}]&gmt_create=20180417094613&invoice_amount=1&mch_id=f20170519135901860000&nonce_str=1523929649387&out_trade_no=1523929500000&out_transaction_id=2018041721001004870537670226&pay_result=0&result_code=SUCCESS&sign=00000000000000000000000000000000&state=SUCCESS&time_end=20180417094729&total_fee=1&trade_type=pay.alipay.native&transaction_id=199520439266201804177199552446
 
 **后台通知结果反馈**
 
