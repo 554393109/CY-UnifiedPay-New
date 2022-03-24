@@ -535,15 +535,53 @@
 
 请求头User-Agent参数须携带固定值“CySoftPayBox”。
 
-【参数拼接】
+【参数取值】
 
-从商户二维码扫描识别获取的链接有存在参数的情况，须判断链接中是否存在QueryString，进行拼接；原参数也需要参与签名。
+从商户二维码扫描识别获取的链接有存在参数的情况，须判断链接中是否存在Query部分，进行拼接（**原Query参数也需要参与签名**）；
 
-1.扫描商户二维码识别获取链接如：【https://qrpay.storepos.cn/qrpay/00000001?op_shop_id=id_shop&op_user_id=id_user】；
+1.扫描商户二维码识别获取链接，如下：
 
-2.拼接上请求参数，得到新链接【https://qrpay.storepos.cn/qrpay/00000001?op_shop_id=id_shop&op_user_id=id_user&agent_id=13000000000000000&version=1.0&pid=CySoftPayBox&device_info=CySoftPayBox&op_device_id=000063066004189990000194&sign=00000000000000000000000000000000】
+> <https://qrpay.storepos.cn/qrpay/00000001?code_number=f0000000000000000&op_shop_id=id_shop&op_user_id=id_user>
 
-op_shop_id和op_user_id也需要参与签名。
+2.从步骤1识别的链接中**获取path最末级值并定义为参数code_number**，并存入待签名集合M
+
+```json
+// 集合M
+[
+    { "code_number": "00000001" }
+]
+```
+
+3.从步骤1识别的链接中获取原Query，解析并存入待签名集合M（**若集合A中有同名参数，则使用Query参数值覆盖集合A中同名参数的值**）
+
+```json
+// 集合M
+[
+    { "code_number": "f0000000000000000" },
+    { "op_shop_id": "id_shop" },
+    { "op_user_id": "id_user" }
+]
+```
+
+4.请求参数存入待签名集合M；后续签名流程参照【[接口规则 - 签名验证](/rules.html#签名验证)】
+
+```json
+// 集合M
+[
+    { "agent_id": "13000000000000000" }
+    { "code_number": "f0000000000000000" },
+    { "device_info": "CySoftPayBox" }
+    { "op_device_id": "000063066004189990000194" },
+    { "op_shop_id": "id_shop" },
+    { "op_user_id": "id_user" }
+    { "pid": "CySoftPayBox" }
+    { "version": "1.0" }
+]
+```
+
+5.拼接上请求参数和签名，得到新链接，如下：
+
+> <https://qrpay.storepos.cn/qrpay/00000001?code_number=f0000000000000000&op_shop_id=id_shop&op_user_id=id_user&agent_id=13000000000000000&device_info=CySoftPayBox&op_device_id=000063066004189990000194&pid=CySoftPayBox&version=1.0&sign=00000000000000000000000000000000>
 
 **接口详情**
 
@@ -581,10 +619,12 @@ op_shop_id和op_user_id也需要参与签名。
 | :--- | :---: | :--- | :--- |
 | device_info | 是 | CySoftPayBox | 设备信息 |
 | op_device_id | 是 | 000063066004189990000194 | 设备唯一编号 |
+| code_number | 是 | - | 识别二维码获取path最末级值并定义为参数code_number |
+| - | 是 | - | 识别二维码并解析出的参数 |
 
 **请求参数示例**
 
-> agent_id=13000000000000000&version=1.0&pid=CySoftPayBox&device_info=CySoftPayBox&op_device_id=000063066004189990000194&sign=00000000000000000000000000000000
+> agent_id=13000000000000000&version=1.0&pid=CySoftPayBox&code_number=f0000000000000000&device_info=CySoftPayBox&op_device_id=000063066004189990000194&op_shop_id=门店01&sign=00000000000000000000000000000000
 
 **响应结果**
 
