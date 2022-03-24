@@ -581,10 +581,12 @@ op_shop_id和op_user_id也需要参与签名。
 | :--- | :---: | :--- | :--- |
 | device_info | 是 | CySoftPayBox | 设备信息 |
 | op_device_id | 是 | 000063066004189990000194 | 设备唯一编号 |
+| code_number | 是 | - | 识别二维码获取path最末级值并定义为参数code_number |
+| - | 是 | - | 识别二维码并解析出的参数 |
 
 **请求参数示例**
 
-> agent_id=13000000000000000&version=1.0&pid=CySoftPayBox&device_info=CySoftPayBox&op_device_id=000063066004189990000194&sign=00000000000000000000000000000000
+> agent_id=13000000000000000&version=1.0&pid=CySoftPayBox&code_number=f0000000000000000&device_info=CySoftPayBox&op_device_id=000063066004189990000194&op_shop_id=门店01&sign=00000000000000000000000000000000
 
 **响应结果**
 
