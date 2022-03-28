@@ -433,6 +433,51 @@
 
 ---
 
+# 支付终端展示商户配置二维码
+
+**应用场景**
+
+由支付终端按传参规则构造链接，展示二维码供商户扫码配置交易参数，并在后台调用【[支付终端轮询商户配置](/mch.html#支付终端轮询商户配置)】接口进行轮询获取。
+
+**接口详情**
+
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <td class="tb-head">Url地址</td>
+        <td>https://account.storepos.cn/Mch/PayBoxConf</td>
+    </tr>
+    <tr>
+        <td class="tb-head">校验签名</td>
+        <td>是</td>
+    </tr>
+    <tr>
+        <td class="tb-head">签名密钥</td>
+        <td>代理商密钥</td>
+    </tr>
+</table>
+
+**公共请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| agent_id | 是 | 13000000000000000 | 代理商编号 |
+| pid | 是 | CySoftPayBox | 调用方产品名称 |
+| version | 是 | 1.0 | 调用方版本号 |
+| sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
+
+**请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| device_info | 是 | CySoftPayBox | 设备信息 |
+| op_device_id | 是 | 000063066004189990000194 | 设备唯一编号 |
+
+**二维码内容示例**
+
+> <https://account.storepos.cn/Mch/PayBoxConf?agent_id=13000000000000000&version=1.0&pid=CySoftPayBox&device_info=CySoftPayBox&op_device_id=000063066004189990000194&sign=00000000000000000000000000000000>
+
+---
+
 # 支付终端轮询商户配置
 
 **应用场景**
