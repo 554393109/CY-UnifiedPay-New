@@ -254,85 +254,6 @@
 
 ---
 
-# ~~获取超赢商户基础信息【弃用】~~
-
-**应用场景**
-
-该接口提供获取超赢商户基础信息功能。
-
-**接口详情**
-
-<table class="table table-bordered table-striped table-condensed">
-    <tr>
-        <td class="tb-head">接口地址</td>
-        <td>https://api.storepos.cn/Open/GetMchInfo</td>
-    </tr>
-    <tr>
-        <td class="tb-head">提交方式</td>
-        <td>POST</td>
-    </tr>
-    <tr>
-        <td class="tb-head">校验签名</td>
-        <td>是</td>
-    </tr>
-    <tr>
-        <td class="tb-head">签名密钥</td>
-        <td>代理商密钥</td>
-    </tr>
-</table>
-
-**公共请求参数**
-
-| 参数 | 必填 | 示例值 | 说明 |
-| :--- | :---: | :--- | :--- |
-| agent_id | 是 | 13000000000000000 | 代理商编号 |
-| pid | 是 | yunpos | 调用方产品名称 |
-| version | 是 | 1.0 | 调用方版本号 |
-| sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
-
-**请求参数**
-
-| 参数 | 必填 | 示例值 | 说明 |
-| :--- | :---: | :--- | :--- |
-| mch_id | 是 | 00000001 | 超赢商户号 |
-
-**请求参数示例**
-
-> agent_id=13000000000000000&version=1.0&pid=yunpos&mch_id=00000001&sign=00000000000000000000000000000000
-
-**响应结果**
-
-| 字段名 | 必填 | 说明 |
-| :--- | :---: | :--- |
-| state | 是 | 通讯状态，详见参数规定 |
-| code | 否 | 状态码 ，详见参数规定 |
-| msg | 否 | 返回信息 |
-| sign | 是 | 响应结果的签名串 |
-
-以下字段在state为SUCCESS，code为10000的时候有返回
-
-| 字段名 | 必填 | 说明 |
-| :--- | :---: | :--- |
-| mch_id | 是 | 超赢商户号 |
-| FullName | 是 | 商户全称 |
-| ShortName | 是 | 商户简称 |
-
-**响应结果示例**
-
-```json
-{
-    "state": "SUCCESS",
-    "code": "10000",
-    "msg": "SUCCESS",
-    "mch_id": "00000001",
-    "FullName": "测试商户全称",
-    "ShortName": "测试商户简称",
-    "sign": "00000000000000000000000000000000"
-}
-```
-
----
-
 # 超赢商户微信支付配置新增
 
 **应用场景**
@@ -433,62 +354,25 @@
 
 ---
 
-# 支付终端展示商户配置二维码
-
-**应用场景**
-
-由支付终端按传参规则构造链接，展示二维码供商户扫码配置交易参数，并在后台调用【[支付终端轮询商户配置](/mch.html#支付终端轮询商户配置)】接口进行轮询获取。
-
-**接口详情**
-
-<table class="table table-bordered table-striped table-condensed">
-    <tr>
-        <td class="tb-head">Url地址</td>
-        <td>https://account.storepos.cn/Mch/PayBoxConf</td>
-    </tr>
-    <tr>
-        <td class="tb-head">校验签名</td>
-        <td>是</td>
-    </tr>
-    <tr>
-        <td class="tb-head">签名密钥</td>
-        <td>代理商密钥</td>
-    </tr>
-</table>
-
-**公共请求参数**
-
-| 参数 | 必填 | 示例值 | 说明 |
-| :--- | :---: | :--- | :--- |
-| agent_id | 是 | 13000000000000000 | 代理商编号 |
-| pid | 是 | CySoftPayBox | 调用方产品名称 |
-| version | 是 | 1.0 | 调用方版本号 |
-| sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
-
-**请求参数**
-
-| 参数 | 必填 | 示例值 | 说明 |
-| :--- | :---: | :--- | :--- |
-| device_info | 是 | CySoftPayBox | 设备信息 |
-| op_device_id | 是 | 000063066004189990000194 | 设备唯一编号 |
-
-**二维码内容示例**
-
-> <https://account.storepos.cn/Mch/PayBoxConf?agent_id=13000000000000000&version=1.0&pid=CySoftPayBox&device_info=CySoftPayBox&op_device_id=000063066004189990000194&sign=00000000000000000000000000000000>
-
----
-
 # 支付终端轮询商户配置
 
 **应用场景**
 
-该接口提供支付终端获取轮询商户配置功能（间隔5秒）。
+该接口提供支付终端获取轮询商户配置功能（间隔5秒）。若返回配置地址，则将配置地址生成二维码供商户扫码进行配置。
 
 **注意事项**
 
 请求头User-Agent参数须携带固定值“CySoftPayBox”。
 
-当state=FAIL，终止轮询并展示msg信息；当state=SUCCESS，但无商户信息返回时，间隔5秒继续轮询。
+当state=FAIL，终止轮询并展示msg信息；
+
+当state=SUCCESS，但无商户信息返回，且返回了配置地址，则将配置地址生成二维码并展示（当配置地址发生变更，需重新生成二维码），并间隔5秒继续轮询。
+
+当state=SUCCESS，且商户信息非空，则保存并终止配置轮询。
+
+**配置流程**
+
+![配置流程](/assets/支付终端配置流程-20220406.png)
 
 **接口详情**
 
@@ -551,6 +435,7 @@
 | mch_state | 是 | 商户状态。0-待审核、20-启用、30-停用 |
 | device_info | 是 | 设备信息 |
 | op_device_id | 是 | 设备唯一编号 |
+| op_shop_id | 否 | 门店编号【2022-04-06 新增】 |
 
 **响应结果示例**
 
@@ -564,6 +449,7 @@
     "mch_state": "20",
     "device_info": "CySoftPayBox",
     "op_device_id": "000063066004189990000194",
+    "op_shop_id": "md_001",
     "sign": "00000000000000000000000000000000"
 }
 ```
@@ -704,6 +590,130 @@
     "mch_state": "20",
     "device_info": "CySoftPayBox",
     "op_device_id": "000063066004189990000194",
+    "sign": "00000000000000000000000000000000"
+}
+```
+
+---
+
+# ~~支付终端展示商户配置二维码【弃用】~~
+
+**应用场景**
+
+由支付终端按传参规则构造链接，展示二维码供商户扫码配置交易参数，并在后台调用【[支付终端轮询商户配置](/mch.html#支付终端轮询商户配置)】接口进行轮询获取。
+
+**接口详情**
+
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <td class="tb-head">Url地址</td>
+        <td>https://account.storepos.cn/Mch/PayBoxConf</td>
+    </tr>
+    <tr>
+        <td class="tb-head">校验签名</td>
+        <td>是</td>
+    </tr>
+    <tr>
+        <td class="tb-head">签名密钥</td>
+        <td>代理商密钥</td>
+    </tr>
+</table>
+
+**公共请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| agent_id | 是 | 13000000000000000 | 代理商编号 |
+| pid | 是 | CySoftPayBox | 调用方产品名称 |
+| version | 是 | 1.0 | 调用方版本号 |
+| sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
+
+**请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| device_info | 是 | CySoftPayBox | 设备信息 |
+| op_device_id | 是 | 000063066004189990000194 | 设备唯一编号 |
+
+**二维码内容示例**
+
+> <https://account.storepos.cn/Mch/PayBoxConf?agent_id=13000000000000000&version=1.0&pid=CySoftPayBox&device_info=CySoftPayBox&op_device_id=000063066004189990000194&sign=00000000000000000000000000000000>
+
+---
+
+# ~~获取超赢商户基础信息【弃用】~~
+
+**应用场景**
+
+该接口提供获取超赢商户基础信息功能。
+
+**接口详情**
+
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <td class="tb-head">接口地址</td>
+        <td>https://api.storepos.cn/Open/GetMchInfo</td>
+    </tr>
+    <tr>
+        <td class="tb-head">提交方式</td>
+        <td>POST</td>
+    </tr>
+    <tr>
+        <td class="tb-head">校验签名</td>
+        <td>是</td>
+    </tr>
+    <tr>
+        <td class="tb-head">签名密钥</td>
+        <td>代理商密钥</td>
+    </tr>
+</table>
+
+**公共请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| agent_id | 是 | 13000000000000000 | 代理商编号 |
+| pid | 是 | yunpos | 调用方产品名称 |
+| version | 是 | 1.0 | 调用方版本号 |
+| sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
+
+**请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| mch_id | 是 | 00000001 | 超赢商户号 |
+
+**请求参数示例**
+
+> agent_id=13000000000000000&version=1.0&pid=yunpos&mch_id=00000001&sign=00000000000000000000000000000000
+
+**响应结果**
+
+| 字段名 | 必填 | 说明 |
+| :--- | :---: | :--- |
+| state | 是 | 通讯状态，详见参数规定 |
+| code | 否 | 状态码 ，详见参数规定 |
+| msg | 否 | 返回信息 |
+| sign | 是 | 响应结果的签名串 |
+
+以下字段在state为SUCCESS，code为10000的时候有返回
+
+| 字段名 | 必填 | 说明 |
+| :--- | :---: | :--- |
+| mch_id | 是 | 超赢商户号 |
+| FullName | 是 | 商户全称 |
+| ShortName | 是 | 商户简称 |
+
+**响应结果示例**
+
+```json
+{
+    "state": "SUCCESS",
+    "code": "10000",
+    "msg": "SUCCESS",
+    "mch_id": "00000001",
+    "FullName": "测试商户全称",
+    "ShortName": "测试商户简称",
     "sign": "00000000000000000000000000000000"
 }
 ```
