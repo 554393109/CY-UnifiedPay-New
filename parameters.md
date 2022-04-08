@@ -48,7 +48,6 @@
 | :---: | :--------- |
 | SUCCESS | 成功 |
 | FAIL | 失败 |
-| PROCESSING | 处理中 |
 | NEED_QUERY | 需要查询 |
 | REFUND | 转入退款 |
 
