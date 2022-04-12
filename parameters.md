@@ -61,6 +61,7 @@
 | QQ | QQ钱包 |
 | UNIONPAY | 云闪付 |
 | BESTPAY | 翼支付 |
+| LONGPAY | 龙支付 |
 
 # picType - 进件图片类型
 

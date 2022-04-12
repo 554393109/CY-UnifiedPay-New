@@ -442,6 +442,7 @@
 | device_info | 是 | 设备信息 |
 | op_device_id | 是 | 设备唯一编号 |
 | op_shop_id | 否 | 门店编号【2022-04-06 新增】 |
+| gateway | 是 | 支付网关地址【2022-04-12 新增】 |
 
 **响应结果示例**
 
@@ -464,6 +465,7 @@
     "device_info": "CySoftPayBox",
     "op_device_id": "000063066004189990000194",
     "op_shop_id": "md_001",
+    "gateway": "https://pay.storepos.cn/v2/UnifiedPay/Gateway",
     "sign": "00000000000000000000000000000000"
 }
 ```
@@ -592,6 +594,7 @@
 | device_info | 是 | 设备信息 |
 | op_device_id | 是 | 设备唯一编号 |
 | op_shop_id | 否 | 门店编号【2022-04-06 新增】 |
+| gateway | 是 | 支付网关地址【2022-04-12 新增】 |
 
 **响应结果示例**
 
@@ -606,6 +609,7 @@
     "device_info": "CySoftPayBox",
     "op_device_id": "000063066004189990000194",
     "op_shop_id": "md_001",
+    "gateway": "https://pay.storepos.cn/v2/UnifiedPay/Gateway",
     "sign": "00000000000000000000000000000000"
 }
 ```
