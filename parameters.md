@@ -62,6 +62,7 @@
 | UNIONPAY | 云闪付 |
 | BESTPAY | 翼支付 |
 | LONGPAY | 龙支付 |
+| ECNY | 数字人民币 |
 
 # picType - 进件图片类型
 
