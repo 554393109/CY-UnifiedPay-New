@@ -379,7 +379,7 @@
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td class="tb-head">接口地址</td>
-        <td>https://api.storepos.cn/Mch/PayBoxConfGet</td>
+        <td>https://dev.ttdh.cc/Mch/PayBoxConfGet</td>
     </tr>
     <tr>
         <td class="tb-head">提交方式</td>
