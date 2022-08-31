@@ -2,11 +2,11 @@
 
 ---
 
-# 主扫预下单v2（微信/支付宝）
+# 主扫预下单v2（微信/支付宝/数字人民币）
 
 **应用场景**
 
-用户通过微信公众号（支付宝服务窗）或扫描二维码，可以支付完成下单购买流程。
+用户通过微信公众号（支付宝服务窗、数字人民币）或扫描二维码，可以支付完成下单购买流程。
 
 **注意事项**
 
@@ -43,7 +43,7 @@
 
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
-| method | 是 | PreOrder_WECHAT | 接口名称，PreOrder_WECHAT-微信，PreOrder_ALIPAY-支付宝 |
+| method | 是 | PreOrder_WECHAT | 接口名称，PreOrder_WECHAT-微信，PreOrder_ALIPAY-支付宝，PreOrder_ECNY-数币 |
 | agent_id | 是 | 13000000000000000 | 代理商编号 |
 | pid | 是 | yunpos | 调用方产品名称 |
 | version | 是 | 1.0 | 调用方版本号 |
@@ -55,7 +55,7 @@
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
 | mch_id | 是 | 00000001 | 超赢商户号 |
-| sub_appid | 否 | wxaee08d155d9de0c5 | 微信公众号AppId或开放平台APP应用AppId。trade_type=JSPAY、APP、APP_BANK时，此参数必传 |
+| sub_appid | 否 | wxaee08d155d9de0c5 | 微信公众号AppId或开放平台APP应用AppId。trade_type=JSPAY、APP时，此参数必传 |
 | is_minipg | 否 | 1 | 是否微信小程序支付。1：小程序支付；0：表示公众号支付。 |
 | buyer_id | 否 | oRA5quGvJc1wwvjMW-tnpLLqD-FM | 买家用户标识。trade_type=JSPAY，此参数必传 |
 | device_info | 否 | 013467007045764 | 终端设备号，商户自定义。 |
@@ -72,7 +72,7 @@
 | limit_pay | 否 | NO_CREDIT | no_credit指定不能使用信用卡支付 |
 | trade_type | 是 | JSPAY | 交易类型；JSPAY-服务窗支付、NATIVE-原生扫码支付、APP-APP支付，APP_BANK-APP支付银行模式 |
 | product_id | 否 | 1223541321407035645 | trade_type=NATIVE，此参数必传。此id为二维码中包含的商品ID，商户自行定义 |
-| goods_tag | 否 | CY_PROMOTION_001 | 订单优惠标记，用于优惠券或者满减使用 |
+| goods_tag | 否 | CY_PROMOTION_001 | 订单优惠标记，用于优惠券或者满减使用（数币该字段不传） |
 | goods_detail | 否 | [{"goods_id":"CY000","goods_name":"促销单品","quantity":1,"price":1}] | 商品详情，JSON Array格式 |
 | profit_sharing | 否 | N | 分账标识 |
 | profit_sharing_receiver | 否 | - | 分账明细 |
@@ -89,7 +89,7 @@ goods_detail为JSON数组类型结构如下
 
 **请求参数示例**
 
-> method=PreOrder_WECHAT&agent_id=13000000000000000&version=1.0&pid=yunpos&mch_id=00000001™_type=NATIVE&body=超赢支付&out_trade_no=1497769914931&total_fee=4&goods_tag=CY_PROMOTION_001&goods_detail=[{"goods_id":"CY000000","goods_name":"促销单品-CY00000000000","quantity":1,"price":2},{"goods_id":"CY000001","goods_name":"促销单品-CY00000000001","quantity":1,"price":2}]&sign=00000000000000000000000000000000
+> method=PreOrder_WECHAT&agent_id=13000000000000000&version=1.0&pid=yunpos&mch_id=00000001&trade_type=NATIVE&body=超赢支付&out_trade_no=1497769914931&total_fee=4&goods_tag=CY_PROMOTION_001&goods_detail=[{"goods_id":"CY000000","goods_name":"促销单品-CY00000000000","quantity":1,"price":2},{"goods_id":"CY000001","goods_name":"促销单品-CY00000000001","quantity":1,"price":2}]&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -124,7 +124,7 @@ goods_detail为JSON数组类型结构如下
     "code": "10000",
     "trade_state": "SUCCESS",
     "msg": "SUCCESS",
-    "mch_id": "3338102513618944",
+    "mch_id": "00000001",
     "out_trade_no": "1497769914931",
     "token_id": "16c5f40274e084b123a08f1313d53da57",
     "pay_info": "{\"appId\":\"wxc3d2e734ae326831\",\"timeStamp\":\"1511947589427\",\"status\":\"0\",\"signType\":\"MD5\",\"package\":\"prepay_id=wx2017112917262941a3a33e980001282756\",\"callback_url\":\"\",\"nonceStr\":\"1511947589427\",\"paySign\":\"CD871BCD09B3D0C6339B2D0DE72DE7EE\"}",
@@ -138,10 +138,21 @@ goods_detail为JSON数组类型结构如下
     "code": "10000",
     "trade_state": "SUCCESS",
     "msg": "SUCCESS",
-    "mch_id": "3338102513618944",
+    "mch_id": "00000001",
     "out_trade_no": "1523265111702",
     "code_img_url": "https://pay.storepos.cn/pay/qrcode?uuid=https%3A%2F%2Fqr.alipay.com%2Fbax04486r0vgbxds3h55805a",
     "code_url": "https://qr.alipay.com/bax04486r0vgbxds3h55805a",
+    "nonce_str": "00000000000000000000000000000000"
+}
+
+{// 数币
+    "state": "SUCCESS",
+    "code": "10000",
+    "trade_state": "SUCCESS",
+    "msg": "SUCCESS",
+    "mch_id": "00000001",
+    "out_trade_no": "1523265111702",
+    "code_url": "https://qr.pbcdci.cn/004043112022083115224300703035700000004",
     "nonce_str": "00000000000000000000000000000000"
 }
 ```
@@ -270,7 +281,7 @@ goods_detail为JSON数组类型结构如下
     "code": "10000",
     "trade_state": "SUCCESS",
     "msg": "SUCCESS",
-    "mch_id": "3338102513618944",
+    "mch_id": "00000001",
     "out_trade_no": "1497769914931",
     "token_id": "16c5f40274e084b123a08f1313d53da57",
     "pay_info": "{\"appId\":\"wxc3d2e734ae326831\",\"timeStamp\":\"1511947589427\",\"status\":\"0\",\"signType\":\"MD5\",\"package\":\"prepay_id=wx2017112917262941a3a33e980001282756\",\"callback_url\":\"\",\"nonceStr\":\"1511947589427\",\"paySign\":\"CD871BCD09B3D0C6339B2D0DE72DE7EE\"}",
@@ -396,7 +407,7 @@ goods_detail为JSON数组类型结构如下
     "code": "10000",
     "trade_state": "SUCCESS",
     "msg": "SUCCESS",
-    "mch_id": "3338102513618944",
+    "mch_id": "00000001",
     "out_trade_no": "1523265111702",
     "code_img_url": "https://pay.storepos.cn/pay/qrcode?uuid=https%3A%2F%2Fqr.alipay.com%2Fbax04486r0vgbxds3h55805a",
     "code_url": "https://qr.alipay.com/bax04486r0vgbxds3h55805a",
