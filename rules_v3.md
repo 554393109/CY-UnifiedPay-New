@@ -35,7 +35,7 @@
 
 特别注意以下重要规则：
 
-* 接口可能增加字段，验证签名时**必须支持增加的扩展字段**。
+* 接口可能增加字段，**必须支持增加的扩展字段**。
 
 **第二步**，对stringA进行AES加密（**UTF8/CBC/PKCS7**）得到加密content值。
 
@@ -63,14 +63,14 @@
 POST /UnifiedPay/Gateway_v2 HTTP/1.1
 Host: {BaseURL}
 Content-Type: application/x-www-form-urlencoded
-Content-Length: 64
+Content-Length: 95
 
 method=pay&mch_id=00000001&content=u8PKPKxrgMTDmndycpwLmQ&sign=00000000000000000000000000000000
 ```
 
 ```bash
 # cURL
-curl --location -g --request POST 'https://{BaseURL}/UnifiedPay/Gateway_v2'
+curl --location -g --request POST 'https://{BaseURL}/v3/UnifiedPay/Gateway'
 --header 'Content-Type: application/x-www-form-urlencoded'
 --data-urlencode 'method=pay'
 --data-urlencode 'mch_id=00000001'
@@ -81,7 +81,7 @@ curl --location -g --request POST 'https://{BaseURL}/UnifiedPay/Gateway_v2'
 ```js
 // Javascript
 var settings = {
-  "url": "https://{BaseURL}/UnifiedPay/Gateway_v2",
+  "url": "https://{BaseURL}/v3/UnifiedPay/Gateway",
   "method": "POST",
   "headers": {
     "content-type": "application/x-www-form-urlencoded",
@@ -101,7 +101,7 @@ $.ajax(settings).done(function (response) {
 
 ```csharp
 // C#
-var client = new RestClient("https://{BaseURL}/UnifiedPay/Gateway_v2");
+var client = new RestClient("https://{BaseURL}/v3/UnifiedPay/Gateway");
 var request = new RestRequest(Method.POST);
 request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
 request.AddParameter("method", "pay");
@@ -120,7 +120,7 @@ RequestBody body = RequestBody.create(
     mediaType, 
     "method=pay&mch_id=00000001&content=u8PKPKxrgMTDmndycpwLmQ&sign=00000000000000000000000000000000");
 Request request = new Request.Builder()
-  .url("https://{BaseURL}/UnifiedPay/Gateway_v2")
+  .url("https://{BaseURL}/v3/UnifiedPay/Gateway")
   .method("POST", body)
   .addHeader("Content-Type", "application/x-www-form-urlencoded")
   .build();
@@ -131,7 +131,7 @@ Response response = client.newCall(request).execute();
 # Python
 import requests
 
-url = "https://{BaseURL}/UnifiedPay/Gateway_v2"
+url = "https://{BaseURL}/v3/UnifiedPay/Gateway"
 
 payload = "mch_id=00000001&method=pay&content=u8PKPKxrgMTDmndycpwLmQ&sign=00000000000000000000000000000000"
 headers = {
@@ -155,7 +155,7 @@ let parameters = "method=pay&mch_id=00000001&content=u8PKPKxrgMTDmndycpwLmQ&sign
 let postData =  parameters.data(using: .utf8)
 
 var request = URLRequest(
-    url: URL(string: "https://{BaseURL}/UnifiedPay/Gateway_v2")!, timeoutInterval: Double.infinity)
+    url: URL(string: "https://{BaseURL}/v3/UnifiedPay/Gateway")!, timeoutInterval: Double.infinity)
 request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
 
 request.httpMethod = "POST"
@@ -187,7 +187,7 @@ import (
 )
 
 func main() {
-  url := "https://{BaseURL}/UnifiedPay/Gateway_v2"
+  url := "https://{BaseURL}/v3/UnifiedPay/Gateway"
   method := "POST"
   payload := strings.NewReader("method=pay&mch_id=00000001&content=u8PKPKxrgMTDmndycpwLmQ&sign=00000000000000000000000000000000")
   client := &http.Client {
@@ -221,7 +221,7 @@ func main() {
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://{BaseURL}/UnifiedPay/Gateway_v2',
+  CURLOPT_URL => 'https://{BaseURL}/v3/UnifiedPay/Gateway',
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
   CURLOPT_POSTFIELDS => 'method=pay&mch_id=00000001&content=u8PKPKxrgMTDmndycpwLmQ&sign=00000000000000000000000000000000',
