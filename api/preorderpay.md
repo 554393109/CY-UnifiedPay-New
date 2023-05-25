@@ -44,7 +44,6 @@
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
 | method | 是 | PreOrder_WECHAT | 接口名称，PreOrder_WECHAT-微信，PreOrder_ALIPAY-支付宝，PreOrder_ECNY-数币 |
-| agent_id | 是 | 13000000000000000 | 代理商编号 |
 | pid | 是 | yunpos | 调用方产品名称 |
 | version | 是 | 1.0 | 调用方版本号 |
 | nonce_str | 否 | 00000000000000000000000000000000 | 随机字符串 |
