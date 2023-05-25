@@ -27,7 +27,7 @@
     </tr>
 </table>
 
-# 报文加密
+# 报文content加密
 
 签名生成的通用步骤如下：
 
@@ -37,7 +37,7 @@
 
 * 接口可能增加字段，**必须支持增加的扩展字段**。
 
-**第二步**，对stringA进行AES加密（**UTF8/CBC/PKCS7**）得到加密content值。
+**第二步**，对stringA进行AES加密（**商户密钥/UTF8/CBC/PKCS7**）得到加密content值。
 
 # 签名验证
 

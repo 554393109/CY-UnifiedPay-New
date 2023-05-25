@@ -12,25 +12,28 @@
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td class="tb-head">接口地址v1</td>
-        <td colspan="2">https://api.storepos.cn/UnifiedPay/Gateway</td>
+        <td class="tb-head" rowspan="2">接口地址</td>
+        <td><strong>v1</strong> - https://api.storepos.cn/UnifiedPay/Gateway</td>
     </tr>
     <tr>
-        <td class="tb-head">接口地址v2</td>
-        <td colspan="2">https://api.storepos.cn/v2/UnifiedPay/Gateway</td>
+        <!-- <td class="tb-head">接口地址v2</td> -->
+        <td><strong>v2</strong> - https://api.storepos.cn/v2/UnifiedPay/Gateway</td>
     </tr>
     <tr>
         <td class="tb-head">提交方式</td>
-        <td colspan="2">POST</td>
+        <td>POST</td>
     </tr>
     <tr>
         <td class="tb-head">校验签名</td>
-        <td colspan="2">是</td>
+        <td>是</td>
     </tr>
     <tr>
-        <td class="tb-head">签名密钥</td>
-        <td>v1 - 代理商密钥</td>
-        <td>v2 - 商户密钥</td>
+        <td class="tb-head" rowspan="2">签名密钥</td>
+        <td><strong>v1</strong> - 代理商密钥</td>
+    </tr>
+    <tr>
+        <!-- <td class="tb-head">签名密钥</td> -->
+        <td><strong>v2</strong> - 商户密钥</td>
     </tr>
 </table>
 
@@ -39,7 +42,7 @@
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
 | method | 是 | getfaceauth | 接口名称，getfaceauth |
-| agent_id | 是 | 13000000000000000 | 代理商编号 |
+| agent_id | 否 | 13000000000000000 | 代理商编号（v1必传） |
 | pid | 是 | yunpos | 调用方产品名称 |
 | version | 是 | 1.0 | 调用方版本号 |
 | sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
@@ -58,7 +61,7 @@
 
 **请求参数示例**
 
-> method=getfaceauth&agent_id=13000000000000000&paytype=WECHAT&mch_id=00000001&version=1.0&pid=yunpos&store_id=test_store_01&store_name=测试门店01&device_id=CYW00000000000000000000&rawdata=eNPJNgR26U88XXXXXXXXX&sign=00000000000000000000000000000000
+> method=getfaceauth&paytype=WECHAT&mch_id=00000001&version=1.0&pid=yunpos&store_id=test_store_01&store_name=测试门店01&device_id=CYW00000000000000000000&rawdata=eNPJNgR26U88XXXXXXXXX&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -127,25 +130,28 @@
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td class="tb-head">接口地址v1</td>
-        <td colspan="2">https://pay.storepos.cn/UnifiedPay/Gateway</td>
+        <td class="tb-head" rowspan="2">接口地址</td>
+        <td><strong>v1</strong> - https://pay.storepos.cn/UnifiedPay/Gateway</td>
     </tr>
     <tr>
-        <td class="tb-head">接口地址v2</td>
-        <td colspan="2">https://pay.storepos.cn/v2/UnifiedPay/Gateway</td>
+        <!-- <td class="tb-head">接口地址v2</td> -->
+        <td><strong>v2</strong> - https://pay.storepos.cn/v2/UnifiedPay/Gateway</td>
     </tr>
     <tr>
         <td class="tb-head">提交方式</td>
-        <td colspan="2">POST</td>
+        <td>POST</td>
     </tr>
     <tr>
         <td class="tb-head">校验签名</td>
-        <td colspan="2">是</td>
+        <td>是</td>
     </tr>
     <tr>
-        <td class="tb-head">签名密钥</td>
-        <td>v1 - 代理商密钥</td>
-        <td>v2 - 商户密钥</td>
+        <td class="tb-head" rowspan="2">签名密钥</td>
+        <td><strong>v1</strong> - 代理商密钥</td>
+    </tr>
+    <tr>
+        <!-- <td class="tb-head">签名密钥</td> -->
+        <td><strong>v2</strong> - 商户密钥</td>
     </tr>
 </table>
 
@@ -154,7 +160,7 @@
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
 | method | 是 | facepay | 接口名称，facepay |
-| agent_id | 是 | 13000000000000000 | 代理商编号 |
+| agent_id | 否 | 13000000000000000 | 代理商编号（v1必传） |
 | pid | 是 | yunpos | 调用方产品名称 |
 | version | 是 | 1.0 | 调用方版本号 |
 | sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
@@ -194,7 +200,7 @@ goods_detail为JSON数组类型结构如下
 
 **请求参数示例**
 
-> method=facepay&agent_id=13000000000000000&paytype=WECHAT&mch_id=00000001&version=1.0&pid=yunpos&out_trade_no=1497769914931&face_code=123123123&body=超赢支付&total_fee=4&goods_tag=CY_PROMOTION_001&goods_detail=[{"goods_id":"CY000000","goods_name":"促销单品-CY00000000000","quantity":1,"price":2},{"goods_id":"CY000001","goods_name":"促销单品-CY00000000001","quantity":1,"price":2}]&sign=00000000000000000000000000000000
+> method=facepay&paytype=WECHAT&mch_id=00000001&version=1.0&pid=yunpos&out_trade_no=1497769914931&face_code=123123123&body=超赢支付&total_fee=4&goods_tag=CY_PROMOTION_001&goods_detail=[{"goods_id":"CY000000","goods_name":"促销单品-CY00000000000","quantity":1,"price":2},{"goods_id":"CY000001","goods_name":"促销单品-CY00000000001","quantity":1,"price":2}]&sign=00000000000000000000000000000000
 
 **响应结果**
 

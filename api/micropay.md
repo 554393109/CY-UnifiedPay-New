@@ -22,25 +22,28 @@
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td class="tb-head">接口地址v1</td>
-        <td colspan="2">https://pay.storepos.cn/UnifiedPay/Gateway</td>
+        <td class="tb-head" rowspan="2">接口地址</td>
+        <td><strong>v1</strong> - https://pay.storepos.cn/UnifiedPay/Gateway</td>
     </tr>
     <tr>
-        <td class="tb-head">接口地址v2</td>
-        <td colspan="2">https://pay.storepos.cn/v2/UnifiedPay/Gateway</td>
+        <!-- <td class="tb-head">接口地址v2</td> -->
+        <td><strong>v2</strong> - https://pay.storepos.cn/v2/UnifiedPay/Gateway</td>
     </tr>
     <tr>
         <td class="tb-head">提交方式</td>
-        <td colspan="2">POST</td>
+        <td>POST</td>
     </tr>
     <tr>
         <td class="tb-head">校验签名</td>
-        <td colspan="2">是</td>
+        <td>是</td>
     </tr>
     <tr>
-        <td class="tb-head">签名密钥</td>
-        <td>v1 - 代理商密钥</td>
-        <td>v2 - 商户密钥</td>
+        <td class="tb-head" rowspan="2">签名密钥</td>
+        <td><strong>v1</strong> - 代理商密钥</td>
+    </tr>
+    <tr>
+        <!-- <td class="tb-head">签名密钥</td> -->
+        <td><strong>v2</strong> - 商户密钥</td>
     </tr>
 </table>
 
@@ -87,7 +90,7 @@ goods_detail为JSON数组类型结构如下
 
 **请求参数示例**
 
-> method=pay&agent_id=13000000000000000&mch_id=00000001&version=1.0&pid=yunpos&out_trade_no=1497769914931&auth_code=130000000000000000&body=超赢支付&total_fee=4&goods_tag=CY_PROMOTION_001&goods_detail=[{"goods_id":"CY000000","goods_name":"促销单品-0","quantity":1,"price":2},{"goods_id":"CY000001","goods_name":"促销单品-1","quantity":1,"price":2}]&sign=00000000000000000000000000000000
+> method=pay&mch_id=00000001&version=1.0&pid=yunpos&out_trade_no=1497769914931&auth_code=130000000000000000&body=超赢支付&total_fee=4&goods_tag=CY_PROMOTION_001&goods_detail=[{"goods_id":"CY000000","goods_name":"促销单品-0","quantity":1,"price":2},{"goods_id":"CY000001","goods_name":"促销单品-1","quantity":1,"price":2}]&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -167,25 +170,28 @@ goods_detail为JSON数组类型结构如下
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td class="tb-head">接口地址v1</td>
-        <td colspan="2">https://pay.storepos.cn/UnifiedPay/Gateway</td>
+        <td class="tb-head" rowspan="2">接口地址</td>
+        <td><strong>v1</strong> - https://pay.storepos.cn/UnifiedPay/Gateway</td>
     </tr>
     <tr>
-        <td class="tb-head">接口地址v2</td>
-        <td colspan="2">https://pay.storepos.cn/v2/UnifiedPay/Gateway</td>
+        <!-- <td class="tb-head">接口地址v2</td> -->
+        <td><strong>v2</strong> - https://pay.storepos.cn/v2/UnifiedPay/Gateway</td>
     </tr>
     <tr>
         <td class="tb-head">提交方式</td>
-        <td colspan="2">POST</td>
+        <td>POST</td>
     </tr>
     <tr>
         <td class="tb-head">校验签名</td>
-        <td colspan="2">是</td>
+        <td>是</td>
     </tr>
     <tr>
-        <td class="tb-head">签名密钥</td>
-        <td>v1 - 代理商密钥</td>
-        <td>v2 - 商户密钥</td>
+        <td class="tb-head" rowspan="2">签名密钥</td>
+        <td><strong>v1</strong> - 代理商密钥</td>
+    </tr>
+    <tr>
+        <!-- <td class="tb-head">签名密钥</td> -->
+        <td><strong>v2</strong> - 商户密钥</td>
     </tr>
 </table>
 
@@ -210,7 +216,7 @@ goods_detail为JSON数组类型结构如下
 
 **请求参数示例**
 
-> method=orderquery&agent_id=13000000000000000&version=1.0&pid=yunpos&paytype=WECHAT&mch_id=00000001&out_trade_no=1497769914931&sign=00000000000000000000000000000000
+> method=orderquery&version=1.0&pid=yunpos&paytype=WECHAT&mch_id=00000001&out_trade_no=1497769914931&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -300,25 +306,28 @@ goods_detail为JSON数组类型结构如下
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td class="tb-head">接口地址v1</td>
-        <td colspan="2">https://pay.storepos.cn/UnifiedPay/Gateway</td>
+        <td class="tb-head" rowspan="2">接口地址</td>
+        <td><strong>v1</strong> - https://pay.storepos.cn/UnifiedPay/Gateway</td>
     </tr>
     <tr>
-        <td class="tb-head">接口地址v2</td>
-        <td colspan="2">https://pay.storepos.cn/v2/UnifiedPay/Gateway</td>
+        <!-- <td class="tb-head">接口地址v2</td> -->
+        <td><strong>v2</strong> - https://pay.storepos.cn/v2/UnifiedPay/Gateway</td>
     </tr>
     <tr>
         <td class="tb-head">提交方式</td>
-        <td colspan="2">POST</td>
+        <td>POST</td>
     </tr>
     <tr>
         <td class="tb-head">校验签名</td>
-        <td colspan="2">是</td>
+        <td>是</td>
     </tr>
     <tr>
-        <td class="tb-head">签名密钥</td>
-        <td>v1 - 代理商密钥</td>
-        <td>v2 - 商户密钥</td>
+        <td class="tb-head" rowspan="2">签名密钥</td>
+        <td><strong>v1</strong> - 代理商密钥</td>
+    </tr>
+    <tr>
+        <!-- <td class="tb-head">签名密钥</td> -->
+        <td><strong>v2</strong> - 商户密钥</td>
     </tr>
 </table>
 
@@ -347,7 +356,7 @@ goods_detail为JSON数组类型结构如下
 
 **请求参数示例**
 
-> method=refund&agent_id=13000000000000000&version=1.0&pid=yunpos&paytype=WECHAT&mch_id=00000001&out_trade_no=1497769914931&out_refund_no=TK-1497769914931-01&sign=00000000000000000000000000000000
+> method=refund&version=1.0&pid=yunpos&paytype=WECHAT&mch_id=00000001&out_trade_no=1497769914931&out_refund_no=TK-1497769914931-01&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -415,25 +424,28 @@ goods_detail为JSON数组类型结构如下
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td class="tb-head">接口地址v1</td>
-        <td colspan="2">https://pay.storepos.cn/UnifiedPay/Gateway</td>
+        <td class="tb-head" rowspan="2">接口地址</td>
+        <td><strong>v1</strong> - https://pay.storepos.cn/UnifiedPay/Gateway</td>
     </tr>
     <tr>
-        <td class="tb-head">接口地址v2</td>
-        <td colspan="2">https://pay.storepos.cn/v2/UnifiedPay/Gateway</td>
+        <!-- <td class="tb-head">接口地址v2</td> -->
+        <td><strong>v2</strong> - https://pay.storepos.cn/v2/UnifiedPay/Gateway</td>
     </tr>
     <tr>
         <td class="tb-head">提交方式</td>
-        <td colspan="2">POST</td>
+        <td>POST</td>
     </tr>
     <tr>
         <td class="tb-head">校验签名</td>
-        <td colspan="2">是</td>
+        <td>是</td>
     </tr>
     <tr>
-        <td class="tb-head">签名密钥</td>
-        <td>v1 - 代理商密钥</td>
-        <td>v2 - 商户密钥</td>
+        <td class="tb-head" rowspan="2">签名密钥</td>
+        <td><strong>v1</strong> - 代理商密钥</td>
+    </tr>
+    <tr>
+        <!-- <td class="tb-head">签名密钥</td> -->
+        <td><strong>v2</strong> - 商户密钥</td>
     </tr>
 </table>
 
@@ -458,7 +470,7 @@ goods_detail为JSON数组类型结构如下
 
 **请求参数示例**
 
-> method=refundquery&agent_id=13000000000000000&version=1.0&pid=yunpos&paytype=WECHAT&mch_id=00000001&out_refund_no=TKT0020190524102840000&sign=00000000000000000000000000000000
+> method=refundquery&version=1.0&pid=yunpos&paytype=WECHAT&mch_id=00000001&out_refund_no=TKT0020190524102840000&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -540,25 +552,28 @@ goods_detail为JSON数组类型结构如下
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td class="tb-head">接口地址v1</td>
-        <td colspan="2">https://pay.storepos.cn/UnifiedPay/Gateway</td>
+        <td class="tb-head" rowspan="2">接口地址</td>
+        <td><strong>v1</strong> - https://pay.storepos.cn/UnifiedPay/Gateway</td>
     </tr>
     <tr>
-        <td class="tb-head">接口地址v2</td>
-        <td colspan="2">https://pay.storepos.cn/v2/UnifiedPay/Gateway</td>
+        <!-- <td class="tb-head">接口地址v2</td> -->
+        <td><strong>v2</strong> - https://pay.storepos.cn/v2/UnifiedPay/Gateway</td>
     </tr>
     <tr>
         <td class="tb-head">提交方式</td>
-        <td colspan="2">POST</td>
+        <td>POST</td>
     </tr>
     <tr>
         <td class="tb-head">校验签名</td>
-        <td colspan="2">是</td>
+        <td>是</td>
     </tr>
     <tr>
-        <td class="tb-head">签名密钥</td>
-        <td>v1 - 代理商密钥</td>
-        <td>v2 - 商户密钥</td>
+        <td class="tb-head" rowspan="2">签名密钥</td>
+        <td><strong>v1</strong> - 代理商密钥</td>
+    </tr>
+    <tr>
+        <!-- <td class="tb-head">签名密钥</td> -->
+        <td><strong>v2</strong> - 商户密钥</td>
     </tr>
 </table>
 
@@ -583,7 +598,7 @@ goods_detail为JSON数组类型结构如下
 
 **请求参数示例**
 
-> method=cancel&agent_id=13000000000000000&version=1.0&pid=yunpos&paytype=WECHAT&mch_id=00000001&out_trade_no=1497769914931&op_user_id=yzq&sign=00000000000000000000000000000000
+> method=cancel&version=1.0&pid=yunpos&paytype=WECHAT&mch_id=00000001&out_trade_no=1497769914931&op_user_id=yzq&sign=00000000000000000000000000000000
 
 **响应结果**
 
@@ -636,25 +651,28 @@ goods_detail为JSON数组类型结构如下
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td class="tb-head">接口地址v1</td>
-        <td colspan="2">https://api.storepos.cn/UnifiedPay/Gateway</td>
+        <td class="tb-head" rowspan="2">接口地址</td>
+        <td>https://api.storepos.cn/UnifiedPay/Gateway</td>
     </tr>
     <tr>
-        <td class="tb-head">接口地址v2</td>
-        <td colspan="2">https://api.storepos.cn/v2/UnifiedPay/Gateway</td>
+        <!-- <td class="tb-head">接口地址v2</td> -->
+        <td>https://api.storepos.cn/v2/UnifiedPay/Gateway</td>
     </tr>
     <tr>
         <td class="tb-head">提交方式</td>
-        <td colspan="2">POST</td>
+        <td>POST</td>
     </tr>
     <tr>
         <td class="tb-head">校验签名</td>
-        <td colspan="2">是</td>
+        <td>是</td>
     </tr>
     <tr>
-        <td class="tb-head">签名密钥</td>
-        <td>v1 - 代理商密钥</td>
-        <td>v2 - 商户密钥</td>
+        <td class="tb-head" rowspan="2">签名密钥</td>
+        <td><strong>v1</strong> - 代理商密钥</td>
+    </tr>
+    <tr>
+        <!-- <td class="tb-head">签名密钥</td> -->
+        <td><strong>v2</strong> - 商户密钥</td>
     </tr>
 </table>
 
@@ -678,7 +696,7 @@ goods_detail为JSON数组类型结构如下
 
 **请求参数示例**
 
-> method=authcodetoopenid&agent_id=13000000000000000&version=1.0&pid=yunpos&mch_id=00000001&auth_code=130000000000000000&sub_appid=wx4da448cd29920000&sign=00000000000000000000000000000000
+> method=authcodetoopenid&version=1.0&pid=yunpos&mch_id=00000001&auth_code=130000000000000000&sub_appid=wx4da448cd29920000&sign=00000000000000000000000000000000
 
 **响应结果**
 

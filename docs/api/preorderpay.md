@@ -88,7 +88,7 @@ goods_detail为JSON数组类型结构如下
 
 **请求参数示例**
 
-> method=PreOrder_WECHAT&agent_id=13000000000000000&version=1.0&pid=yunpos&mch_id=00000001&trade_type=NATIVE&body=超赢支付&out_trade_no=1497769914931&total_fee=4&goods_tag=CY_PROMOTION_001&goods_detail=[{"goods_id":"CY000000","goods_name":"促销单品-CY00000000000","quantity":1,"price":2},{"goods_id":"CY000001","goods_name":"促销单品-CY00000000001","quantity":1,"price":2}]&sign=00000000000000000000000000000000
+> method=PreOrder_WECHAT&version=1.0&pid=yunpos&mch_id=00000001&trade_type=NATIVE&body=超赢支付&out_trade_no=1497769914931&total_fee=4&goods_tag=CY_PROMOTION_001&goods_detail=[{"goods_id":"CY000000","goods_name":"促销单品-CY00000000000","quantity":1,"price":2},{"goods_id":"CY000001","goods_name":"促销单品-CY00000000001","quantity":1,"price":2}]&sign=00000000000000000000000000000000
 
 **响应结果**
 

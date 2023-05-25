@@ -160,25 +160,28 @@
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td class="tb-head">接口地址v1</td>
-        <td colspan="2">https://api.storepos.cn/Open/GetWechatV3AuthInfo</td>
+        <td class="tb-head" rowspan="2">接口地址</td>
+        <td><strong>v1</strong> - https://api.storepos.cn/Open/GetWechatV3AuthInfo</td>
     </tr>
     <tr>
-        <td class="tb-head">接口地址v2</td>
-        <td colspan="2">https://api.storepos.cn/v2/Open/GetWechatV3AuthInfo</td>
+        <!-- <td class="tb-head">接口地址v2</td> -->
+        <td><strong>v2</strong> - https://api.storepos.cn/v2/Open/GetWechatV3AuthInfo</td>
     </tr>
     <tr>
         <td class="tb-head">提交方式</td>
-        <td colspan="2">POST</td>
+        <td>POST</td>
     </tr>
     <tr>
         <td class="tb-head">校验签名</td>
-        <td colspan="2">是</td>
+        <td>是</td>
     </tr>
     <tr>
-        <td class="tb-head">签名密钥</td>
-        <td>v1 - 代理商密钥</td>
-        <td>v2 - 商户密钥</td>
+        <td class="tb-head" rowspan="2">签名密钥</td>
+        <td><strong>v1</strong> - 代理商密钥</td>
+    </tr>
+    <tr>
+        <!-- <td class="tb-head">签名密钥</td> -->
+        <td><strong>v2</strong> - 商户密钥</td>
     </tr>
 </table>
 
@@ -186,7 +189,7 @@
 
 | 参数 | 必填 | 示例值 | 说明 |
 | :--- | :---: | :--- | :--- |
-| agent_id | 是 | 13000000000000000 | 代理商编号 |
+| agent_id | 否 | 13000000000000000 | 代理商编号（v1必传） |
 | pid | 是 | yunpos | 调用方产品名称 |
 | version | 是 | 1.0 | 调用方版本号 |
 | sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
@@ -202,7 +205,7 @@
 
 **请求参数示例**
 
-> agent_id=13000000000000000&version=1.0&pid=yunpos&mch_id=00000001&method=POST&path=/v3/marketing/shopping-receipt/shoppingreceipts&body={"transaction_id":"42000000000001"}&sign=00000000000000000000000000000000
+> version=1.0&pid=yunpos&mch_id=00000001&method=POST&path=/v3/marketing/shopping-receipt/shoppingreceipts&body={"transaction_id":"42000000000001"}&sign=00000000000000000000000000000000
 
 **响应结果**
 

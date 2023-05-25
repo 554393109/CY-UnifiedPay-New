@@ -1,5 +1,93 @@
-.gitbook-link { display: none !important; }
-.page-footer .footer-modification a { text-decoration: none !important; }
-#link_icp { margin-right: 60px; }
-.page-inner{ max-width: 1400px; }
-.tb-head { width: 100px; text-align: center; font-weight: 700; }
+.gitbook-link{display:none !important}
+.page-footer .footer-modification a{text-decoration:none !important}
+#link_icp{margin-right:60px}
+.page-inner{max-width:1400px}
+.tb-head{width:100px;text-align:center;font-weight:700}
+
+.bolder{font-weight:bolder !important}
+.hide{display:none !important}
+
+.align-center{text-align:center !important}
+.align-left{text-align:left !important}
+.align-right{text-align:right !important}
+.align-middle{vertical-align:middle !important}
+.align-top{vertical-align:top !important}
+.align-bottom{vertical-align:bottom !important}
+
+.no-padding{padding:0 !important}
+.no-padding-bottom{padding-bottom:0 !important}
+.no-padding-top{padding-top:0 !important}
+.no-padding-left{padding-left:0 !important}
+.no-padding-right{padding-right:0 !important}
+.no-margin{margin:0 !important}
+.no-margin-bottom{margin-bottom:0 !important}
+.no-margin-top{margin-top:0 !important}
+.no-margin-left{margin-left:0 !important}
+.no-margin-right{margin-right:0 !important}
+.no-border{border-width:0 !important}
+.no-border-bottom{border-bottom-width:0 !important}
+.no-border-top{border-top-width:0 !important}
+.no-border-left{border-left-width:0 !important}
+.no-border-right{border-right-width:0 !important}
+
+.dark{color:#333333 !important}
+.white{color:#ffffff !important}
+.red{color:#dd5a43 !important}
+.red2{color:#e08374 !important}
+.light-red{color:#ff7777 !important}
+.blue{color:#478fca !important}
+.light-blue{color:#93cbf9 !important}
+.green{color:#69aa46 !important}
+.light-green{color:#b0d877 !important}
+.orange{color:#ff892a !important}
+.orange2{color:#feb902 !important}
+.light-orange{color:#fcac6f !important}
+.purple{color:#a069c3 !important}
+.pink{color:#c6699f !important}
+.pink2{color:#d6487e !important}
+.brown{color:brown !important}
+.grey{color:#777777 !important}
+.light-grey{color:#bbbbbb !important}
+
+.pl-0{padding-left:0px !important}
+.pl-5{padding-left:5px !important}
+.pl-10{padding-left:10px !important}
+.pl-12{padding-left:12px !important}
+.pl-20{padding-left:20px !important}
+
+.pt-0{padding-top:0px !important}
+.pt-5{padding-top:5px !important}
+.pt-10{padding-top:10px !important}
+.pt-20{padding-top:20px !important}
+
+.ml-0{margin-left:0px !important}
+.ml-5{margin-left:5px !important}
+.ml-10{margin-left:10px !important}
+.ml-20{margin-left:20px !important}
+.ml-30{margin-left:30px !important}
+.ml-40{margin-left:40px !important}
+.ml-50{margin-left:50px !important}
+
+.mt-0{margin-top:0px !important}
+.mt-5{margin-top:5px !important}
+.mt-10{margin-top:10px !important}
+.mt-20{margin-top:20px !important}
+.mt-30{margin-top:30px !important}
+.mt-40{margin-top:40px !important}
+.mt-50{margin-top:50px !important}
+
+.mr-0{margin-right:0px !important}
+.mr-5{margin-right:5px !important}
+.mr-10{margin-right:10px !important}
+.mr-20{margin-right:20px !important}
+.mr-30{margin-right:30px !important}
+.mr-40{margin-right:40px !important}
+.mr-50{margin-right:50px !important}
+
+.mb-0{margin-bottom:0px !important}
+.mb-5{margin-bottom:5px !important}
+.mb-10{margin-bottom:10px !important}
+.mb-20{margin-bottom:20px !important}
+.mb-30{margin-bottom:30px !important}
+.mb-40{margin-bottom:40px !important}
+.mb-50{margin-bottom:50px !important}
