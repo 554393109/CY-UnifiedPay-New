@@ -99,7 +99,7 @@ goods_detail为JSON数组类型结构如下
 | msg | 否 | 返回信息 |
 | trade_state | 否 | 交易状态，详见参数规定 |
 | content | 否 | 响应报文 |
-| sign | 是 | 响应结果的签名串 |
+| sign | 否 | 响应结果的签名串(仅业务正确时返回签名) |
 
 以下字段在state和trade_state都为SUCCESS的时候在content中返回
 
