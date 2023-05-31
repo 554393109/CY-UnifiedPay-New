@@ -5,6 +5,7 @@
 <url> <loc>http://doc-unifiedpay.yinziqiang.com/rules.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://doc-unifiedpay.yinziqiang.com/parameters.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://doc-unifiedpay.yinziqiang.com/api/micropay_v3.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://doc-unifiedpay.yinziqiang.com/api/preorderpay_v3.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://doc-unifiedpay.yinziqiang.com/api/facepay.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://doc-unifiedpay.yinziqiang.com/api/micropay.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://doc-unifiedpay.yinziqiang.com/api/preorderpay.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>

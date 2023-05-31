@@ -22,7 +22,7 @@
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td class="tb-head">接口地址v3</td>
+        <td class="tb-head">接口地址</td>
         <td>https://pay.storepos.cn/v3/UnifiedPay/Gateway</td>
     </tr>
     <tr>
@@ -151,7 +151,7 @@ goods_detail为JSON数组类型结构如下
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td class="tb-head">接口地址v3</td>
+        <td class="tb-head">接口地址</td>
         <td>https://pay.storepos.cn/v3/UnifiedPay/Gateway</td>
     </tr>
     <tr>
@@ -265,7 +265,7 @@ goods_detail为JSON数组类型结构如下
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td class="tb-head">接口地址v3</td>
+        <td class="tb-head">接口地址</td>
         <td>https://pay.storepos.cn/v3/UnifiedPay/Gateway</td>
     </tr>
     <tr>
@@ -363,7 +363,7 @@ goods_detail为JSON数组类型结构如下
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td class="tb-head">接口地址v3</td>
+        <td class="tb-head">接口地址</td>
         <td>https://pay.storepos.cn/v3/UnifiedPay/Gateway</td>
     </tr>
     <tr>
@@ -472,7 +472,7 @@ goods_detail为JSON数组类型结构如下
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td class="tb-head">接口地址v3</td>
+        <td class="tb-head">接口地址</td>
         <td>https://pay.storepos.cn/v3/UnifiedPay/Gateway</td>
     </tr>
     <tr>
@@ -558,7 +558,7 @@ goods_detail为JSON数组类型结构如下
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td class="tb-head">接口地址v3</td>
+        <td class="tb-head">接口地址</td>
         <td>https://api.storepos.cn/v3/UnifiedPay/Gateway</td>
     </tr>
     <tr>

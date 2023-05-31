@@ -2,7 +2,7 @@
 
 ---
 
-# 主扫预下单v2（微信/支付宝/数字人民币）
+# 主扫预下单v2
 
 **应用场景**
 
@@ -109,8 +109,8 @@ goods_detail为JSON数组类型结构如下
 | out_trade_no | 是 | 商户系统内部的定单号，32个字符内、可包含字母 |
 | token_id | 否 | 动态口令 |
 | pay_info | 否 | 支付信息，用以唤起微信支付；trade_type=JSPAY时，此参数有返回 |
-| code_img_url | 否 | 此参数的值即是根据code_url生成的可以扫码支付的二维码图片地址；trade_type=NATIVE时，此参数有返回 |
-| code_url | 否 | 商户可用此参数自定义去生成二维码后展示出来进行扫码支付；trade_type=NATIVE时，此参数有返回 |
+| ~~code_img_url~~ | ~~否~~ | ~~此参数的值即是根据code_url生成的可以扫码支付的二维码图片地址；trade_type=NATIVE时，此参数有返回~~ |
+| code_url | 否 | 商户可用此参数自定义去生成二维码后展示出来进行扫码支付；trade_type=NATIVE时，此参数有返回（使用该字段生成二维码供买家扫码付款） |
 | nonce_str | 是 | 随机字符串 |
 | wx_mch_id | 否 | 微信服务商商户号 |
 | wx_sub_mch_id | 否 | 微信子商户号 |
@@ -118,15 +118,30 @@ goods_detail为JSON数组类型结构如下
 **响应结果示例**
 
 ```json
-{// 微信
+{// 微信JSPAY
     "state": "SUCCESS",
     "code": "10000",
     "trade_state": "SUCCESS",
     "msg": "SUCCESS",
     "mch_id": "00000001",
     "out_trade_no": "1497769914931",
-    "token_id": "16c5f40274e084b123a08f1313d53da57",
-    "pay_info": "{\"appId\":\"wxc3d2e734ae326831\",\"timeStamp\":\"1511947589427\",\"status\":\"0\",\"signType\":\"MD5\",\"package\":\"prepay_id=wx2017112917262941a3a33e980001282756\",\"callback_url\":\"\",\"nonceStr\":\"1511947589427\",\"paySign\":\"CD871BCD09B3D0C6339B2D0DE72DE7EE\"}",
+    "token_id": "wx2017112917262941a3a33e980001282756",
+    "pay_info": "{\"appId\":\"wxc3d2e734ae326831\",\"timeStamp\":\"1511947589427\",\"signType\":\"MD5\",\"package\":\"prepay_id=wx2017112917262941a3a33e980001282756\",\"nonceStr\":\"1511947589427\",\"paySign\":\"CD871BCD09B3D0C6339B2D0DE72DE7EE\"}",
+    "wx_mch_id": "1264300000",
+    "wx_sub_mch_id": "1266500000",
+    "nonce_str": "00000000000000000000000000000000"
+}
+
+{// 微信NATIVE
+    "state": "SUCCESS",
+    "code": "10000",
+    "trade_state": "SUCCESS",
+    "msg": "SUCCESS",
+    "mch_id": "00000001",
+    "out_trade_no": "1497769914931",
+    "token_id": "wx2908402483723244dcb77da0aa3ba20000",
+    "pay_info": "{\"appId\":\"wx4da448cd29927cb7\",\"paySign\":\"6E2D1F33B828D8507E75DC696FD969E2\",\"package\":\"prepay_id=wx2908402483723244dcb77da0aa3ba20000\",\"signType\":\"MD5\",\"timeStamp\":\"1685349624\",\"nonceStr\":\"5155cf41fb894768aa539088aa15d108\"}",
+    "code_url": "weixin://wxpay/bizpayurl?pr=xxxxxxxxx",
     "wx_mch_id": "1264300000",
     "wx_sub_mch_id": "1266500000",
     "nonce_str": "00000000000000000000000000000000"
@@ -437,7 +452,7 @@ goods_detail为JSON数组类型结构如下
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td class="tb-head">接口地址</td>
-        <td>该链接是通过<a href="#微信预下单">微信预下单</a>接口中提交的参数notify_url设置，如果链接无法访问，商户将无法接收到通知。</td>
+        <td>该链接是通过<a href="#微信主扫下单">微信主扫下单</a>或<a href="#主扫预下单v2">主扫预下单v2</a>接口中提交的参数notify_url设置，如果链接无法访问，商户将无法接收到通知。</td>
     </tr>
     <tr>
         <td class="tb-head">提交方式</td>
@@ -448,8 +463,12 @@ goods_detail为JSON数组类型结构如下
         <td>是</td>
     </tr>
     <tr>
-        <td class="tb-head">签名密钥</td>
-        <td>代理商密钥</td>
+        <td class="tb-head" rowspan="2">签名密钥</td>
+        <td><strong>v1</strong> - 代理商密钥</td>
+    </tr>
+    <tr>
+        <!-- <td class="tb-head">签名密钥</td> -->
+        <td><strong>v2</strong> - 商户密钥</td>
     </tr>
 </table>
 
@@ -461,25 +480,25 @@ goods_detail为JSON数组类型结构如下
 | result_code | 是 | 状态码 ，SUCCESS-成功，其他-失败 |
 | sign | 是 | 通知的签名串 |
 
-以下字段在state和trade_state都为0的时候有返回
+以下字段在state和result_code都为SUCCESS的时候有返回
 
 | 字段名 | 必填 | 说明 |
 | :--- | :---: | :--- |
 | mch_id | 是 | 超赢商户号 |
-| device_info | 否 | 终端设备号 |
 | pay_result | 是 | 支付结果：0—成功；其它—失败 |
 | out_trade_no | 是 | 商户系统内部的订单号，32个字符内、可包含字母 |
-| out_transaction_id | 否 | 第三方订单号 |
 | transaction_id | 是 | 平台交易号 |
-| fee_type | 否 | 货币类型，符合 ISO 4217 标准的三位字母代码，默认人民币：CNY |
 | total_fee | 是 | 总金额，以分为单位，只能为整数 |
-| coupon_fee | 否 | 代金券金额，代金券金额&lt;=订单金额，订单金额 - 代金券金额 = 现金支付金额 |
 | time_end | 是 | 支付完成时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。时区为GMT+8 Beijing |
-| bank_type | 否 | 付款银行 |
 | trade_type | 是 | 交易类型；pay.alipay.native原生扫码支付，pay.alipay.jspay服务窗支付 |
+| nonce_str | 是 | 随机字符串 |
+| device_info | 否 | 终端设备号 |
+| out_transaction_id | 否 | 第三方订单号 |
+| fee_type | 否 | 货币类型，符合 ISO 4217 标准的三位字母代码，默认人民币：CNY |
+| coupon_fee | 否 | 代金券金额，代金券金额&lt;=订单金额，订单金额 - 代金券金额 = 现金支付金额 |
+| bank_type | 否 | 付款银行 |
 | sub_appid | 否 | 调用接口提交的子商户公众账号ID |
 | sub_openid | 否 | 子商户appid下用户唯一标识，用户关注时存在 |
-| nonce_str | 是 | 随机字符串 |
 | promotion_detail | 否 | 营销详情，返回值为Json格式 |
 | wx_mch_id | 否 | 微信服务商商户号 |
 | wx_sub_mch_id | 否 | 微信子商户号 |
@@ -518,7 +537,7 @@ goods_detail为JSON数组类型结构如下
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td class="tb-head">接口地址</td>
-        <td>该链接是通过<a href="#支付宝预下单">支付宝预下单</a>接口中提交的参数notify_url设置，如果链接无法访问，商户将无法接收到通知。</td>
+        <td>该链接是通过<a href="#支付宝主扫下单">支付宝主扫下单</a>或<a href="#主扫预下单v2">主扫预下单v2</a>接口中提交的参数notify_url设置，如果链接无法访问，商户将无法接收到通知。</td>
     </tr>
     <tr>
         <td class="tb-head">提交方式</td>
@@ -529,8 +548,12 @@ goods_detail为JSON数组类型结构如下
         <td>是</td>
     </tr>
     <tr>
-        <td class="tb-head">签名密钥</td>
-        <td>代理商密钥</td>
+        <td class="tb-head" rowspan="2">签名密钥</td>
+        <td><strong>v1</strong> - 代理商密钥</td>
+    </tr>
+    <tr>
+        <!-- <td class="tb-head">签名密钥</td> -->
+        <td><strong>v2</strong> - 商户密钥</td>
     </tr>
 </table>
 
@@ -542,30 +565,30 @@ goods_detail为JSON数组类型结构如下
 | result_code | 是 | 状态码 ，SUCCESS-成功，其他-失败 |
 | sign | 是 | 通知的签名串 |
 
-以下字段在state和trade_state都为0的时候有返回
+以下字段在state和result_code都为SUCCESS的时候有返回
 
 | 字段名 | 必填 | 说明 |
 | :--- | :---: | :--- |
 | mch_id | 是 | 超赢商户号 |
-| device_info | 否 | 终端设备号 |
 | pay_result | 是 | 支付结果：0—成功；其它—失败 |
 | out_trade_no | 是 | 商户系统内部的订单号，32个字符内、可包含字母 |
-| out_transaction_id | 否 | 第三方订单号 |
 | transaction_id | 是 | 平台交易号 |
-| fee_type | 否 | 货币类型，符合 ISO 4217 标准的三位字母代码，默认人民币：CNY |
 | total_fee | 是 | 总金额，以分为单位，只能为整数 |
-| invoice_amount | 否 | 用户在交易中支付的可开发票的金额 |
+| buyer_user_id | 是 | 买家支付宝用户ID |
 | time_end | 是 | 支付完成时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。时区为GMT+8 Beijing |
+| device_info | 否 | 终端设备号 |
+| out_transaction_id | 否 | 第三方订单号 |
+| fee_type | 否 | 货币类型，符合 ISO 4217 标准的三位字母代码，默认人民币：CNY |
+| invoice_amount | 否 | 用户在交易中支付的可开发票的金额 |
 | bank_type | 否 | 付款银行 |
 | trade_type | 是 | 交易类型；pay.alipay.native原生扫码支付，pay.alipay.jspay服务窗支付 |
-| buyer_user_id | 是 | 买家支付宝用户ID |
 | buyer_logon_id | 否 | 买家支付宝账号 |
 | fund_bill_list | 否 | 交易支付使用的资金渠道 |
 | nonce_str | 是 | 随机字符串 |
 
 **请求参数示例**
 
-> bank_type=ALIPAYACCOUNT&buyer_logon_id=13800000000@qq.com&buyer_user_id=2088822494428000&device_info=device_info_yzq_01&fee_type=CNY&fund_bill_list=[{"amount":"0.01","fundChannel":"ALIPAYACCOUNT"}]&gmt_create=20180417094613&invoice_amount=1&mch_id=f20170519135901860000&nonce_str=1523929649387&out_trade_no=1523929500000&out_transaction_id=2018041721001004870537670226&pay_result=0&result_code=SUCCESS&sign=00000000000000000000000000000000&state=SUCCESS&time_end=20180417094729&total_fee=1&trade_type=pay.alipay.native&transaction_id=199520439266201804177199552446
+> bank_type=ALIPAYACCOUNT&buyer_logon_id=<13800000000@qq.com>&buyer_user_id=2088822494428000&device_info=device_info_yzq_01&fee_type=CNY&fund_bill_list=[{"amount":"0.01","fundChannel":"ALIPAYACCOUNT"}]&gmt_create=20180417094613&invoice_amount=1&mch_id=f20170519135901860000&nonce_str=1523929649387&out_trade_no=1523929500000&out_transaction_id=2018041721001004870537670226&pay_result=0&result_code=SUCCESS&sign=00000000000000000000000000000000&state=SUCCESS&time_end=20180417094729&total_fee=1&trade_type=pay.alipay.native&transaction_id=199520439266201804177199552446
 
 **后台通知结果反馈**
 

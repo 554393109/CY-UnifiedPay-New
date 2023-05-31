@@ -8,6 +8,7 @@
 ## 接口v3
 
 * [被扫支付v3](api/micropay_v3.md)
+* [主扫支付v3](api/preorderpay_v3.md)
 
 ## 接口
 
