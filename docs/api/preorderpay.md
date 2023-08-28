@@ -195,7 +195,7 @@ goods_detail为JSON数组类型结构如下
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td class="tb-head">接口地址</td>
-        <td colspan="2">https://qrpay.pos.cn/Open/WECHAT_PreOrder</td>
+        <td colspan="2">https://api.storepos.cn/Open/WECHAT_PreOrder</td>
     </tr>
     <tr>
         <td class="tb-head">提交方式</td>
@@ -330,7 +330,7 @@ goods_detail为JSON数组类型结构如下
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td class="tb-head">接口地址</td>
-        <td colspan="2">https://qrpay.pos.cn/Open/ALIPAY_PreOrder</td>
+        <td colspan="2">https://api.storepos.cn/Open/ALIPAY_PreOrder</td>
     </tr>
     <tr>
         <td class="tb-head">提交方式</td>
