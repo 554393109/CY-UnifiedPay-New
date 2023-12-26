@@ -13,14 +13,12 @@
         "anchor-navigation-ex",
         "splitter",
         "-github",
-        "sitemap",
         "tbfed-pagefooter",
         "prism",
         "alerts",
         "donate",
         "copy-code-button",
         "advanced-emoji",
-        "baidu-tongji",
         "-icp"
     ],
     "pluginsConfig": {
@@ -32,9 +30,6 @@
         "anchor-navigation-ex": {
             "multipleH1": true,
             "showLevel": false
-        },
-        "sitemap": {
-            "hostname": "http://doc-unifiedpay.yinziqiang.com"
         },
         "tbfed-pagefooter": {
             "copyright": "&copy 超赢科技",
@@ -48,9 +43,6 @@
             "button": "打赏",
             "alipayText": "支付宝打赏",
             "wechatText": "微信打赏"
-        },
-        "baidu-tongji": {
-            "token": "8889f781f3b285d8d0b4421fa2757379"
         },
         "icp": {
             "number": "粤ICP备20009700号-1",

@@ -740,3 +740,140 @@ goods_detail为JSON数组类型结构如下
     "sign": "00000000000000000000000000000000"
 }
 ```
+
+---
+
+# 对账单下载
+
+**应用场景**
+
+商户可以通过该接口下载历史交易清单。
+
+**接口详情**
+
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <td class="tb-head" rowspan="2">接口地址</td>
+        <td>http://account.storepos.cn/Open/DownloadBill</td>
+    </tr>
+    <tr>
+        <!-- <td class="tb-head">接口地址v2</td> -->
+        <td>http://account.storepos.cn/v2/Open/DownloadBill</td>
+    </tr>
+    <tr>
+        <td class="tb-head">提交方式</td>
+        <td>POST</td>
+    </tr>
+    <tr>
+        <td class="tb-head">校验签名</td>
+        <td>是</td>
+    </tr>
+    <tr>
+        <td class="tb-head" rowspan="2">签名密钥</td>
+        <td><strong>v1</strong> - 代理商密钥</td>
+    </tr>
+    <tr>
+        <!-- <td class="tb-head">签名密钥</td> -->
+        <td><strong>v2</strong> - 商户密钥</td>
+    </tr>
+</table>
+
+**公共请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| agent_id | 否 | 13000000000000000 | 代理商编号（v1必传） |
+| pid | 是 | yunpos | 调用方产品名称 |
+| version | 是 | 1.0 | 调用方版本号 |
+| sign | 是 | 00000000000000000000000000000000 | 请求参数的签名串 |
+
+**请求参数**
+
+| 参数 | 必填 | 示例值 | 说明 |
+| :--- | :---: | :--- | :--- |
+| mch_id | 是 | 00000001 | 超赢商户号 |
+| ymd | 是 | 2023-12-25 | 对账单日期（yyyy-MM-dd） |
+
+**请求参数示例**
+
+> mch_id=00000001&ymd=2023-12-25&version=1.0&pid=yunpos&sign=00000000000000000000000000000000
+
+**响应结果**
+
+| 字段名 | 必填 | 说明 |
+| :--- | :---: | :--- |
+| state | 是 | 通讯状态，详见参数规定 |
+| code | 否 | 状态码 ，详见参数规定 |
+| msg | 否 | 返回信息 |
+| trade_state | 否 | 业务状态（PROCESSING-生成中，SUCCESS-生成成功） |
+| sign | 否 | 响应结果的签名串(仅业务正确时返回签名) |
+
+当state为SUCCESS，trade_state为PROCESSING，表示对账单正在生成，需要等待后（建议10秒）重新调用
+
+**响应结果示例**
+
+```json
+{
+    "state": "SUCCESS",
+    "code": "10001",
+    "trade_state": "PROCESSING",
+    "msg": "PROCESSING",
+}
+```
+
+以下字段在state和trade_state都为SUCCESS的时候有返回
+
+| 字段名 | 必填 | 说明 |
+| :--- | :---: | :--- |
+| mch_id | 是 | 超赢商户号 |
+| ymd | 是 | 对账单日期 |
+| url | 是 | 对账单下载地址 |
+
+**响应结果示例**
+
+```json
+{
+    "state": "SUCCESS",
+    "code": "10001",
+    "trade_state": "SUCCESS",
+    "msg": "SUCCESS",
+    "mch_id": "00000001",
+    "ymd": "2023-12-25",
+    "url": "http://account.storepos.cn/.../20231225_00000001.csv",
+    "sign": "00000000000000000000000000000000"
+}
+```
+
+**对账单字段描述**
+
+> 字段值可能出现前缀【\`】，若字段无值，也会为【\`】，取值时需注意处理
+
+| 字段名 | 非空 | 类型 | 说明 |
+| :--- | :---: | :---: | :--- |
+| mch_id | 是 | String | 超赢商户号 |
+| out_trade_no | 是 | String | 商户单号 |
+| transaction_id | 否 | String | 通道单号 |
+| out_transaction_id | 否 | String | 第三方单号 |
+| op_shop_id | 否 | String | 门店号 |
+| op_device_id | 否 | String | 设备号 |
+| op_user_id | 否 | String | 操作员号 |
+| base_fee | 是 | String | 应付金额（元） |
+| total_fee | 是 | String | 实付金额（元） |
+| return_amount | 否 | String | 已退金额（元） |
+| pay_status | 是 | String | 订单状态（0-退款，1-已支付，4-撤单） |
+| rq_create | 是 | String | 下单时间（yyyy-MM-dd HH:mm:ss） |
+| rq_pay | 否 | String | 交易时间（yyyy-MM-dd HH:mm:ss） |
+| pay_type | 是 | String | 支付方式 |
+| type | 是 | Int | 支付场景（1-被扫，2-公众号、码牌） |
+| channel_payid | 否 | String | 支付通道 |
+| channel_mchid | 否 | String | 通道商户号 |
+| body | 否 | String | 订单描述 |
+
+**对账文件内容示例**
+
+```csv
+mch_id,out_trade_no,op_shop_id,op_device_id,op_user_id,base_fee,total_fee,return_amount,pay_status,rq_create,rq_pay,pay_type,type,channel_payid,transaction_id,out_transaction_id,channel_mchid,body
+`00000001`,T0020231023170944729,shop_yzq,`,user_yzq,0.01,0.01,0.01,0,`2023-10-23 17:10:03,`2023-10-23 17:10:07,WECHAT,1,VBILL,`,`,`,测试金额1分
+`00000001`,T0020231023171230769,shop_yzq,`,user_yzq,0.01,0.01,0.00,1,`2023-10-23 17:12:40,`2023-10-23 17:12:46,WECHAT,1,YINFEI,`,`,Y52310000000,测试金额1分
+`00000001`,T0020231023173531721,shop_yzq,`,user_yzq,0.01,0.01,0.00,1,`2023-10-23 17:35:58,`2023-10-23 17:36:07,WECHAT,1,YINFEI,`,`,Y52310000000,测试金额1分
+```

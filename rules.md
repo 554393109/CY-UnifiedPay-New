@@ -1,4 +1,4 @@
-# 协议规则
+# 协议规则 v1/v2
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>

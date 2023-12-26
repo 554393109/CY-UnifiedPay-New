@@ -174,7 +174,7 @@ goods_detail为JSON数组类型结构如下
 
 ---
 
-# 微信主扫下单
+# 微信下单
 
 **应用场景**
 
@@ -309,7 +309,7 @@ goods_detail为JSON数组类型结构如下
 
 ---
 
-# 支付宝主扫下单
+# 支付宝下单
 
 **应用场景**
 
@@ -434,7 +434,7 @@ goods_detail为JSON数组类型结构如下
 
 ---
 
-# 微信主扫下单结果通知
+# 微信付款通知
 
 **应用场景**
 
@@ -455,7 +455,7 @@ goods_detail为JSON数组类型结构如下
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td class="tb-head">接口地址</td>
-        <td>该链接是通过<a href="#微信主扫下单">微信主扫下单</a>或<a href="#主扫预下单v2">主扫预下单v2</a>接口中提交的参数notify_url设置，如果链接无法访问，商户将无法接收到通知。</td>
+        <td>该链接是通过<a href="#微信下单">微信下单</a>或<a href="#主扫预下单v2">主扫预下单v2</a>接口中提交的参数notify_url设置，如果链接无法访问，商户将无法接收到通知。</td>
     </tr>
     <tr>
         <td class="tb-head">提交方式</td>
@@ -519,7 +519,7 @@ goods_detail为JSON数组类型结构如下
 
 ---
 
-# 支付宝主扫下单结果通知
+# 支付宝付款通知
 
 **应用场景**
 
@@ -540,7 +540,7 @@ goods_detail为JSON数组类型结构如下
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td class="tb-head">接口地址</td>
-        <td>该链接是通过<a href="#支付宝主扫下单">支付宝主扫下单</a>或<a href="#主扫预下单v2">主扫预下单v2</a>接口中提交的参数notify_url设置，如果链接无法访问，商户将无法接收到通知。</td>
+        <td>该链接是通过<a href="#支付宝下单">支付宝下单</a>或<a href="#主扫预下单v2">主扫预下单v2</a>接口中提交的参数notify_url设置，如果链接无法访问，商户将无法接收到通知。</td>
     </tr>
     <tr>
         <td class="tb-head">提交方式</td>
