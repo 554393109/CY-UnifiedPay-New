@@ -860,12 +860,12 @@ goods_detail为JSON数组类型结构如下
 | base_fee | 是 | String | 应付金额（元） |
 | total_fee | 是 | String | 实付金额（元） |
 | return_amount | 否 | String | 已退金额（元） |
-| pay_status | 是 | String | 订单状态（0-退款，1-已支付，4-撤单） |
+| pay_status | 是 | String | [订单状态](/parameters.html#paystatus---订单状态)（0-退款，1-已支付，4-撤单） |
 | rq_create | 是 | String | 下单时间（yyyy-MM-dd HH:mm:ss） |
 | rq_pay | 否 | String | 交易时间（yyyy-MM-dd HH:mm:ss） |
-| pay_type | 是 | String | 支付方式 |
+| pay_type | 是 | String | [支付方式](/parameters.html#paytype---支付方式)，详见参数规定 |
 | type | 是 | Int | 支付场景（1-被扫，2-公众号、码牌） |
-| channel_payid | 否 | String | 支付通道 |
+| channel_payid | 否 | String | [支付通道](/parameters.html#paymentchannelid---支付通道编码)，详见参数规定 |
 | channel_mchid | 否 | String | 通道商户号 |
 | body | 否 | String | 订单描述 |
 
